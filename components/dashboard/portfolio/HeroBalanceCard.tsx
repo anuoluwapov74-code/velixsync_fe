@@ -37,9 +37,9 @@ const tokens = {
     cardShadow: "0 28px 80px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.35)",
     textPrimary: "#ffffff",
     textSecondary: "rgba(255,255,255,0.45)",
-    accent: "#00C9A7",
-    accentSoft: "rgba(0,201,167,0.15)",
-    chipBg: "rgba(0,201,167,0.1)",
+    accent: "#16a34a",
+    accentSoft: "rgba(22,163,74,0.15)",
+    chipBg: "rgba(22,163,74,0.1)",
     dividerColor: "rgba(255,255,255,0.08)",
   },
 };
@@ -60,12 +60,12 @@ export default function HeroBalanceCard({ totalBalance, totalProfits, balance, i
         <>
           <div className="absolute pointer-events-none" style={{
             top: -15, right: -15, width: 190, height: 150,
-            background: "radial-gradient(ellipse at center, rgba(0,201,167,0.2) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(22,163,74,0.2) 0%, transparent 70%)",
             borderRadius: "50%",
           }} />
           <div className="absolute pointer-events-none" style={{
             bottom: -15, left: -15, width: 160, height: 125,
-            background: "radial-gradient(ellipse at center, rgba(0,201,167,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(22,163,74,0.1) 0%, transparent 70%)",
             borderRadius: "50%",
           }} />
         </>

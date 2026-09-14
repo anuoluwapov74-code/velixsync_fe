@@ -121,7 +121,7 @@ export default function StockDetailPage() {
 
         {loading && (
           <div className="flex justify-center items-center py-40">
-            <Loader2 className="w-10 h-10 text-[#00C9A7] animate-spin" />
+            <Loader2 className="w-10 h-10 text-[#16a34a] animate-spin" />
           </div>
         )}
 
@@ -142,7 +142,7 @@ export default function StockDetailPage() {
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <h1 className="text-2xl font-bold text-white">{stock.symbol}</h1>
                     {stock.exchange && (
-                      <span className="px-2 py-0.5 bg-[rgba(0,201,167,0.1)] text-[#00C9A7] text-xs rounded">
+                      <span className="px-2 py-0.5 bg-[rgba(22,163,74,0.1)] text-[#16a34a] text-xs rounded">
                         {stock.exchange}
                       </span>
                     )}
@@ -184,7 +184,7 @@ export default function StockDetailPage() {
               {/* Market Data */}
               <div className="tv-card p-6 rounded-xl">
                 <div className="flex items-center gap-2 mb-4">
-                  <BarChart2 className="w-4 h-4 text-[#00C9A7]" />
+                  <BarChart2 className="w-4 h-4 text-[#16a34a]" />
                   <h2 className="text-white font-semibold text-sm">Market Data</h2>
                 </div>
                 <StatRow label="Open" value={stock.open > 0 ? `$${fmt(stock.open)}` : "—"} />
@@ -198,7 +198,7 @@ export default function StockDetailPage() {
               {/* Key Statistics */}
               <div className="tv-card p-6 rounded-xl">
                 <div className="flex items-center gap-2 mb-4">
-                  <Info className="w-4 h-4 text-[#00C9A7]" />
+                  <Info className="w-4 h-4 text-[#16a34a]" />
                   <h2 className="text-white font-semibold text-sm">Key Statistics</h2>
                 </div>
                 <StatRow label="Market Cap" value={fmtLarge(stock.market_cap)} />
@@ -215,7 +215,7 @@ export default function StockDetailPage() {
             {position && (
               <div className="tv-card p-6 rounded-xl">
                 <div className="flex items-center gap-2 mb-4">
-                  <Wallet className="w-4 h-4 text-[#00C9A7]" />
+                  <Wallet className="w-4 h-4 text-[#16a34a]" />
                   <h2 className="text-white font-semibold text-sm">Your Position</h2>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -252,7 +252,7 @@ export default function StockDetailPage() {
                       href={stock.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-[#00C9A7] text-xs hover:opacity-80 transition-opacity"
+                      className="flex items-center gap-1 text-[#16a34a] text-xs hover:opacity-80 transition-opacity"
                     >
                       <Globe className="w-3.5 h-3.5" />
                       Website

@@ -86,15 +86,15 @@ const dk = {
   darkText: "#ffffff",
   mutedText: "rgba(255,255,255,0.45)",
   fadedText: "rgba(255,255,255,0.3)",
-  accent: "#00C9A7",
-  accentDark: "#00C9A7",
-  accentBright: "#00C9A7",
+  accent: "#16a34a",
+  accentDark: "#16a34a",
+  accentBright: "#16a34a",
   statBg: "#0a1512",
-  statBorder: "1px solid rgba(0,201,167,0.1)",
-  divider: "rgba(0,201,167,0.1)",
-  pillBg: "rgba(0,201,167,0.1)",
-  pillBorder: "rgba(0,201,167,0.25)",
-  iconBg: "rgba(0,201,167,0.12)",
+  statBorder: "1px solid rgba(22,163,74,0.1)",
+  divider: "rgba(22,163,74,0.1)",
+  pillBg: "rgba(22,163,74,0.1)",
+  pillBorder: "rgba(22,163,74,0.25)",
+  iconBg: "rgba(22,163,74,0.12)",
   iconGrad: "linear-gradient(135deg, #059669, #047857)",
   sectionBg: "#0a1512",
 };
@@ -185,7 +185,7 @@ export default function PortfolioPage() {
           ["Stats", BarChart3],
         ] as const).map(([label, Icon], i) => {
           const active = i === activeQuickTab;
-          const accentColor = isDark ? "#00C9A7" : "#16a34a";
+          const accentColor = isDark ? "#16a34a" : "#16a34a";
           return (
             <button
               key={label}
@@ -326,7 +326,7 @@ export default function PortfolioPage() {
                   borderLeft: i > 0 ? `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(15,23,42,0.06)"}` : "none",
                 }}
               >
-                <Icon size={18} color={isDark ? "#00C9A7" : "#16a34a"} strokeWidth={2.2} />
+                <Icon size={18} color={isDark ? "#16a34a" : "#16a34a"} strokeWidth={2.2} />
                 {label}
               </button>
             ))}

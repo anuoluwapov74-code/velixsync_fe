@@ -161,7 +161,7 @@ function TagIcon({ tag }: { tag: string }) {
 function TraderStatsAndTags({ trader }: { trader: TraderDetail }) {
   return (
     <>
-      <div className="rounded-2xl border border-green-100 dark:border-[rgba(0,201,167,0.15)] bg-green-50/40 dark:bg-[rgba(0,201,167,0.04)] p-4 sm:p-5">
+      <div className="rounded-2xl border border-green-100 dark:border-[rgba(22,163,74,0.15)] bg-green-50/40 dark:bg-[rgba(22,163,74,0.04)] p-4 sm:p-5">
         <div className="grid grid-cols-3 gap-y-4 gap-x-2">
           {[
             { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: `$${parseFloat(trader.min_account_threshold).toLocaleString()}`, label: "Min Capital" },
@@ -187,7 +187,7 @@ function TraderStatsAndTags({ trader }: { trader: TraderDetail }) {
           {trader.tags.map((tag, i) => (
             <span
               key={i}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full border border-green-300 dark:border-[rgba(0,201,167,0.35)] text-green-700 dark:text-[#00C9A7]"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full border border-green-300 dark:border-[rgba(22,163,74,0.35)] text-green-700 dark:text-[#16a34a]"
             >
               <TagIcon tag={tag} />
               {tag}
@@ -345,7 +345,7 @@ export default function TraderProfilePage() {
           <button
             onClick={() => refetchTrader()}
             className="px-6 py-2 rounded-lg hover:opacity-90 transition-opacity"
-            style={{ background: "#00C9A7", color: "#001a0f" }}
+            style={{ background: "#16a34a", color: "#001a0f" }}
           >
             Retry
           </button>
@@ -464,7 +464,7 @@ export default function TraderProfilePage() {
         <div ref={headerSentinelRef} aria-hidden className="h-px w-full" />
 
         {/* Tabs */}
-        <div className="flex gap-6 sm:gap-8 border-b border-[rgba(0,201,167,0.2)] mb-6 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-6 sm:gap-8 border-b border-[rgba(22,163,74,0.2)] mb-6 overflow-x-auto scrollbar-hide">
           {[
             { id: "overview", label: "Overview" },
             { id: "portfolio", label: "Portfolio" },
@@ -476,13 +476,13 @@ export default function TraderProfilePage() {
               onClick={() => setActiveTab(t.id as "overview" | "portfolio" | "history" | "copiers")}
               className={`pb-3 text-sm font-medium whitespace-nowrap transition-all relative ${
                 activeTab === t.id
-                  ? "text-green-600 dark:text-green-400"
+                  ? "text-green-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
               }`}
             >
               {t.label}
               {activeTab === t.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600 dark:bg-green-400 rounded-full" />
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600 rounded-full" />
               )}
             </button>
           ))}
@@ -507,7 +507,7 @@ export default function TraderProfilePage() {
                       onClick={() => setChartPeriod(p)}
                       className={`px-4 py-2 text-xs font-medium border transition-all ${
                         chartPeriod === p
-                          ? "border-[#00C9A7] bg-[rgba(0,201,167,0.08)] text-[#00C9A7]"
+                          ? "border-[#16a34a] bg-[rgba(22,163,74,0.08)] text-[#16a34a]"
                           : "border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:border-gray-300 dark:hover:border-white/20"
                       }`}
                     >
@@ -653,7 +653,7 @@ export default function TraderProfilePage() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">Investors that trade just like {trader.username}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {similarTraders.map((st) => (
-                    <Link key={st.id} href={`/explore-traders/${st.id}`} className="group tv-card rounded-xl p-4 hover:shadow-lg hover:border-[#00C9A7] transition-all">
+                    <Link key={st.id} href={`/explore-traders/${st.id}`} className="group tv-card rounded-xl p-4 hover:shadow-lg hover:border-[#16a34a] transition-all">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-10 h-10 rounded-full overflow-hidden bg-green-600 shrink-0">
                           {st.avatar_url ? (
@@ -711,7 +711,7 @@ export default function TraderProfilePage() {
                   ) : (
                     <div className="flex flex-wrap gap-2">
                       {trader.frequently_traded.map((asset, index) => (
-                        <span key={index} className="px-4 py-2 bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-sm rounded-xl font-medium border border-green-100 dark:border-green-500/20">
+                        <span key={index} className="px-4 py-2 bg-green-50 dark:bg-green-500/10 text-green-600 text-sm rounded-xl font-medium border border-green-100 dark:border-green-500/20">
                           {asset}
                         </span>
                       ))}
@@ -838,7 +838,7 @@ export default function TraderProfilePage() {
               ? "opacity-60 cursor-not-allowed"
               : "hover:opacity-90 hover:scale-[1.03] active:scale-95"
           }`}
-          style={{ background: "#00C9A7", color: "#001a0f" }}
+          style={{ background: "#16a34a", color: "#001a0f" }}
         >
           {copyActionLoading || loadingBalance ? (
             <Loader2 className="w-5 h-5 animate-spin shrink-0" />

@@ -70,7 +70,7 @@ export default function TransactionHistoryPage() {
                 ? "bg-white/90 dark:bg-[#0d3320]/80 border border-gray-200/50 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5"
                 : ""
             }`}
-            style={filter === f ? { background: "#00C9A7", color: "#001a0f" } : undefined}
+            style={filter === f ? { background: "#16a34a", color: "#001a0f" } : undefined}
           >
             <span className="sm:hidden">
               {f === "all" ? "All" : f === "deposit" ? "Deposits" : "Withdrawals"}
@@ -139,7 +139,7 @@ export default function TransactionHistoryPage() {
                 {/* Right: status + amount stacked on mobile */}
                 <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-4 shrink-0">
                   <p className={`text-xs sm:text-sm font-bold whitespace-nowrap ${
-                    tx.transaction_type === "deposit" ? "text-green-500 dark:text-green-400" : "text-red-500 dark:text-red-400"
+                    tx.transaction_type === "deposit" ? "text-green-600" : "text-red-500 dark:text-red-400"
                   }`}>
                     {tx.transaction_type === "deposit" ? "+" : "-"}${parseFloat(tx.amount).toFixed(2)}
                   </p>

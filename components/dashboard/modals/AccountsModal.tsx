@@ -10,7 +10,7 @@ interface AccountsModalProps {
   onDeposit: () => void;
 }
 
-const TEAL = "#00C9A7";
+const TEAL = "#16a34a";
 
 function CloseBtn({ onClick }: { onClick: () => void }) {
   return (
@@ -71,10 +71,10 @@ export default function AccountsModal({ isOpen, onClose, onDeposit }: AccountsMo
               {/* Transfer */}
               <button
                 onClick={handleTransfer}
-                className="w-full text-left rounded-xl p-4 bg-[rgba(0,201,167,0.06)] dark:bg-[rgba(0,201,167,0.04)] border border-[rgba(0,201,167,0.2)] dark:border-[rgba(0,201,167,0.14)] transition-opacity hover:opacity-90"
+                className="w-full text-left rounded-xl p-4 bg-[rgba(22,163,74,0.06)] dark:bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.2)] dark:border-[rgba(22,163,74,0.14)] transition-opacity hover:opacity-90"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(0,201,167,0.12)" }}>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(22,163,74,0.12)" }}>
                     <ArrowLeftRight className="w-4.5 h-4.5" style={{ color: TEAL }} />
                   </div>
                   <div>
@@ -87,10 +87,10 @@ export default function AccountsModal({ isOpen, onClose, onDeposit }: AccountsMo
               {/* Deposit */}
               <button
                 onClick={handleDeposit}
-                className="w-full text-left rounded-xl p-4 bg-[rgba(0,201,167,0.06)] dark:bg-[rgba(0,201,167,0.04)] border border-[rgba(0,201,167,0.2)] dark:border-[rgba(0,201,167,0.14)] transition-opacity hover:opacity-90"
+                className="w-full text-left rounded-xl p-4 bg-[rgba(22,163,74,0.06)] dark:bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.2)] dark:border-[rgba(22,163,74,0.14)] transition-opacity hover:opacity-90"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(0,201,167,0.12)" }}>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(22,163,74,0.12)" }}>
                     <Wallet className="w-4.5 h-4.5" style={{ color: TEAL }} />
                   </div>
                   <div>

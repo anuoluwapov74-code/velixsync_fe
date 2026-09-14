@@ -202,7 +202,7 @@ function GrowthBanner() {
           <h1 className="text-base sm:text-2xl lg:text-4xl xl:text-5xl font-extrabold leading-[1.15] text-gray-900 dark:text-white">
             When they grow,
             <br />
-            <span className="text-green-600 dark:text-green-400">you grow</span>
+            <span className="text-green-600">you grow</span>
           </h1>
           <p className="mt-2 sm:mt-4 text-[11px] sm:text-sm lg:text-base text-gray-500 dark:text-gray-400 max-w-[220px] sm:max-w-xs lg:max-w-sm leading-snug">
             Copy experienced investors automatically and benefit from their knowledge and strategy.
@@ -234,7 +234,7 @@ function GrowthBanner() {
                 <p className="mt-1.5 sm:mt-2.5 text-[10px] sm:text-sm font-semibold text-gray-900 dark:text-white whitespace-nowrap">
                   {t.name}
                 </p>
-                <p className="text-xs sm:text-lg font-extrabold text-green-600 dark:text-green-400 mt-0.5">
+                <p className="text-xs sm:text-lg font-extrabold text-green-600 mt-0.5">
                   {t.returnPct}
                 </p>
                 <p className="text-[9px] sm:text-[10px] font-semibold tracking-wide text-gray-400 dark:text-gray-500 uppercase mt-0.5 whitespace-nowrap">
@@ -251,10 +251,10 @@ function GrowthBanner() {
             Your Portfolio (12M)
           </p>
           <div className="flex items-center gap-1 sm:gap-2 mt-1">
-            <span className="text-lg sm:text-3xl lg:text-4xl font-extrabold text-green-600 dark:text-green-400">
+            <span className="text-lg sm:text-3xl lg:text-4xl font-extrabold text-green-600">
               +24.96%
             </span>
-            <ArrowUpRight className="w-3.5 h-3.5 sm:w-6 sm:h-6 text-green-600 dark:text-green-400 shrink-0" />
+            <ArrowUpRight className="w-3.5 h-3.5 sm:w-6 sm:h-6 text-green-600 shrink-0" />
           </div>
           {/* aspect-ratio (not a fixed min-height) keeps the chart's own
               proportions correct as the column narrows, instead of it
@@ -270,7 +270,7 @@ function GrowthBanner() {
         <div className="grid grid-cols-3 gap-2 sm:gap-6">
           {BANNER_FEATURES.map((f) => (
             <div key={f.title} className="flex items-start gap-1.5 sm:gap-3 min-w-0">
-              <f.icon className="w-4 h-4 sm:w-6 sm:h-6 text-green-600 dark:text-green-400 shrink-0 mt-0.5" strokeWidth={2} />
+              <f.icon className="w-4 h-4 sm:w-6 sm:h-6 text-green-600 shrink-0 mt-0.5" strokeWidth={2} />
               <div className="min-w-0">
                 <p className="text-[9px] sm:text-[13px] font-bold uppercase text-gray-900 dark:text-white leading-tight">
                   {f.title}
@@ -396,7 +396,7 @@ export default function ExploreTraders() {
             placeholder="Type to search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[rgba(0,201,167,0.04)] border border-[rgba(0,201,167,0.14)] rounded-xl pl-12 pr-10 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00C9A7]/30 focus:border-[#00C9A7] transition-all"
+            className="w-full bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.14)] rounded-xl pl-12 pr-10 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#16a34a]/30 focus:border-[#16a34a] transition-all"
           />
           {searchQuery && (
             <button
@@ -531,7 +531,7 @@ export default function ExploreTraders() {
                         >
                           <Link
                             href={`/explore-traders/${trader.id}`}
-                            className="group block tv-card rounded-xl overflow-hidden hover:shadow-lg hover:border-[#00C9A7] transition-all h-full"
+                            className="group block tv-card rounded-xl overflow-hidden hover:shadow-lg hover:border-[#16a34a] transition-all h-full"
                           >
                             {/* Card Header - Dark top section */}
                             <div className="bg-gray-800 dark:bg-[#071a0e] px-4 py-4">
@@ -646,7 +646,7 @@ export default function ExploreTraders() {
                       <Link
                         key={trader.id}
                         href={`/explore-traders/${trader.id}`}
-                        className="group tv-card rounded-xl hover:shadow-lg hover:border-[#00C9A7] transition-all overflow-hidden"
+                        className="group tv-card rounded-xl hover:shadow-lg hover:border-[#16a34a] transition-all overflow-hidden"
                       >
                         {/* Top section - Avatar and name */}
                         <div className="px-4 pt-4 pb-3">
@@ -810,7 +810,7 @@ export default function ExploreTraders() {
                       </p>
                       <button
                         onClick={() => setActiveCategory("all")}
-                        className="mt-3 text-sm text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-400 font-medium transition-colors"
+                        className="mt-3 text-sm text-green-600 hover:text-green-700 font-medium transition-colors"
                       >
                         View all categories
                       </button>
@@ -821,7 +821,7 @@ export default function ExploreTraders() {
                         <Link
                           key={trader.id}
                           href={`/explore-traders/${trader.id}`}
-                          className="group flex items-center gap-3 sm:gap-4 tv-card rounded-xl p-4 sm:p-5 hover:shadow-lg hover:border-[#00C9A7] transition-all"
+                          className="group flex items-center gap-3 sm:gap-4 tv-card rounded-xl p-4 sm:p-5 hover:shadow-lg hover:border-[#16a34a] transition-all"
                         >
                           {/* Rank Number */}
                           <div className="shrink-0 w-8 sm:w-12">

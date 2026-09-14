@@ -39,7 +39,7 @@ const CRYPTO_TYPES = ["BTC", "ETH", "USDT", "BNB", "TRX", "USDC", "XRP", "SOL"];
 // Frosted-glass treatment on both dropdown panels — everything else (card,
 // inputs, buttons) stays the app's normal solid theme.
 const GLASS_PANEL =
-  "bg-white/70 dark:bg-[#0b1a12]/60 backdrop-blur-xl border border-gray-200/70 dark:border-[rgba(0,201,167,0.18)]";
+  "bg-white/70 dark:bg-[#0b1a12]/60 backdrop-blur-xl border border-gray-200/70 dark:border-[rgba(22,163,74,0.18)]";
 
 export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
   const [step, setStep] = useState<WithdrawStep>("form");
@@ -151,7 +151,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(0,201,167,0.14)]"
+          className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
         >
           {/* ==================== FORM STEP ==================== */}
           {step === "form" && (
@@ -184,7 +184,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                       <button
                         onClick={() => { setIsTypeDropdownOpen(!isTypeDropdownOpen); setIsSourceDropdownOpen(false); }}
                         className={`w-full px-4 py-2.5 rounded-lg text-left flex items-center justify-between gap-2 transition-all bg-gray-50 dark:bg-white/5 border ${
-                          isTypeDropdownOpen ? "border-[#00C9A7]" : "border-gray-200 dark:border-white/10"
+                          isTypeDropdownOpen ? "border-[#16a34a]" : "border-gray-200 dark:border-white/10"
                         }`}
                       >
                         <span className="flex items-center gap-2 min-w-0">
@@ -216,7 +216,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                                 <span className="shrink-0 [&_svg]:!w-6 [&_svg]:!h-6">{getCryptoIcon(currency)}</span>
                                 <span className="flex-1 truncate">{currency}</span>
                                 {selectedCurrency === currency && (
-                                  <Check className="w-4 h-4 shrink-0" style={{ color: "#00C9A7" }} />
+                                  <Check className="w-4 h-4 shrink-0" style={{ color: "#16a34a" }} />
                                 )}
                               </button>
                             ))}
@@ -236,7 +236,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                         onClick={() => { setIsSourceDropdownOpen(!isSourceDropdownOpen); setIsTypeDropdownOpen(false); }}
                         className={`w-full px-4 py-2.5 rounded-lg text-left flex items-center justify-between transition-all bg-gray-50 dark:bg-white/5 border ${
                           isSourceDropdownOpen
-                            ? "border-[#00C9A7]"
+                            ? "border-[#16a34a]"
                             : "border-gray-200 dark:border-white/10"
                         } text-gray-900 dark:text-white`}
                       >
@@ -254,7 +254,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                               <span className={withdrawSource === src ? "font-semibold" : ""}>
                                 {src === "profit" ? "Profit" : "Capital"}
                               </span>
-                              {withdrawSource === src && <Check className="w-4 h-4 shrink-0" style={{ color: "#00C9A7" }} />}
+                              {withdrawSource === src && <Check className="w-4 h-4 shrink-0" style={{ color: "#16a34a" }} />}
                             </button>
                           ))}
                         </div>
@@ -268,7 +268,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                       Amount:
                     </label>
                     <div className={`flex items-center rounded-lg bg-gray-50 dark:bg-white/5 border transition-all ${
-                      error && !amount ? "border-red-400" : "border-gray-200 dark:border-white/10 focus-within:border-[#00C9A7]"
+                      error && !amount ? "border-red-400" : "border-gray-200 dark:border-white/10 focus-within:border-[#16a34a]"
                     }`}>
                       <input
                         type="number"
@@ -304,7 +304,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                       value={withdrawalAddress}
                       onChange={(e) => { setWithdrawalAddress(e.target.value); setError(""); }}
                       placeholder="Your wallet address"
-                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#00C9A7] transition-all"
+                      className="w-full px-4 py-2.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-[#16a34a] transition-all"
                     />
                   </div>
 
@@ -331,7 +331,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                       onClick={handleConfirmWithdrawal}
                       disabled={submitting || !selectedCurrency || !amount || !withdrawalAddress.trim()}
                       className="flex-1 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-40 flex items-center justify-center gap-2 text-sm"
-                      style={{ background: "#00C9A7", color: "#001a0f" }}
+                      style={{ background: "#16a34a", color: "#001a0f" }}
                     >
                       {submitting ? (
                         <><Loader2 className="w-4 h-4 animate-spin" />Processing...</>
@@ -343,7 +343,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
 
                   {/* Note */}
                   <div className="p-3 bg-green-600/10 border border-green-500/20 rounded-lg">
-                    <p className="text-[10px] text-green-700 dark:text-green-300">
+                    <p className="text-[10px] text-green-600">
                       <strong>Note:</strong> Withdrawals are processed within 24-48 hours. You will be notified once approved.
                     </p>
                   </div>
@@ -356,7 +356,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
           {step === "success" && (
             <div className="p-5">
               <div className="text-center mb-4">
-                <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400 mx-auto mb-2" />
+                <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-2" />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                   Withdrawal Submitted!
                 </h3>
@@ -378,7 +378,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                 </div>
                 <div className="flex justify-between pt-2 border-t border-green-500/20">
                   <span className="text-gray-500 dark:text-gray-400">Reference:</span>
-                  <span className="text-green-700 dark:text-green-400 font-semibold font-mono text-xs">{withdrawRef}</span>
+                  <span className="text-green-600 font-semibold font-mono text-xs">{withdrawRef}</span>
                 </div>
               </div>
 
@@ -397,7 +397,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
               <button
                 onClick={handleClose}
                 className="w-full py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
-                style={{ background: "#00C9A7", color: "#001a0f" }}
+                style={{ background: "#16a34a", color: "#001a0f" }}
               >
                 Got It!
               </button>

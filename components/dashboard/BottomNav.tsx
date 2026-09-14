@@ -24,7 +24,7 @@ export default function BottomNav() {
       className="lg:hidden fixed bottom-0 left-0 right-0 z-30 backdrop-blur-2xl"
       style={{
         background: isDark ? "rgba(11,26,18,0.85)" : "rgba(255,255,255,0.65)",
-        borderTop: isDark ? "1px solid rgba(0,201,167,0.14)" : "1px solid rgba(255,255,255,0.9)",
+        borderTop: isDark ? "1px solid rgba(22,163,74,0.14)" : "1px solid rgba(255,255,255,0.9)",
         paddingBottom: "env(safe-area-inset-bottom)",
       }}
     >
@@ -32,7 +32,7 @@ export default function BottomNav() {
         {items.map(({ name, href, icon: Icon }) => {
           const active = href !== null && pathname === href;
           const color = active
-            ? (isDark ? "#00C9A7" : "#16a34a")
+            ? (isDark ? "#16a34a" : "#16a34a")
             : (isDark ? "rgba(255,255,255,0.45)" : "#64748b");
 
           const content = (

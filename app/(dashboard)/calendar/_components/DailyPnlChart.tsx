@@ -34,8 +34,8 @@ export default function DailyPnlChart({ year, month, dailyPnl }: Props) {
             <AreaChart data={data} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="pnlGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#00C9A7" stopOpacity={0.4} />
-                  <stop offset="100%" stopColor="#00C9A7" stopOpacity={0} />
+                  <stop offset="0%" stopColor="#16a34a" stopOpacity={0.4} />
+                  <stop offset="100%" stopColor="#16a34a" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
@@ -48,11 +48,11 @@ export default function DailyPnlChart({ year, month, dailyPnl }: Props) {
                 width={48}
               />
               <Tooltip
-                contentStyle={{ background: "#0b1a12", border: "1px solid rgba(0,201,167,0.2)", borderRadius: 8, fontSize: 12 }}
+                contentStyle={{ background: "#0b1a12", border: "1px solid rgba(22,163,74,0.2)", borderRadius: 8, fontSize: 12 }}
                 labelFormatter={(d) => `Day ${d}`}
                 formatter={(v?: number) => [formatCompactUSD(v ?? 0), "Cumulative P&L"]}
               />
-              <Area type="monotone" dataKey="cumulative" stroke="#00C9A7" strokeWidth={2} fill="url(#pnlGradient)" />
+              <Area type="monotone" dataKey="cumulative" stroke="#16a34a" strokeWidth={2} fill="url(#pnlGradient)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>

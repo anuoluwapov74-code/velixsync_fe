@@ -90,7 +90,7 @@ export default function PerformancePanel({ year, month, period, onPeriodChange }
               onClick={() => onPeriodChange(p)}
               className={`px-2.5 py-1 capitalize transition-colors ${
                 period === p
-                  ? "bg-[#00C9A7] text-[#001a0f] font-semibold"
+                  ? "bg-[#16a34a] text-[#001a0f] font-semibold"
                   : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5"
               }`}
             >
@@ -114,7 +114,7 @@ export default function PerformancePanel({ year, month, period, onPeriodChange }
           <RadarChart data={radarData} outerRadius="70%">
             <PolarGrid stroke="rgba(255,255,255,0.1)" />
             <PolarAngleAxis dataKey="metric" tick={{ fill: "#9ca3af", fontSize: 10 }} />
-            <Radar name="Your Stats" dataKey="you" stroke="#00C9A7" fill="#00C9A7" fillOpacity={0.35} />
+            <Radar name="Your Stats" dataKey="you" stroke="#16a34a" fill="#16a34a" fillOpacity={0.35} />
             <Radar name="Average Trader" dataKey="average" stroke="#60a5fa" fill="#60a5fa" fillOpacity={0.15} />
           </RadarChart>
         </ResponsiveContainer>
@@ -122,7 +122,7 @@ export default function PerformancePanel({ year, month, period, onPeriodChange }
 
       <div className="flex items-center justify-center gap-4 mt-1 text-[11px]">
         <span className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300">
-          <span className="w-2 h-2 rounded-full bg-[#00C9A7]" /> Your Stats
+          <span className="w-2 h-2 rounded-full bg-[#16a34a]" /> Your Stats
         </span>
         <span className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300">
           <span className="w-2 h-2 rounded-full bg-[#60a5fa]" /> Average Trader
@@ -149,7 +149,7 @@ function Stat({ label, value, highlight }: { label: string; value: string; highl
   return (
     <div className="flex items-center justify-between text-sm">
       <span className={LABEL_COLOR}>{label}</span>
-      <span className={`font-semibold ${highlight ? "text-[#00C9A7]" : "text-gray-900 dark:text-white"}`}>
+      <span className={`font-semibold ${highlight ? "text-[#16a34a]" : "text-gray-900 dark:text-white"}`}>
         {value}
       </span>
     </div>

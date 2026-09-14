@@ -126,7 +126,7 @@ export default function CalendarTab() {
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_340px] gap-4">
         {isLoading ? (
           <div className="tv-card rounded-xl h-96 flex items-center justify-center">
-            <div className="w-6 h-6 border-2 border-[#00C9A7] border-t-transparent rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-[#16a34a] border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
           <CalendarGrid year={year} month={month} dailyPnl={dailyPnl} dailyTradeCounts={dailyTradeCounts} today={today} />

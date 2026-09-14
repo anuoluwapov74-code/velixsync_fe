@@ -682,8 +682,8 @@ body {
 /* ══════════════ DASHBOARD TEAL CARD SYSTEM (matches DepositModal) ══════════════ */
 
 .tv-card {
-  background: rgba(0, 201, 167, 0.04);
-  border: 1px solid rgba(0, 201, 167, 0.14);
+  background: rgba(22,163,74, 0.04);
+  border: 1px solid rgba(22,163,74, 0.14);
 }
 
 .tv-inner {

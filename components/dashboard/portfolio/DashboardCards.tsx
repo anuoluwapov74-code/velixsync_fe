@@ -93,7 +93,7 @@ const donutTheme = {
     cardShadow: "0 28px 80px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.35)",
     textPrimary: "#ffffff",
     textSecondary: "rgba(255,255,255,0.45)",
-    accent: "#00C9A7",
+    accent: "#16a34a",
     secondary: "#3b82f6",
   },
 };

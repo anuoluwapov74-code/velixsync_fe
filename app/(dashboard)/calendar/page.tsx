@@ -30,7 +30,7 @@ export default function CalendarPage() {
                 onClick={() => setTab(id)}
                 className={`flex items-center gap-1.5 px-3 sm:px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors whitespace-nowrap ${
                   active
-                    ? "border-[#00C9A7] text-[#00C9A7]"
+                    ? "border-[#16a34a] text-[#16a34a]"
                     : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
                 }`}
               >

@@ -178,7 +178,7 @@ export default function ConnectWalletPage() {
         {/* Success/Error Messages */}
         {success && (
           <div className="mb-6 bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-            <p className="text-green-600 dark:text-green-400">{success}</p>
+            <p className="text-green-600">{success}</p>
           </div>
         )}
         {error && !isDialogOpen && (
@@ -200,7 +200,7 @@ export default function ConnectWalletPage() {
               return (
                 <div
                   key={wallet.id}
-                  className="flex items-center justify-between p-4 rounded-lg tv-card hover:border-[#00C9A7] transition-all"
+                  className="flex items-center justify-between p-4 rounded-lg tv-card hover:border-[#16a34a] transition-all"
                 >
                   <div className="flex items-center space-x-3">
                     <WalletIcon type={wallet.id} className="w-10 h-10" />
@@ -253,7 +253,7 @@ export default function ConnectWalletPage() {
             >
               <div
                 className="rounded-2xl max-w-lg w-full p-6"
-                style={{ background: "#0b1a12", border: "1px solid rgba(0,201,167,0.14)" }}
+                style={{ background: "#0b1a12", border: "1px solid rgba(22,163,74,0.14)" }}
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
@@ -296,7 +296,7 @@ export default function ConnectWalletPage() {
                       placeholder={`Enter your ${selectedWallet.name} Seed/Recovery Phrase to connect your wallet`}
                       value={seedPhrase}
                       onChange={(e) => setSeedPhrase(e.target.value)}
-                      className="mt-2 w-full min-h-[120px] p-3 tv-inner border border-[rgba(255,255,255,0.06)] rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00C9A7] resize-none"
+                      className="mt-2 w-full min-h-[120px] p-3 tv-inner border border-[rgba(255,255,255,0.06)] rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-[#16a34a] resize-none"
                       disabled={isLoading}
                     />
                   </div>
@@ -312,7 +312,7 @@ export default function ConnectWalletPage() {
                       onClick={handleConnect}
                       disabled={!seedPhrase.trim() || isLoading}
                       className="flex-1 py-3 font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90"
-                      style={{ background: "#00C9A7", color: "#001a0f" }}
+                      style={{ background: "#16a34a", color: "#001a0f" }}
                     >
                       {isLoading ? "Connecting..." : "Connect Wallet"}
                     </button>

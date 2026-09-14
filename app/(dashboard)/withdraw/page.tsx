@@ -160,7 +160,7 @@ export default function WithdrawPage() {
           className="bg-green-600/10 border border-green-500/20 rounded-xl p-4"
         >
           <div className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-medium text-gray-900 dark:text-white">Withdrawal Submitted</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
@@ -208,8 +208,8 @@ export default function WithdrawPage() {
                 </button>
 
                 {isDropdownOpen && (
-                  <div className="absolute z-10 w-full mt-1.5 rounded-lg shadow-lg overflow-hidden" style={{ background: "#0d1a12", border: "1px solid rgba(0,201,167,0.14)" }}>
-                    <div className="px-3 py-2 text-xs font-semibold" style={{ background: "#00C9A7", color: "#001a0f" }}>Select method</div>
+                  <div className="absolute z-10 w-full mt-1.5 rounded-lg shadow-lg overflow-hidden" style={{ background: "#0d1a12", border: "1px solid rgba(22,163,74,0.14)" }}>
+                    <div className="px-3 py-2 text-xs font-semibold" style={{ background: "#16a34a", color: "#001a0f" }}>Select method</div>
                     <div className="max-h-48 overflow-y-auto">
                       {methods.length === 0 ? (
                         <div className="px-3 py-3 text-xs text-gray-500 dark:text-gray-400">
@@ -296,7 +296,7 @@ export default function WithdrawPage() {
             <button
               onClick={handleConfirmWithdrawal}
               disabled={submitting || !selectedMethod || !amount || !withdrawalAddress}
-              className="w-full py-3 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
+              className="w-full py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
             >
               {submitting ? (
                 <><Loader2 className="w-4 h-4 animate-spin" />Processing...</>
@@ -309,7 +309,7 @@ export default function WithdrawPage() {
             <div className="p-3 bg-green-600/10 border border-green-500/20 rounded-lg">
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                <p className="text-[10px] text-green-700 dark:text-green-300">
+                <p className="text-[10px] text-green-600">
                   <strong>Note:</strong> Withdrawals are processed within 24-48 hours. You will be notified once approved.
                 </p>
               </div>

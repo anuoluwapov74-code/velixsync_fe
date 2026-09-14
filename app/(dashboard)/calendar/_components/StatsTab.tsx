@@ -59,7 +59,7 @@ export default function StatsTab() {
               key={p}
               onClick={() => setPeriod(p)}
               className={`px-3 py-1.5 capitalize transition-colors ${
-                period === p ? "bg-[#00C9A7] text-[#001a0f] font-semibold" : `${LABEL_COLOR} hover:bg-gray-100 dark:hover:bg-white/5`
+                period === p ? "bg-[#16a34a] text-[#001a0f] font-semibold" : `${LABEL_COLOR} hover:bg-gray-100 dark:hover:bg-white/5`
               }`}
             >
               {p}
@@ -84,14 +84,14 @@ export default function StatsTab() {
               <RadarChart data={radar ? buildRadarData(radar.you, radar.average_trader) : []} outerRadius="70%">
                 <PolarGrid stroke="rgba(255,255,255,0.1)" />
                 <PolarAngleAxis dataKey="metric" tick={{ fill: "#9ca3af", fontSize: 11 }} />
-                <Radar name="Your Stats" dataKey="you" stroke="#00C9A7" fill="#00C9A7" fillOpacity={0.35} />
+                <Radar name="Your Stats" dataKey="you" stroke="#16a34a" fill="#16a34a" fillOpacity={0.35} />
                 <Radar name="Average Trader" dataKey="average" stroke="#60a5fa" fill="#60a5fa" fillOpacity={0.15} />
               </RadarChart>
             </ResponsiveContainer>
           </div>
           <div className="flex items-center justify-center gap-4 text-[11px]">
             <span className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300">
-              <span className="w-2 h-2 rounded-full bg-[#00C9A7]" /> Your Stats
+              <span className="w-2 h-2 rounded-full bg-[#16a34a]" /> Your Stats
             </span>
             <span className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300">
               <span className="w-2 h-2 rounded-full bg-[#60a5fa]" /> Average Trader
@@ -133,7 +133,7 @@ function StatCard({ label, value, accent }: { label: string; value: string; acce
   return (
     <div className="tv-card rounded-xl p-4">
       <p className={`text-xs mb-1 ${LABEL_COLOR}`}>{label}</p>
-      <p className={`text-2xl font-bold ${accent ? "text-[#00C9A7]" : "text-gray-900 dark:text-white"}`}>{value}</p>
+      <p className={`text-2xl font-bold ${accent ? "text-[#16a34a]" : "text-gray-900 dark:text-white"}`}>{value}</p>
     </div>
   );
 }

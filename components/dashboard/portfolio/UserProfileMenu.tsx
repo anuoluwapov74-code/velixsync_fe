@@ -43,10 +43,10 @@ export default function UserProfileMenu({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -10, scale: 0.95 }}
         transition={{ duration: 0.2 }}
-        className="absolute right-0 mt-2 w-64 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white/97 border border-gray-200 dark:bg-[rgba(13,26,18,0.97)] dark:border-[rgba(0,201,167,0.14)]"
+        className="absolute right-0 mt-2 w-64 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white/97 border border-gray-200 dark:bg-[rgba(13,26,18,0.97)] dark:border-[rgba(22,163,74,0.14)]"
       >
         {/* User Info */}
-        <div className="px-4 py-4 border-b border-[rgba(0,201,167,0.1)]">
+        <div className="px-4 py-4 border-b border-[rgba(22,163,74,0.1)]">
           <div className="flex items-center space-x-3 mb-3">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center text-white font-semibold text-xs">
               {user
@@ -66,7 +66,7 @@ export default function UserProfileMenu({
             onClick={() => {
               router.push("/settings");
             }}
-            className="flex items-center space-x-1.5 text-[11px] text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 transition-colors font-medium"
+            className="flex items-center space-x-1.5 text-[11px] text-green-600 hover:text-green-700 transition-colors font-medium"
           >
             <Edit className="w-3 h-3" />
             <span>Edit profile</span>
@@ -79,7 +79,7 @@ export default function UserProfileMenu({
             onClick={() => {
               router.push("/");
             }}
-            className="w-full px-4 py-2.5 flex items-center space-x-2.5 text-gray-700 dark:text-gray-300 hover:bg-[rgba(0,201,167,0.04)] transition-colors"
+            className="w-full px-4 py-2.5 flex items-center space-x-2.5 text-gray-700 dark:text-gray-300 hover:bg-[rgba(22,163,74,0.04)] transition-colors"
           >
             <Info className="w-3.5 h-3.5" />
             <span className="text-xs font-medium">About VelixSync</span>

@@ -111,7 +111,7 @@ export default function TradeHistoryPage() {
                       onClick={() => setStatusFilter(status as typeof statusFilter)}
                       className={`px-4 py-2 text-xs font-medium rounded-lg transition-all ${
                         statusFilter === status
-                          ? "bg-[#00C9A7] text-[#001a0f]"
+                          ? "bg-[#16a34a] text-[#001a0f]"
                           : "tv-inner text-gray-300 hover:opacity-80"
                       }`}
                     >
@@ -137,7 +137,7 @@ export default function TradeHistoryPage() {
             <p className="text-red-500 text-lg mb-4">{error}</p>
             <button
               onClick={() => refetch()}
-              className="px-6 py-2 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors"
+              className="px-6 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors"
             >
               Retry
             </button>
@@ -159,7 +159,7 @@ export default function TradeHistoryPage() {
                 : "Start copying expert traders to see your trade history here"}
             </p>
             <Link href="/explore-traders">
-              <button className="px-6 py-2.5 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] text-sm font-semibold rounded-lg transition-colors">
+              <button className="px-6 py-2.5 bg-[#16a34a] hover:opacity-90 text-[#001a0f] text-sm font-semibold rounded-lg transition-colors">
                 Explore Traders
               </button>
             </Link>
@@ -196,7 +196,7 @@ export default function TradeHistoryPage() {
               {trades.map((trade) => (
                 <div
                   key={trade.id}
-                  className="grid grid-cols-1 md:grid-cols-6 gap-4 px-6 py-4 hover:bg-[rgba(0,201,167,0.04)] transition-all"
+                  className="grid grid-cols-1 md:grid-cols-6 gap-4 px-6 py-4 hover:bg-[rgba(22,163,74,0.04)] transition-all"
                 >
                   {/* Asset */}
                   <div className="flex items-center gap-3">
@@ -225,7 +225,7 @@ export default function TradeHistoryPage() {
                     <span
                       className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
                         trade.direction === "buy"
-                          ? "bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400"
+                          ? "bg-green-100 dark:bg-green-500/10 text-green-600"
                           : "bg-red-100 dark:bg-red-500/10 text-red-700 dark:text-red-400"
                       }`}
                     >
@@ -251,7 +251,7 @@ export default function TradeHistoryPage() {
                       <span
                         className={`text-sm font-semibold ${
                           trade.is_profit
-                            ? "text-green-600 dark:text-green-400"
+                            ? "text-green-600"
                             : "text-red-600 dark:text-red-400"
                         }`}
                       >
@@ -268,7 +268,7 @@ export default function TradeHistoryPage() {
                     <span
                       className={`text-xs font-medium ${
                         trade.status === "open"
-                          ? "text-green-700 dark:text-green-400"
+                          ? "text-green-600"
                           : "text-gray-500 dark:text-gray-400"
                       }`}
                     >

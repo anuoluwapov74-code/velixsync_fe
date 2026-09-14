@@ -286,7 +286,7 @@ export default function KYCVerificationPage() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative bg-green-600 dark:bg-green-700 rounded-2xl overflow-hidden px-6 sm:px-10 py-8 sm:py-12 min-h-[180px] sm:min-h-[220px]"
+          className="relative bg-green-600 rounded-2xl overflow-hidden px-6 sm:px-10 py-8 sm:py-12 min-h-[180px] sm:min-h-[220px]"
         >
           {/* Background chart line SVG */}
           <svg
@@ -341,7 +341,7 @@ export default function KYCVerificationPage() {
                   transition={{ duration: 0.3 }}
                   className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg ${
                     index <= currentStage
-                      ? "bg-green-600 dark:bg-green-700"
+                      ? "bg-green-600"
                       : "bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
                   }`}
                 >
@@ -353,7 +353,7 @@ export default function KYCVerificationPage() {
               </div>
               {index < stages.length - 1 && (
                 <div className={`h-1 flex-1 transition-all duration-500 ${
-                  index < currentStage ? "bg-green-600 dark:bg-green-700" : "bg-gray-200 dark:bg-gray-700"
+                  index < currentStage ? "bg-green-600" : "bg-gray-200 dark:bg-gray-700"
                 }`} />
               )}
             </div>
@@ -374,7 +374,7 @@ export default function KYCVerificationPage() {
               className="bg-white dark:bg-[#0d3320] rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-white/10 shadow-lg"
             >
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-green-600 dark:bg-green-700 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
                   {currentStage + 1}
                 </div>
                 <div className="flex-1">
@@ -727,7 +727,7 @@ export default function KYCVerificationPage() {
                   {/* Privacy & Security Section */}
                   <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-700/50 rounded-xl p-6 mt-8">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-green-600 dark:bg-green-700 flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center flex-shrink-0">
                         <Shield className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -738,19 +738,19 @@ export default function KYCVerificationPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ml-14">
                       <div className="flex items-center gap-2">
-                        <Lock className="w-4 h-4 text-green-700 dark:text-green-400 flex-shrink-0" />
+                        <Lock className="w-4 h-4 text-green-600 flex-shrink-0" />
                         <span className="text-xs text-gray-700 dark:text-gray-300">SSL encryption</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-green-700 dark:text-green-400 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0" />
                         <span className="text-xs text-gray-700 dark:text-gray-300">Two-factor authentication</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Shield className="w-4 h-4 text-green-700 dark:text-green-400 flex-shrink-0" />
+                        <Shield className="w-4 h-4 text-green-600 flex-shrink-0" />
                         <span className="text-xs text-gray-700 dark:text-gray-300">Regular security audits</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <FileCheck className="w-4 h-4 text-green-700 dark:text-green-400 flex-shrink-0" />
+                        <FileCheck className="w-4 h-4 text-green-600 flex-shrink-0" />
                         <span className="text-xs text-gray-700 dark:text-gray-300">GDPR compliant</span>
                       </div>
                     </div>
@@ -773,7 +773,7 @@ export default function KYCVerificationPage() {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="flex-1 bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 text-white py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
                   >
                     Continue <ArrowRight className="w-5 h-5" />
                   </button>
@@ -781,7 +781,7 @@ export default function KYCVerificationPage() {
                   <button
                     type="submit"
                     disabled={loading || uploadingFront || uploadingBack}
-                    className="flex-1 bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 text-white py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? (
                       <>

@@ -114,7 +114,7 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
       onClick={onClose}
     >
       <div
-        className="bg-white dark:bg-[#0b1a12] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-[rgba(0,201,167,0.14)]"
+        className="bg-white dark:bg-[#0b1a12] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-white/10">
@@ -130,10 +130,10 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
             fully visible (scroll to see it) rather than silently clipped. */}
         <div className="p-5 overflow-x-auto">
           {/* Exportable card — everything inside this div is what gets PNG'd */}
-          <div ref={cardRef} className="rounded-xl p-5 min-w-135 w-135" style={{ background: "#0b1a12", border: "1px solid rgba(0,201,167,0.14)" }}>
+          <div ref={cardRef} className="rounded-xl p-5 min-w-135 w-135" style={{ background: "#0b1a12", border: "1px solid rgba(22,163,74,0.14)" }}>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00C9A7]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
                 <span className="text-[10px] font-bold tracking-wider text-gray-300">VELIXSYNC</span>
               </div>
               <span className={`text-[10px] ${CARD_LABEL_COLOR}`}>
@@ -196,7 +196,7 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
             </div>
 
             <p className="text-[10px] font-semibold text-white mt-4">
-              Every trade verified. <span className="text-[#00C9A7]">Every result real.</span>
+              Every trade verified. <span className="text-[#16a34a]">Every result real.</span>
             </p>
             <p className="text-[8px] text-gray-500 mt-1 leading-relaxed">
               Past performance is not a guarantee of future results. All trading involves risk. Figures reflect realized P/L only. &copy; {year} VelixSync.
@@ -216,7 +216,7 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
             onClick={handleDownload}
             disabled={downloading}
             className="flex-1 py-2.5 rounded-lg font-semibold text-sm disabled:opacity-50 transition-opacity hover:opacity-90"
-            style={{ background: "#00C9A7", color: "#001a0f" }}
+            style={{ background: "#16a34a", color: "#001a0f" }}
           >
             {downloading ? "Generating…" : "Download"}
           </button>

@@ -43,7 +43,7 @@ function MarketPageInner() {
               onClick={() => selectTab(key)}
               className={`px-4 py-2.5 -mb-px text-sm font-medium border-b-2 transition-colors ${
                 activeTab === key
-                  ? "border-[#00C9A7] text-[#00C9A7]"
+                  ? "border-[#16a34a] text-[#16a34a]"
                   : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
               }`}
             >

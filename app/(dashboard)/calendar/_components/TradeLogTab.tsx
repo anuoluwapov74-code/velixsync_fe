@@ -57,7 +57,7 @@ export default function TradeLogTab() {
               onClick={() => { setStatusFilter(s); setOffset(0); }}
               className={`px-3 py-1.5 capitalize transition-colors ${
                 statusFilter === s
-                  ? "bg-[#00C9A7] text-[#001a0f] font-semibold"
+                  ? "bg-[#16a34a] text-[#001a0f] font-semibold"
                   : `${LABEL_COLOR} hover:bg-gray-100 dark:hover:bg-white/5`
               }`}
             >
@@ -70,7 +70,7 @@ export default function TradeLogTab() {
       <div className="tv-card rounded-xl overflow-hidden">
         {isLoading ? (
           <div className="h-60 flex items-center justify-center">
-            <div className="w-6 h-6 border-2 border-[#00C9A7] border-t-transparent rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-[#16a34a] border-t-transparent rounded-full animate-spin" />
           </div>
         ) : trades.length === 0 ? (
           <div className="h-40 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">

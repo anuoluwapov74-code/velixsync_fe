@@ -64,7 +64,7 @@ export default function TransactionHistoryModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(0,201,167,0.14)]"
+          className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
         >
           <div className="p-6">
             <div className="flex items-center justify-between mb-5">
@@ -87,7 +87,7 @@ export default function TransactionHistoryModal({
                       ? "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10"
                       : ""
                   }`}
-                  style={filter === f ? { background: "#00C9A7", color: "#001a0f" } : undefined}
+                  style={filter === f ? { background: "#16a34a", color: "#001a0f" } : undefined}
                 >
                   {f === "all" ? "All" : f === "deposit" ? "Deposits" : "Withdrawals"}
                 </button>

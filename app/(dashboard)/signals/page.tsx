@@ -155,7 +155,7 @@ export default function SignalsPage() {
 
             {/* Balance Display */}
             <div className="bg-green-600/10 dark:bg-green-500/20 border-2 border-green-600 rounded-xl px-6 py-4">
-              <div className="text-xs md:text-sm text-green-600 dark:text-green-400 mb-1">
+              <div className="text-xs md:text-sm text-green-600 mb-1">
                 Wallet Balance
               </div>
               <div className="text-base sm:text-sm font-bold text-gray-900 dark:text-white">
@@ -173,7 +173,7 @@ export default function SignalsPage() {
               onClick={() => setActiveTab("all")}
               className={`pb-3 px-4 font-medium transition-colors relative ${
                 activeTab === "all"
-                  ? "text-green-600 dark:text-green-400"
+                  ? "text-green-600"
                   : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"
               }`}
             >
@@ -186,7 +186,7 @@ export default function SignalsPage() {
               onClick={() => setActiveTab("purchased")}
               className={`pb-3 px-4 font-medium transition-colors relative ${
                 activeTab === "purchased"
-                  ? "text-green-600 dark:text-green-400"
+                  ? "text-green-600"
                   : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"
               }`}
             >
@@ -213,7 +213,7 @@ export default function SignalsPage() {
                     key={signal.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="tv-card rounded-2xl p-6 hover:border-[#00C9A7] transition-all"
+                    className="tv-card rounded-2xl p-6 hover:border-[#16a34a] transition-all"
                   >
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
@@ -290,7 +290,7 @@ export default function SignalsPage() {
                           ? "bg-gray-200 dark:bg-white/10 text-gray-500 dark:text-gray-400 cursor-not-allowed"
                           : "hover:opacity-90"
                       }`}
-                      style={!signal.is_purchased ? { background: "#00C9A7", color: "#001a0f" } : undefined}
+                      style={!signal.is_purchased ? { background: "#16a34a", color: "#001a0f" } : undefined}
                     >
                       {signal.is_purchased ? "Already Purchased" : "Purchase Signal"}
                     </button>
@@ -454,7 +454,7 @@ export default function SignalsPage() {
                     disabled={
                       purchasing || parseFloat(userBalance) < parseFloat(selectedSignal.price)
                     }
-                    className="flex-1 py-3 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {purchasing ? "Processing..." : "Confirm Purchase"}
                   </button>
@@ -505,7 +505,7 @@ export default function SignalsPage() {
                     setSelectedSignal(null);
                     setActiveTab("purchased");
                   }}
-                  className="w-full py-3 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-all"
+                  className="w-full py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-all"
                 >
                   View Purchased Signals
                 </button>

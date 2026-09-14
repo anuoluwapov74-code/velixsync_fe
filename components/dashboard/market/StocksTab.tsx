@@ -138,7 +138,7 @@ function IndexBar({ indices }: { indices: IndexQuote[] }) {
               </p>
               <div className="flex items-baseline gap-2">
                 <span className="text-sm font-bold text-gray-900 dark:text-white">{idx.value}</span>
-                <span className={`text-xs font-semibold ${idx.positive ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
+                <span className={`text-xs font-semibold ${idx.positive ? "text-green-600" : "text-red-600 dark:text-red-400"}`}>
                   {idx.change} ({idx.change_pct})
                 </span>
               </div>
@@ -148,7 +148,7 @@ function IndexBar({ indices }: { indices: IndexQuote[] }) {
         <div className="ml-auto pl-6 pr-4 border-l border-gray-200 dark:border-white/10 shrink-0 py-3">
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-[10px] font-medium text-green-600 dark:text-green-400">Live</span>
+            <span className="text-[10px] font-medium text-green-600">Live</span>
           </div>
           <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">NYSE &middot; NASDAQ</p>
         </div>
@@ -166,16 +166,16 @@ function RichStockCard({ stock, onClick }: { stock: Stock; onClick: () => void }
   const sectorColor = stock.sector ? SECTOR_COLORS[stock.sector] : undefined;
 
   return (
-    <button onClick={onClick} className="w-full text-left tv-card rounded-xl p-5 hover:border-[#00C9A7] transition-all group">
+    <button onClick={onClick} className="w-full text-left tv-card rounded-xl p-5 hover:border-[#16a34a] transition-all group">
       <div className="flex items-start justify-between gap-3 mb-4">
         <div className="flex items-center gap-3 min-w-0">
           <StockLogo logoUrl={stock.logo_url} domain={stock.domain} name={stock.name} size={44} />
           <div className="min-w-0">
-            <p className="text-sm font-bold text-gray-900 dark:text-white leading-tight truncate group-hover:text-[#00C9A7] transition-colors">
+            <p className="text-sm font-bold text-gray-900 dark:text-white leading-tight truncate group-hover:text-[#16a34a] transition-colors">
               {stock.name}
             </p>
             <div className="flex items-center gap-2 mt-1 flex-wrap">
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#00C9A7]/10 text-[#00C9A7]">
+              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#16a34a]/10 text-[#16a34a]">
                 {stock.symbol}
               </span>
               {stock.sector && (
@@ -199,7 +199,7 @@ function RichStockCard({ stock, onClick }: { stock: Stock; onClick: () => void }
           <p className="text-xl font-bold text-gray-900 dark:text-white leading-none">
             ${parseFloat(stock.price).toFixed(2)}
           </p>
-          <p className={`text-xs font-semibold mt-1 ${positive ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
+          <p className={`text-xs font-semibold mt-1 ${positive ? "text-green-600" : "text-red-600 dark:text-red-400"}`}>
             {positive ? "▲" : "▼"} {positive ? "+" : ""}
             {parseFloat(stock.change).toFixed(2)} ({positive ? "+" : ""}
             {parseFloat(stock.change_percent).toFixed(2)}%)
@@ -249,7 +249,7 @@ function RichStockModal({ stock, onClose }: { stock: Stock; onClose: () => void 
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white">{stock.name}</h2>
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#00C9A7]/10 text-[#00C9A7]">
+                <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#16a34a]/10 text-[#16a34a]">
                   {stock.symbol}
                 </span>
               </div>
@@ -257,7 +257,7 @@ function RichStockModal({ stock, onClose }: { stock: Stock; onClose: () => void 
                 <span className="text-2xl font-bold text-gray-900 dark:text-white leading-none">
                   ${parseFloat(stock.price).toFixed(2)}
                 </span>
-                <span className={`text-sm font-semibold ${positive ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
+                <span className={`text-sm font-semibold ${positive ? "text-green-600" : "text-red-600 dark:text-red-400"}`}>
                   {positive ? "▲" : "▼"} {positive ? "+" : ""}
                   {parseFloat(stock.change).toFixed(2)} ({positive ? "+" : ""}
                   {parseFloat(stock.change_percent).toFixed(2)}%)
@@ -387,7 +387,7 @@ export default function StocksTab() {
           placeholder="Search stocks..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-10 pr-4 py-3 bg-[rgba(0,201,167,0.04)] text-gray-900 dark:text-white rounded-lg border-2 border-[rgba(0,201,167,0.14)] focus:border-[#00C9A7] focus:outline-none transition-colors placeholder:text-gray-500"
+          className="w-full pl-10 pr-4 py-3 bg-[rgba(22,163,74,0.04)] text-gray-900 dark:text-white rounded-lg border-2 border-[rgba(22,163,74,0.14)] focus:border-[#16a34a] focus:outline-none transition-colors placeholder:text-gray-500"
         />
       </div>
 
@@ -400,7 +400,7 @@ export default function StocksTab() {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
               activeFilter === key ? "" : "tv-card text-gray-500 dark:text-gray-300 hover:opacity-80"
             }`}
-            style={activeFilter === key ? { background: "#00C9A7", color: "#001a0f" } : undefined}
+            style={activeFilter === key ? { background: "#16a34a", color: "#001a0f" } : undefined}
           >
             {label}
             {counts[key] > 0 && (
@@ -428,9 +428,9 @@ export default function StocksTab() {
                 className={`h-8 px-4 rounded-full text-xs font-semibold transition-colors ${
                   sectorFilter === sector
                     ? ""
-                    : "tv-card text-gray-500 dark:text-gray-300 hover:border-[#00C9A7]"
+                    : "tv-card text-gray-500 dark:text-gray-300 hover:border-[#16a34a]"
                 }`}
-                style={sectorFilter === sector ? { background: "#00C9A7", color: "#001a0f" } : undefined}
+                style={sectorFilter === sector ? { background: "#16a34a", color: "#001a0f" } : undefined}
               >
                 {sector}
               </button>
@@ -442,7 +442,7 @@ export default function StocksTab() {
       {/* Loading */}
       {loading && (
         <div className="flex justify-center items-center py-20">
-          <Loader2 className="w-8 h-8 text-[#00C9A7] animate-spin" />
+          <Loader2 className="w-8 h-8 text-[#16a34a] animate-spin" />
         </div>
       )}
 
@@ -456,7 +456,7 @@ export default function StocksTab() {
               <div
                 key={stock.symbol}
                 onClick={() => router.push(`/market/${stock.symbol}`)}
-                className="tv-card p-6 rounded-lg hover:border-[#00C9A7] transition-all cursor-pointer hover:shadow-lg hover:shadow-[#00C9A7]/10"
+                className="tv-card p-6 rounded-lg hover:border-[#16a34a] transition-all cursor-pointer hover:shadow-lg hover:shadow-[#16a34a]/10"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <StockLogo logoUrl={stock.logo_url} name={stock.name || stock.symbol} size={48} />
@@ -516,7 +516,7 @@ export default function StocksTab() {
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
-            className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#00C9A7] transition-colors"
+            className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#16a34a] transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -536,9 +536,9 @@ export default function StocksTab() {
                   key={p}
                   onClick={() => setPage(p as number)}
                   className={`w-9 h-9 rounded-lg text-sm font-medium transition-colors ${
-                    page === p ? "" : "tv-card text-gray-400 hover:border-[#00C9A7]"
+                    page === p ? "" : "tv-card text-gray-400 hover:border-[#16a34a]"
                   }`}
-                  style={page === p ? { background: "#00C9A7", color: "#001a0f" } : undefined}
+                  style={page === p ? { background: "#16a34a", color: "#001a0f" } : undefined}
                 >
                   {p}
                 </button>
@@ -548,7 +548,7 @@ export default function StocksTab() {
           <button
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
-            className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#00C9A7] transition-colors"
+            className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#16a34a] transition-colors"
           >
             <ChevronRight className="w-4 h-4" />
           </button>

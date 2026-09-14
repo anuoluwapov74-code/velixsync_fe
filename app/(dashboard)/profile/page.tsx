@@ -83,7 +83,7 @@ export default function ProfilePage() {
           <button
             onClick={() => router.push("/settings")}
             className="flex items-center gap-2 px-6 py-3 font-semibold rounded-lg hover:opacity-90 transition-opacity"
-            style={{ background: "#00C9A7", color: "#001a0f" }}
+            style={{ background: "#16a34a", color: "#001a0f" }}
           >
             <Settings className="w-4 h-4" />
             Edit Settings
@@ -377,13 +377,13 @@ export default function ProfilePage() {
 
           {!profile.has_submitted_kyc && (
             <div className="mt-4 p-4 bg-green-600/10 border border-green-500/20 rounded-lg">
-              <p className="text-sm text-green-700 dark:text-green-400 mb-3">
+              <p className="text-sm text-green-600 mb-3">
                 Complete your KYC verification to unlock all features and increase your trading limits.
               </p>
               <button
                 onClick={() => router.push("/kyc")}
                 className="px-4 py-2 text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity"
-                style={{ background: "#00C9A7", color: "#001a0f" }}
+                style={{ background: "#16a34a", color: "#001a0f" }}
               >
                 Complete KYC
               </button>

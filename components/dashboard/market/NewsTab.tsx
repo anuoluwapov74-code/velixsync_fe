@@ -55,10 +55,10 @@ const CATEGORY_COLORS: Record<string, string> = {
   Economy: "#f59e0b",
   Cryptocurrency: "#8b5cf6",
   Commodities: "#f97316",
-  Forex: "#00C9A7",
+  Forex: "#16a34a",
 };
 
-const SOURCE_COLORS = ["#3b82f6", "#06b6d4", "#f59e0b", "#8b5cf6", "#f97316", "#00C9A7", "#ec4899"];
+const SOURCE_COLORS = ["#3b82f6", "#06b6d4", "#f59e0b", "#8b5cf6", "#f97316", "#16a34a", "#ec4899"];
 
 const POSITIVE_WORDS = [
   "surge", "soar", "rally", "jump", "gain", "rise", "record", "beat", "strong",
@@ -84,7 +84,7 @@ function deriveImpact(title: string): Impact {
 }
 
 function categoryColor(cat: string) {
-  return CATEGORY_COLORS[cat] ?? "#00C9A7";
+  return CATEGORY_COLORS[cat] ?? "#16a34a";
 }
 
 function sourceColor(source: string) {
@@ -133,7 +133,7 @@ function contentToParagraphs(content: string): string[] {
 
 function impactStyles(impact: Impact) {
   if (impact === "positive")
-    return { bg: "bg-green-500/10", text: "text-green-600 dark:text-green-400", dot: "bg-green-500", label: "Bullish" };
+    return { bg: "bg-green-500/10", text: "text-green-600", dot: "bg-green-500", label: "Bullish" };
   if (impact === "negative")
     return { bg: "bg-red-500/10", text: "text-red-600 dark:text-red-400", dot: "bg-red-500", label: "Bearish" };
   return { bg: "bg-gray-500/10", text: "text-gray-500 dark:text-gray-400", dot: "bg-gray-400", label: "Neutral" };
@@ -206,7 +206,7 @@ function FeaturedCard({ article, onClick }: { article: NewsItem; onClick: () => 
 
   return (
     <button onClick={onClick} className="w-full text-left group">
-      <div className="tv-card rounded-2xl overflow-hidden flex flex-col sm:flex-row hover:border-[#00C9A7] transition-colors">
+      <div className="tv-card rounded-2xl overflow-hidden flex flex-col sm:flex-row hover:border-[#16a34a] transition-colors">
         <div className="w-full h-1.5 sm:w-1.5 sm:h-auto shrink-0" style={{ backgroundColor: color }} />
         <div className="flex-1 p-5 lg:p-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -226,7 +226,7 @@ function FeaturedCard({ article, onClick }: { article: NewsItem; onClick: () => 
               </span>
             )}
           </div>
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 dark:text-white leading-tight mb-3 group-hover:text-[#00C9A7] transition-colors">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-gray-900 dark:text-white leading-tight mb-3 group-hover:text-[#16a34a] transition-colors">
             {article.title}
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 line-clamp-2">
@@ -269,7 +269,7 @@ function NewsCard({ article, onClick }: { article: NewsItem; onClick: () => void
   return (
     <button
       onClick={onClick}
-      className="tv-card rounded-2xl overflow-hidden hover:border-[#00C9A7] transition-colors text-left flex flex-col w-full"
+      className="tv-card rounded-2xl overflow-hidden hover:border-[#16a34a] transition-colors text-left flex flex-col w-full"
     >
       <div className="relative h-40">
         <NewsImage src={article.image_url} alt={article.title} className="w-full h-full" />
@@ -446,7 +446,7 @@ function NewsModal({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-2 h-10 px-5 rounded-lg text-sm font-bold text-[#001a0f] bg-[#00C9A7] hover:opacity-90 transition-opacity shrink-0"
+                    className="flex items-center gap-2 h-10 px-5 rounded-lg text-sm font-bold text-[#001a0f] bg-[#16a34a] hover:opacity-90 transition-opacity shrink-0"
                   >
                     Read full article
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -519,7 +519,7 @@ export default function NewsTab() {
           placeholder="Search news, assets, sources..."
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className="w-full pl-10 pr-4 py-3 bg-[rgba(0,201,167,0.04)] text-gray-900 dark:text-white rounded-lg border-2 border-[rgba(0,201,167,0.14)] focus:border-[#00C9A7] focus:outline-none transition-colors placeholder:text-gray-500"
+          className="w-full pl-10 pr-4 py-3 bg-[rgba(22,163,74,0.04)] text-gray-900 dark:text-white rounded-lg border-2 border-[rgba(22,163,74,0.14)] focus:border-[#16a34a] focus:outline-none transition-colors placeholder:text-gray-500"
         />
       </div>
 
@@ -534,7 +534,7 @@ export default function NewsTab() {
               className={`flex-shrink-0 px-4 py-2 rounded-lg text-xs font-semibold transition-colors ${
                 active ? "" : "tv-card text-gray-500 dark:text-gray-400 hover:opacity-80"
               }`}
-              style={active ? { background: "#00C9A7", color: "#001a0f" } : undefined}
+              style={active ? { background: "#16a34a", color: "#001a0f" } : undefined}
             >
               {cat}
             </button>
@@ -561,7 +561,7 @@ export default function NewsTab() {
           {featured && (
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00C9A7]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
                 <span className="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                   Top Story
                 </span>
@@ -593,7 +593,7 @@ export default function NewsTab() {
                   <button
                     onClick={() => setPage((p) => Math.max(1, p - 1))}
                     disabled={page === 1}
-                    className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#00C9A7] transition-colors"
+                    className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#16a34a] transition-colors"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
@@ -604,7 +604,7 @@ export default function NewsTab() {
                   <button
                     onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                     disabled={page === totalPages}
-                    className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#00C9A7] transition-colors"
+                    className="p-2 rounded-lg tv-card text-gray-400 disabled:opacity-40 hover:border-[#16a34a] transition-colors"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>

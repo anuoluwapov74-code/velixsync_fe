@@ -74,7 +74,7 @@ export default function TopNav({ onMenuClick, user }: TopNavProps) {
     <header
       className="h-14 backdrop-blur-xl border-b sticky top-0 z-30"
       style={isDark
-        ? { background: "rgba(11,26,18,0.97)", borderColor: "rgba(0,201,167,0.1)" }
+        ? { background: "rgba(11,26,18,0.97)", borderColor: "rgba(22,163,74,0.1)" }
         : { background: "rgba(255,255,255,0.97)", borderColor: "rgba(0,0,0,0.08)" }
       }
     >
@@ -92,7 +92,7 @@ export default function TopNav({ onMenuClick, user }: TopNavProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              <span className="text-green-600 dark:text-green-400">Velix</span>Sync
+              <span className="text-green-600">Velix</span>Sync
             </span>
           </Link>
 
@@ -146,7 +146,7 @@ export default function TopNav({ onMenuClick, user }: TopNavProps) {
                     transition={{ duration: 0.15 }}
                     className="absolute top-full left-0 mt-1 w-48 rounded-xl shadow-xl overflow-hidden py-1"
                     style={isDark
-                      ? { background: "#0b1a12", border: "1px solid rgba(0,201,167,0.14)" }
+                      ? { background: "#0b1a12", border: "1px solid rgba(22,163,74,0.14)" }
                       : { background: "#ffffff", border: "1px solid rgba(0,0,0,0.08)" }
                     }
                   >
@@ -159,11 +159,11 @@ export default function TopNav({ onMenuClick, user }: TopNavProps) {
                           onClick={() => setShowMore(false)}
                           className={`flex items-center space-x-2.5 px-4 py-2.5 text-xs font-medium transition-colors ${
                             isActive
-                              ? "text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-500/10"
+                              ? "text-green-600 bg-green-50 dark:bg-green-500/10"
                               : "text-gray-600 dark:text-[#8fa896] hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white"
                           }`}
                         >
-                          <span className={isActive ? "text-green-700 dark:text-green-400" : "text-gray-500 dark:text-[#4a6655]"}>
+                          <span className={isActive ? "text-green-600" : "text-gray-500 dark:text-[#4a6655]"}>
                             {link.icon}
                           </span>
                           <span>{link.name}</span>

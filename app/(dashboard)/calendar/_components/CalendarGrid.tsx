@@ -95,7 +95,7 @@ export default function CalendarGrid({ year, month, dailyPnl, dailyTradeCounts, 
                     hasTrade ? "cursor-pointer active:scale-95" : ""
                   } ${
                     isToday
-                      ? "bg-[#00C9A7] border-[#00C9A7]"
+                      ? "bg-[#16a34a] border-[#16a34a]"
                       : isPositive
                       ? "bg-green-500/[0.08] border-green-500/20"
                       : isNegative
@@ -135,7 +135,7 @@ export default function CalendarGrid({ year, month, dailyPnl, dailyTradeCounts, 
                       className={`absolute bottom-full ${tooltipPos} mb-2 z-30 pointer-events-none whitespace-nowrap rounded-lg px-2.5 py-1.5 text-xs font-semibold shadow-lg transition-all duration-150 ease-out origin-bottom ${
                         isActive ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-90 translate-y-1"
                       }`}
-                      style={{ background: "#0b1a12", border: "1px solid rgba(0,201,167,0.25)" }}
+                      style={{ background: "#0b1a12", border: "1px solid rgba(22,163,74,0.25)" }}
                     >
                       <span className={isPositive ? "text-green-400" : "text-red-400"}>
                         {isPositive ? "+" : ""}{formatUSD(pnl)}
@@ -145,7 +145,7 @@ export default function CalendarGrid({ year, month, dailyPnl, dailyTradeCounts, 
                       </span>
                       <span
                         className={`absolute top-full ${arrowPos} -mt-[5px] w-2.5 h-2.5 rotate-45`}
-                        style={{ background: "#0b1a12", borderRight: "1px solid rgba(0,201,167,0.25)", borderBottom: "1px solid rgba(0,201,167,0.25)" }}
+                        style={{ background: "#0b1a12", borderRight: "1px solid rgba(22,163,74,0.25)", borderBottom: "1px solid rgba(22,163,74,0.25)" }}
                       />
                     </div>
                   )}

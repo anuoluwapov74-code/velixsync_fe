@@ -48,20 +48,20 @@ export default function BalanceCard({
         <div className="flex items-center justify-between px-5 pt-5 pb-2">
           <div className="flex flex-col gap-1">
             <span className="text-[15px] font-bold leading-none">
-              <span style={{ color: "#00C9A7" }}>Velix</span>
+              <span style={{ color: "#16a34a" }}>Velix</span>
               <span className="text-white">Sync</span>
             </span>
             {isVerified && (
-              <div className="flex items-center gap-1 rounded-full px-2 py-0.5 w-fit" style={{ background: "rgba(0,201,167,0.15)" }}>
+              <div className="flex items-center gap-1 rounded-full px-2 py-0.5 w-fit" style={{ background: "rgba(22,163,74,0.15)" }}>
                 <svg className="w-2.5 h-2.5" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6L5 9L10 3" stroke="#00C9A7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 6L5 9L10 3" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span className="text-[10px] font-semibold" style={{ color: "#00C9A7" }}>Verified</span>
+                <span className="text-[10px] font-semibold" style={{ color: "#16a34a" }}>Verified</span>
               </div>
             )}
           </div>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#00C9A7] bg-[#00C9A7]/10 rounded-lg px-3 py-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00C9A7] animate-pulse" />
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#16a34a] bg-[#16a34a]/10 rounded-lg px-3 py-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse" />
             LIVE
           </span>
         </div>
@@ -77,7 +77,7 @@ export default function BalanceCard({
             <div className="flex items-center gap-2 text-sm">
               <span
                 className={`font-bold font-mono ${
-                  isProfitPositive ? "text-[#00C9A7]" : "text-red-400"
+                  isProfitPositive ? "text-[#16a34a]" : "text-red-400"
                 }`}
               >
                 {isProfitPositive ? "↑" : "↓"} {fmt(Math.abs(totalProfits))}
@@ -90,7 +90,7 @@ export default function BalanceCard({
             <span
               className={`text-[11px] font-bold px-2.5 py-1.5 rounded-lg ${
                 isProfitPositive
-                  ? "bg-[#00C9A7]/10 text-[#00C9A7]"
+                  ? "bg-[#16a34a]/10 text-[#16a34a]"
                   : "bg-red-500/10 text-red-400"
               }`}
             >
@@ -104,7 +104,7 @@ export default function BalanceCard({
         <div className="flex items-start gap-8 px-5 py-3">
           <div>
             <p className="text-[9px] font-bold uppercase tracking-wider text-gray-500 mb-0.5">Profit</p>
-            <p className={`text-[13px] font-bold font-mono ${isProfitPositive ? "text-[#00C9A7]" : "text-red-400"}`}>
+            <p className={`text-[13px] font-bold font-mono ${isProfitPositive ? "text-[#16a34a]" : "text-red-400"}`}>
               {fmt(totalProfits)}
             </p>
           </div>
@@ -125,8 +125,8 @@ export default function BalanceCard({
         >
           <defs>
             <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#00C9A7" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#00C9A7" stopOpacity="0" />
+              <stop offset="0%" stopColor="#16a34a" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#16a34a" stopOpacity="0" />
             </linearGradient>
             <filter id="sparkGlow">
               <feGaussianBlur stdDeviation="2.5" result="b" />
@@ -142,7 +142,7 @@ export default function BalanceCard({
           />
           <path
             d="M0.0,48.6 L10.7,47.7 L21.3,49.0 L32.0,45.8 L42.7,46.4 L53.3,43.8 L64.0,44.9 L74.7,41.6 L85.3,42.7 L96.0,39.9 L106.7,40.8 L117.3,38.4 L128.0,39.5 L138.7,36.2 L149.3,36.9 L160.0,33.4 L170.7,34.7 L181.3,31.2 L192.0,29.5 L202.7,26.9 L213.3,27.6 L224.0,23.9 L234.7,22.2 L245.3,18.9 L256.0,17.4 L266.7,13.5 L277.3,11.8 L288.0,7.0"
-            stroke="#00C9A7"
+            stroke="#16a34a"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -157,7 +157,7 @@ export default function BalanceCard({
         <motion.button
           whileTap={{ scale: 0.97 }}
           onClick={onDeposit}
-          className="flex flex-col items-center justify-center gap-2 rounded-2xl py-5 px-2 bg-[#00C9A7] text-white shadow-lg shadow-[#00C9A7]/20"
+          className="flex flex-col items-center justify-center gap-2 rounded-2xl py-5 px-2 bg-[#16a34a] text-white shadow-lg shadow-[#16a34a]/20"
         >
           <ArrowDownToLine className="w-5 h-5" />
           <span className="text-xs font-semibold">Deposit</span>

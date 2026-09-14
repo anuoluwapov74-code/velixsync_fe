@@ -87,7 +87,7 @@ function SidebarGrid({
               transition-all duration-200
               ${
                 isActive
-                  ? "text-[#00C9A7] bg-[rgba(0,201,167,0.08)] border border-[rgba(0,201,167,0.2)]"
+                  ? "text-[#16a34a] bg-[rgba(22,163,74,0.08)] border border-[rgba(22,163,74,0.2)]"
                   : "text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[rgba(255,255,255,0.05)] border border-transparent"
               }
             `}
@@ -132,10 +132,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className={`flex items-center justify-between p-5 border-b ${isDark ? "border-[rgba(0,201,167,0.12)]" : "border-gray-200"}`}>
+          <div className={`flex items-center justify-between p-5 border-b ${isDark ? "border-[rgba(22,163,74,0.12)]" : "border-gray-200"}`}>
             <Link href="/portfolio" className="flex items-center">
               <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                <span className="text-green-600 dark:text-green-400">Velix</span>Sync
+                <span className="text-green-600">Velix</span>Sync
               </span>
             </Link>
 
@@ -211,7 +211,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           </div>
 
           {/* Bottom Section */}
-          <div className={`p-3 border-t ${isDark ? "border-[rgba(0,201,167,0.12)]" : "border-gray-200"}`}>
+          <div className={`p-3 border-t ${isDark ? "border-[rgba(22,163,74,0.12)]" : "border-gray-200"}`}>
             <div className="px-3 py-2.5 rounded-lg tv-inner">
               <p className="text-[10px] font-medium text-gray-600 dark:text-gray-300 mb-0.5">
                 Need help?

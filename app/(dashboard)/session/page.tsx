@@ -44,10 +44,10 @@ export default function LiveTradingPage() {
           <div className="flex items-start gap-3">
             <AlertCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-semibold text-green-700 dark:text-green-400 mb-1">
+              <h3 className="font-semibold text-green-600 mb-1">
                 Live Trading
               </h3>
-              <p className="text-sm text-green-800 dark:text-green-300">
+              <p className="text-sm text-green-600">
                 Access real-time trading opportunities. Click the button below
                 to view the requirements for starting a live trading session.
               </p>
@@ -60,7 +60,7 @@ export default function LiveTradingPage() {
           <motion.button
             onClick={() => setShowModal(true)}
             className="px-8 py-4 text-sm font-bold rounded-xl shadow-lg hover:shadow-xl hover:opacity-90 transition-all duration-300 flex items-center gap-3"
-            style={{ background: "#00C9A7", color: "#001a0f" }}
+            style={{ background: "#16a34a", color: "#001a0f" }}
             animate={{
               y: [0, -10, 0],
             }}
@@ -98,7 +98,7 @@ export default function LiveTradingPage() {
               onClick={() => setShowModal(false)}
             >
               <div
-                className="rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(0,201,167,0.14)]"
+                className="rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Modal Header */}

@@ -116,7 +116,7 @@ export default function NotificationDropdown({ onClose }: NotificationDropdownPr
       case "trade":
         return { bg: "bg-emerald-100 dark:bg-emerald-500/20", text: "text-emerald-600" };
       case "deposit":
-        return { bg: "bg-green-100 dark:bg-green-500/20", text: "text-green-700" };
+        return { bg: "bg-green-100 dark:bg-green-500/20", text: "text-green-600" };
       case "withdrawal":
         return { bg: "bg-green-100 dark:bg-green-500/20", text: "text-green-600" };
       case "alert":
@@ -149,10 +149,10 @@ export default function NotificationDropdown({ onClose }: NotificationDropdownPr
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -10, scale: 0.95 }}
         transition={{ duration: 0.2 }}
-        className="fixed sm:absolute left-2 right-2 sm:left-auto sm:right-0 top-16 sm:top-auto sm:mt-2 sm:w-96 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white/97 border border-gray-200 dark:bg-[rgba(13,26,18,0.97)] dark:border-[rgba(0,201,167,0.14)]"
+        className="fixed sm:absolute left-2 right-2 sm:left-auto sm:right-0 top-16 sm:top-auto sm:mt-2 sm:w-96 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white/97 border border-gray-200 dark:bg-[rgba(13,26,18,0.97)] dark:border-[rgba(22,163,74,0.14)]"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(0,201,167,0.1)]">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(22,163,74,0.1)]">
           <div className="flex items-center space-x-2">
             <h3 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">
               Notifications
@@ -166,7 +166,7 @@ export default function NotificationDropdown({ onClose }: NotificationDropdownPr
           {unreadCount > 0 && (
             <button
               onClick={markAllAsRead}
-              className="text-[10px] sm:text-xs text-green-700 hover:text-green-800 dark:text-green-400 dark:hover:text-green-400 font-medium transition-colors"
+              className="text-[10px] sm:text-xs text-green-600 hover:text-green-700 font-medium transition-colors"
             >
               Mark all read
             </button>
@@ -205,7 +205,7 @@ export default function NotificationDropdown({ onClose }: NotificationDropdownPr
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="px-4 py-3 hover:bg-[rgba(0,201,167,0.04)] transition-colors cursor-pointer"
+                  className="px-4 py-3 hover:bg-[rgba(22,163,74,0.04)] transition-colors cursor-pointer"
                   onClick={handleViewAll}
                 >
                   <div className="flex items-start space-x-2.5">
@@ -243,10 +243,10 @@ export default function NotificationDropdown({ onClose }: NotificationDropdownPr
         </div>
 
         {/* Footer */}
-        <div className="px-4 py-2.5 border-t border-[rgba(0,201,167,0.1)]">
+        <div className="px-4 py-2.5 border-t border-[rgba(22,163,74,0.1)]">
           <button
             onClick={handleViewAll}
-            className="w-full text-center text-[10px] sm:text-xs text-green-700 hover:text-green-800 dark:text-green-400 dark:hover:text-green-400 font-medium transition-colors"
+            className="w-full text-center text-[10px] sm:text-xs text-green-600 hover:text-green-700 font-medium transition-colors"
           >
             View all notifications
           </button>

@@ -281,7 +281,7 @@ export default function NotificationsPage() {
               <button
                 onClick={markAllAsRead}
                 disabled={markingAllRead}
-                className="px-4 py-2 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] rounded-lg font-medium transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-4 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-medium transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {markingAllRead ? (
                   <>
@@ -305,8 +305,8 @@ export default function NotificationsPage() {
                 onClick={() => setFilter(option.value)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   filter === option.value
-                    ? "bg-[#00C9A7] text-[#001a0f]"
-                    : "tv-card text-gray-300 hover:opacity-80 border-[rgba(0,201,167,0.14)]"
+                    ? "bg-[#16a34a] text-[#001a0f]"
+                    : "tv-card text-gray-300 hover:opacity-80 border-[rgba(22,163,74,0.14)]"
                 }`}
               >
                 {option.label}
@@ -330,7 +330,7 @@ export default function NotificationsPage() {
             <p className="text-red-500 text-lg mb-4">Failed to load notifications</p>
             <button
               onClick={() => mutate()}
-              className="px-6 py-2 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors"
+              className="px-6 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors"
             >
               Retry
             </button>
@@ -369,8 +369,8 @@ export default function NotificationsPage() {
                     onClick={() => handleNotificationClick(notification)}
                     className={`rounded-xl p-5 border transition-all duration-300 cursor-pointer ${
                       notification.read
-                        ? "border-[rgba(0,201,167,0.14)] bg-[rgba(0,201,167,0.04)] hover:border-[rgba(0,201,167,0.3)]"
-                        : "border-[#00C9A7] bg-[rgba(0,201,167,0.08)] hover:border-[#00C9A7]"
+                        ? "border-[rgba(22,163,74,0.14)] bg-[rgba(22,163,74,0.04)] hover:border-[rgba(22,163,74,0.3)]"
+                        : "border-[#16a34a] bg-[rgba(22,163,74,0.08)] hover:border-[#16a34a]"
                     }`}
                   >
                     <div className="flex gap-4">
@@ -469,7 +469,7 @@ export default function NotificationsPage() {
             >
               <div
                 className="rounded-2xl max-w-3xl w-full max-h-[95vh] flex flex-col overflow-hidden shadow-2xl"
-                style={{ background: "#0b1a12", border: "1px solid rgba(0,201,167,0.14)" }}
+                style={{ background: "#0b1a12", border: "1px solid rgba(22,163,74,0.14)" }}
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Close Button */}
@@ -595,7 +595,7 @@ export default function NotificationsPage() {
                   {/* Close Button */}
                   <button
                     onClick={closeModal}
-                    className="w-full py-3 bg-[#00C9A7] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-colors"
+                    className="w-full py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-colors"
                   >
                     Close
                   </button>
