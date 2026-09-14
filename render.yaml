@@ -1,0 +1,17 @@
+﻿services:
+  - type: web
+    name: VelixSync-frontend
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BACKEND_ORIGIN
+        value: https://VelixSync.onrender.com
+      - key: NEXT_PUBLIC_APP_BACKEND_ORIGIN
+        value: https://VelixSync.onrender.com/api/auth
+      - key: NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+        value: elite_preset
+      - key: NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+        value: daf9tr3lf
