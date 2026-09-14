@@ -18,6 +18,11 @@ import HeroBalanceCard from "@/components/dashboard/portfolio/HeroBalanceCard";
 import DepositModal from "@/components/dashboard/modals/DepositModal";
 import WithdrawModal from "@/components/dashboard/modals/WithdrawModal";
 import AccountsModal from "@/components/dashboard/modals/AccountsModal";
+// Same tab content as the standalone /calendar page — reused directly (not
+// duplicated) so the two stay in sync automatically. /calendar itself is
+// untouched; this just renders the same self-contained components here too.
+import CalendarTab from "../calendar/_components/CalendarTab";
+import StatsTab from "../calendar/_components/StatsTab";
 
 interface DashboardData {
   balance: number;
@@ -368,6 +373,17 @@ export default function PortfolioPage() {
         </div>
         </>)}
       </div>
+
+      {/* ── Calendar / Trade Log / Stats — controlled by the sticky tab bar
+          pinned at the top of the page, right under the Deposit/Withdraw/
+          Accounts row as requested. Same components as the standalone
+          /calendar page, so behavior and data stay identical. ── */}
+      {!isLoading && (
+        <div>
+          {activeQuickTab === 0 && <CalendarTab />}
+          {activeQuickTab === 1 && <StatsTab />}
+        </div>
+      )}
 
       {/* ── Bottom row: trade copied + following, side by side on desktop.
           items-start so each card keeps its own natural height — opening one
