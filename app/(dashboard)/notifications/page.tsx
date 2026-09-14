@@ -468,18 +468,16 @@ export default function NotificationsPage() {
               onClick={closeModal}
             >
               <div
-                className="rounded-2xl max-w-3xl w-full max-h-[95vh] flex flex-col overflow-hidden shadow-2xl"
-                style={{ background: "#0b1a12", border: "1px solid rgba(22,163,74,0.14)" }}
+                className="rounded-2xl max-w-3xl w-full max-h-[95vh] flex flex-col overflow-hidden shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Close Button */}
                 <button
                   onClick={closeModal}
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity z-10"
-                  style={{ background: "rgba(255,255,255,0.08)" }}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity z-10 bg-gray-100 dark:bg-white/8"
                   aria-label="Close modal"
                 >
-                  <X className="w-3.5 h-3.5 text-gray-400" />
+                  <X className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" />
                 </button>
 
                 {/* Scrollable Content */}

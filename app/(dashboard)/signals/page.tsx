@@ -393,7 +393,7 @@ export default function SignalsPage() {
               onClick={() => setShowPurchaseModal(false)}
             >
               <div
-                className="rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto"
+                className="rounded-2xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
@@ -489,7 +489,7 @@ export default function SignalsPage() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <div className="rounded-2xl max-w-md w-full p-6 text-center">
+              <div className="rounded-2xl max-w-md w-full p-6 text-center shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]">
                 <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-10 h-10 text-green-500" />
                 </div>

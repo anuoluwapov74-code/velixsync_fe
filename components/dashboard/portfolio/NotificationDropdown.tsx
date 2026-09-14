@@ -149,7 +149,7 @@ export default function NotificationDropdown({ onClose }: NotificationDropdownPr
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -10, scale: 0.95 }}
         transition={{ duration: 0.2 }}
-        className="fixed sm:absolute left-2 right-2 sm:left-auto sm:right-0 top-16 sm:top-auto sm:mt-2 sm:w-96 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white/97 border border-gray-200 dark:bg-[rgba(13,26,18,0.97)] dark:border-[rgba(22,163,74,0.14)]"
+        className="fixed sm:absolute left-2 right-2 sm:left-auto sm:right-0 top-16 sm:top-auto sm:mt-2 sm:w-96 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white border border-gray-200 dark:bg-[#0d1a12] dark:border-[rgba(22,163,74,0.14)]"
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(22,163,74,0.1)]">

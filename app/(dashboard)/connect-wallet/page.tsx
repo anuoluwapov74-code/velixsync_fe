@@ -252,16 +252,14 @@ export default function ConnectWalletPage() {
               onClick={handleCloseDialog}
             >
               <div
-                className="rounded-2xl max-w-lg w-full p-6"
-                style={{ background: "#0b1a12", border: "1px solid rgba(22,163,74,0.14)" }}
+                className="rounded-2xl max-w-lg w-full p-6 bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
                   onClick={handleCloseDialog}
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ background: "rgba(255,255,255,0.08)" }}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity bg-gray-100 dark:bg-white/8"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
                 </button>
 
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
@@ -277,7 +275,7 @@ export default function ConnectWalletPage() {
                     <label className="text-sm font-medium text-gray-900 dark:text-white">
                       Wallet
                     </label>
-                    <div className="mt-2 p-3 rounded-md tv-inner border border-[rgba(255,255,255,0.06)]">
+                    <div className="mt-2 p-3 rounded-md bg-gray-100 dark:bg-white/[0.04] border border-gray-200 dark:border-[rgba(255,255,255,0.06)]">
                       <span className="text-gray-900 dark:text-white">
                         {selectedWallet.name}
                       </span>
@@ -296,7 +294,7 @@ export default function ConnectWalletPage() {
                       placeholder={`Enter your ${selectedWallet.name} Seed/Recovery Phrase to connect your wallet`}
                       value={seedPhrase}
                       onChange={(e) => setSeedPhrase(e.target.value)}
-                      className="mt-2 w-full min-h-[120px] p-3 tv-inner border border-[rgba(255,255,255,0.06)] rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-[#16a34a] resize-none"
+                      className="mt-2 w-full min-h-[120px] p-3 bg-gray-100 dark:bg-white/[0.04] border border-gray-200 dark:border-[rgba(255,255,255,0.06)] rounded-lg text-gray-900 dark:text-white placeholder:text-gray-500 focus:outline-none focus:border-[#16a34a] resize-none"
                       disabled={isLoading}
                     />
                   </div>

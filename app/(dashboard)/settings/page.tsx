@@ -5,17 +5,14 @@ import useSWR from "swr";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  User,
   Shield,
-  Wallet,
   X,
   Loader2,
   Lock,
   Eye,
+  AlertTriangle,
 } from "lucide-react";
 import { apiFetch } from "@/lib/api";
-
-type Tab = "profile" | "security" | "payment";
 
 interface EditModalData {
   type:
@@ -23,10 +20,8 @@ interface EditModalData {
     | "phone"
     | "country"
     | "password"
-    | "btc"
-    | "eth"
-    | "usdt"
     | "disable2fa"
+    | "deleteAccount"
     | null;
 }
 
@@ -43,28 +38,10 @@ interface UserSettings {
     is_verified: boolean;
     account_status: string;
   };
-  payment_methods: {
-    btc: {
-      address: string;
-      has_method: boolean;
-    };
-    eth: {
-      address: string;
-      network: string;
-      has_method: boolean;
-    };
-    usdt: {
-      address: string;
-      network: string;
-      method_type: string;
-      has_method: boolean;
-    };
-  };
 }
 
 export default function SettingsPage() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<Tab>("profile");
   const [editModal, setEditModal] = useState<EditModalData>({ type: null });
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -87,10 +64,10 @@ export default function SettingsPage() {
     oldPassword: "",
     newPassword: "",
     confirmPassword: "",
-    cryptoAddress: "",
-    usdtNetwork: "USDT_TRC20",
     disable2faPassword: "",
+    deleteAccountPassword: "",
   });
+  const [deletingAccount, setDeletingAccount] = useState(false);
 
   useEffect(() => {
     if (settingsFetchError) setError("Failed to load settings. Please try again.");
@@ -178,6 +155,53 @@ export default function SettingsPage() {
     }
   };
 
+  const openDeleteAccountModal = () => {
+    setFormData({ ...formData, deleteAccountPassword: "" });
+    setEditModal({ type: "deleteAccount" });
+  };
+
+  const handleDeleteAccount = async () => {
+    if (!formData.deleteAccountPassword) {
+      setError("Password is required to delete your account");
+      return;
+    }
+
+    try {
+      setDeletingAccount(true);
+      setError(null);
+      setSuccessMessage(null);
+
+      const response = await apiFetch("/settings/delete-account/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password: formData.deleteAccountPassword,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to delete account");
+      }
+
+      // Account is flagged deleted and cookies are cleared server-side —
+      // nothing left to do here but send them to login.
+      router.push("/login");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error("Error deleting account:", err);
+        setError(err.message);
+      } else {
+        setError("Failed to delete account. Please try again.");
+      }
+    } finally {
+      setDeletingAccount(false);
+    }
+  };
+
   const openEditModal = (type: EditModalData["type"]) => {
     if (!userSettings) return;
 
@@ -194,26 +218,6 @@ export default function SettingsPage() {
         break;
       case "country":
         setFormData({ ...formData, country: userSettings.profile.country });
-        break;
-      case "btc":
-        setFormData({
-          ...formData,
-          cryptoAddress: userSettings.payment_methods.btc.address,
-        });
-        break;
-      case "eth":
-        setFormData({
-          ...formData,
-          cryptoAddress: userSettings.payment_methods.eth.address,
-        });
-        break;
-      case "usdt":
-        setFormData({
-          ...formData,
-          cryptoAddress: userSettings.payment_methods.usdt.address,
-          usdtNetwork:
-            userSettings.payment_methods.usdt.method_type || "USDT_TRC20",
-        });
         break;
       case "password":
         setFormData({
@@ -237,9 +241,8 @@ export default function SettingsPage() {
       oldPassword: "",
       newPassword: "",
       confirmPassword: "",
-      cryptoAddress: "",
-      usdtNetwork: "USDT_TRC20",
       disable2faPassword: "",
+      deleteAccountPassword: "",
     });
     setSuccessMessage(null);
     setError(null);
@@ -278,38 +281,11 @@ export default function SettingsPage() {
             confirm_password: formData.confirmPassword,
           };
           break;
-        case "btc":
-          endpoint = "/settings/payment-method/";
-          body = {
-            method_type: "BTC",
-            address: formData.cryptoAddress,
-          };
-          break;
-        case "eth":
-          endpoint = "/settings/payment-method/";
-          body = {
-            method_type: "ETH",
-            address: formData.cryptoAddress,
-          };
-          break;
-        case "usdt":
-          endpoint = "/settings/payment-method/";
-          body = {
-            method_type: formData.usdtNetwork,
-            address: formData.cryptoAddress,
-          };
-          break;
         default:
           return;
       }
 
-      const method =
-        editModal.type === "password" ||
-        editModal.type === "btc" ||
-        editModal.type === "eth" ||
-        editModal.type === "usdt"
-          ? "POST"
-          : "PATCH";
+      const method = editModal.type === "password" ? "POST" : "PATCH";
 
       const response = await apiFetch(endpoint, {
         method,
@@ -383,7 +359,7 @@ export default function SettingsPage() {
           </div>
           <button
             onClick={() => router.push("/profile")}
-            className="flex items-center gap-2 px-6 py-3 tv-card text-white font-semibold rounded-lg transition-colors hover:opacity-80"
+            className="flex items-center gap-2 px-6 py-3 tv-card text-gray-900 dark:text-white font-semibold rounded-lg transition-colors hover:opacity-80"
           >
             <Eye className="w-4 h-4" />
             View Profile
@@ -416,39 +392,13 @@ export default function SettingsPage() {
           )}
         </AnimatePresence>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-2 sm:gap-3 mb-6">
-          {(["profile", "security", "payment"] as const).map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all ${
-                activeTab !== tab
-                  ? "tv-card text-gray-300 hover:opacity-80"
-                  : ""
-              }`}
-              style={activeTab === tab ? { background: "#16a34a", color: "#001a0f" } : undefined}
-            >
-              {tab === "profile" && <User className="w-4 h-4" />}
-              {tab === "security" && <Shield className="w-4 h-4" />}
-              {tab === "payment" && <Wallet className="w-4 h-4" />}
-              {tab === "profile" ? "Profile" : tab === "security" ? "Security" : "Payment Info"}
-            </button>
-          ))}
-        </div>
+        {/* Profile section */}
+        <div>
+          <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-4">
+            Account Information
+          </h2>
 
-        {/* Profile Tab */}
-        {activeTab === "profile" && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-          >
-            <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-4">
-              Account Information
-            </h2>
-
-            <div className="space-y-3">
+          <div className="space-y-3">
               {/* Full Name */}
               <div className="tv-card p-5 rounded-lg">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -558,11 +508,10 @@ export default function SettingsPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
-        )}
+          </div>
 
-        {/* Security Tab */}
-        {activeTab === "security" && (
+        {/* Security section */}
+        <div className="mt-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -683,109 +632,36 @@ export default function SettingsPage() {
                   )}
                 </div>
               </div>
-            </div>
-          </motion.div>
-        )}
 
-        {/* Payment Information Tab */}
-        {activeTab === "payment" && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-          >
-            <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-2">
-              Withdrawal Addresses
-            </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              Information for withdrawal methods available on your account
-            </p>
-
-            <div className="space-y-3">
-              {/* Bitcoin Address */}
-              <div className="tv-card p-5 rounded-lg">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                      Bitcoin Address (BTC)
+              {/* Delete Account — danger zone */}
+              <div className="border-2 border-red-500/30 bg-red-500/5 dark:bg-red-500/10 p-5 rounded-lg">
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-red-500/10 dark:bg-red-500/20 rounded-lg">
+                    <AlertTriangle className="w-5 h-5 text-red-500" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                      Delete Account
                     </div>
-                    <div className="text-sm font-semibold text-gray-900 dark:text-white break-all">
-                      {userSettings.payment_methods.btc.address ||
-                        "No address added"}
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                      This deactivates your account and signs you out everywhere —
+                      it does not erase your data. If you change your mind, contact
+                      support to have it reactivated.
                     </div>
                   </div>
-                  <button
-                    onClick={() => openEditModal("btc")}
-                    className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors whitespace-nowrap self-start sm:self-auto"
-                  >
-                    {userSettings.payment_methods.btc.has_method
-                      ? "Edit"
-                      : "Add"}{" "}
-                    BTC Address
-                  </button>
                 </div>
-              </div>
-
-              {/* Ethereum Address */}
-              <div className="tv-card p-5 rounded-lg">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                      Ethereum Address (ETH)
-                    </div>
-                    <div className="text-sm font-semibold text-gray-900 dark:text-white break-all">
-                      {userSettings.payment_methods.eth.address ||
-                        "No address added"}
-                    </div>
-                    {userSettings.payment_methods.eth.network && (
-                      <div className="text-xs text-gray-500 mt-1">
-                        {userSettings.payment_methods.eth.network}
-                      </div>
-                    )}
-                  </div>
+                <div className="flex justify-end mt-4 pt-3 border-t border-red-500/20">
                   <button
-                    onClick={() => openEditModal("eth")}
-                    className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors whitespace-nowrap self-start sm:self-auto"
+                    onClick={openDeleteAccountModal}
+                    className="px-4 py-2 text-sm bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors whitespace-nowrap"
                   >
-                    {userSettings.payment_methods.eth.has_method
-                      ? "Edit"
-                      : "Add"}{" "}
-                    ETH Address
-                  </button>
-                </div>
-              </div>
-
-              {/* USDT Address */}
-              <div className="tv-card p-5 rounded-lg">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                      USDT Address
-                    </div>
-                    <div className="text-sm font-semibold text-gray-900 dark:text-white break-all">
-                      {userSettings.payment_methods.usdt.address ||
-                        "No address added"}
-                    </div>
-                    {userSettings.payment_methods.usdt.network && (
-                      <div className="text-xs text-gray-500 mt-1">
-                        {userSettings.payment_methods.usdt.network}
-                      </div>
-                    )}
-                  </div>
-                  <button
-                    onClick={() => openEditModal("usdt")}
-                    className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors whitespace-nowrap self-start sm:self-auto"
-                  >
-                    {userSettings.payment_methods.usdt.has_method
-                      ? "Edit"
-                      : "Add"}{" "}
-                    USDT Address
+                    Delete Account
                   </button>
                 </div>
               </div>
             </div>
           </motion.div>
-        )}
+        </div>
       </div>
 
       {/* Edit Modals */}
@@ -802,7 +678,7 @@ export default function SettingsPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="tv-card rounded-xl max-w-md w-full p-6"
+              className="rounded-xl max-w-md w-full p-6 shadow-2xl bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
@@ -869,7 +745,7 @@ export default function SettingsPage() {
                         })
                       }
                       placeholder="Enter your password"
-                      className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 border border-[rgba(255,255,255,0.1)]"
+                      className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                     />
                   </div>
                   <div className="flex gap-3 mt-5">
@@ -918,7 +794,7 @@ export default function SettingsPage() {
                             firstName: e.target.value,
                           })
                         }
-                        className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                        className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                       />
                     </div>
                     <div>
@@ -934,7 +810,7 @@ export default function SettingsPage() {
                             lastName: e.target.value,
                           })
                         }
-                        className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                        className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                       />
                     </div>
                   </div>
@@ -980,7 +856,7 @@ export default function SettingsPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                      className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                     />
                   </div>
                   <div className="flex gap-3 mt-5">
@@ -1025,7 +901,7 @@ export default function SettingsPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, country: e.target.value })
                       }
-                      className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                      className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                     />
                   </div>
                   <div className="flex gap-3 mt-5">
@@ -1074,7 +950,7 @@ export default function SettingsPage() {
                             oldPassword: e.target.value,
                           })
                         }
-                        className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                        className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                       />
                     </div>
                     <div>
@@ -1090,7 +966,7 @@ export default function SettingsPage() {
                             newPassword: e.target.value,
                           })
                         }
-                        className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                        className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                       />
                     </div>
                     <div>
@@ -1106,7 +982,7 @@ export default function SettingsPage() {
                             confirmPassword: e.target.value,
                           })
                         }
-                        className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                        className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                       />
                     </div>
                   </div>
@@ -1136,131 +1012,54 @@ export default function SettingsPage() {
                 </>
               )}
 
-              {/* Crypto Address Edit Modals (BTC & ETH) */}
-              {(editModal.type === "btc" || editModal.type === "eth") && (
+              {/* Delete Account Modal */}
+              {editModal.type === "deleteAccount" && (
                 <>
                   <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4">
-                    {editModal.type === "btc" &&
-                      `${
-                        userSettings?.payment_methods.btc.has_method
-                          ? "Edit"
-                          : "Add"
-                      } Bitcoin Address`}
-                    {editModal.type === "eth" &&
-                      `${
-                        userSettings?.payment_methods.eth.has_method
-                          ? "Edit"
-                          : "Add"
-                      } Ethereum Address`}
+                    Delete Account
                   </h3>
+                  <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+                    <p className="text-red-600 dark:text-red-400 text-sm">
+                      You will be signed out immediately and won&apos;t be able to
+                      log back in. Your data isn&apos;t erased — contact support if
+                      you want the account reactivated.
+                    </p>
+                  </div>
                   <div>
                     <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1.5">
-                      {editModal.type === "btc" && "Bitcoin Address:"}
-                      {editModal.type === "eth" && "Ethereum Address (ERC20):"}
+                      Enter your password to confirm:
                     </label>
                     <input
-                      type="text"
-                      value={formData.cryptoAddress}
+                      type="password"
+                      value={formData.deleteAccountPassword}
                       onChange={(e) =>
                         setFormData({
                           ...formData,
-                          cryptoAddress: e.target.value,
+                          deleteAccountPassword: e.target.value,
                         })
                       }
-                      placeholder="Enter wallet address"
-                      className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
+                      placeholder="Enter your password"
+                      className="w-full px-3 py-2.5 text-sm bg-gray-100 dark:bg-[rgba(255,255,255,0.05)] text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-300 dark:border-[rgba(255,255,255,0.1)]"
                     />
                   </div>
                   <div className="flex gap-3 mt-5">
                     <button
-                      onClick={handleUpdate}
-                      disabled={updating}
-                      className="flex-1 py-2.5 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={handleDeleteAccount}
+                      disabled={deletingAccount}
+                      className="flex-1 py-2.5 text-sm bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {updating ? (
+                      {deletingAccount ? (
                         <span className="flex items-center justify-center gap-2">
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          Updating...
+                          Deleting...
                         </span>
                       ) : (
-                        "Update"
+                        "Delete My Account"
                       )}
                     </button>
                     <button
                       onClick={closeModal}
-                      disabled={updating}
-                      className="flex-1 py-2.5 text-sm bg-gray-200 hover:bg-gray-300 dark:bg-white/10 dark:hover:bg-white/20 text-gray-900 dark:text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </>
-              )}
-
-              {/* USDT Address Edit Modal with Network Selection */}
-              {editModal.type === "usdt" && (
-                <>
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4">
-                    {userSettings?.payment_methods.usdt.has_method
-                      ? "Edit"
-                      : "Add"}{" "}
-                    USDT Address
-                  </h3>
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1.5">
-                        Network:
-                      </label>
-                      <select
-                        value={formData.usdtNetwork}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            usdtNetwork: e.target.value,
-                          })
-                        }
-                        className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
-                      >
-                        <option value="USDT_TRC20">TRC20 (Tron)</option>
-                        <option value="USDT_ERC20">ERC20 (Ethereum)</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1.5">
-                        USDT Address:
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.cryptoAddress}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            cryptoAddress: e.target.value,
-                          })
-                        }
-                        placeholder="Enter wallet address"
-                        className="w-full px-3 py-2.5 text-sm bg-[rgba(255,255,255,0.05)] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16a34a] border border-[rgba(255,255,255,0.1)]"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex gap-3 mt-5">
-                    <button
-                      onClick={handleUpdate}
-                      disabled={updating}
-                      className="flex-1 py-2.5 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {updating ? (
-                        <span className="flex items-center justify-center gap-2">
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          Updating...
-                        </span>
-                      ) : (
-                        "Update"
-                      )}
-                    </button>
-                    <button
-                      onClick={closeModal}
-                      disabled={updating}
+                      disabled={deletingAccount}
                       className="flex-1 py-2.5 text-sm bg-gray-200 hover:bg-gray-300 dark:bg-white/10 dark:hover:bg-white/20 text-gray-900 dark:text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Cancel

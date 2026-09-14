@@ -11,7 +11,7 @@ const items = [
   { name: "Session", href: "/session", icon: Target },
   { name: "Markets", href: "/market", icon: TrendingUp },
   { name: "Copy Trading", href: "/explore-traders", icon: Repeat },
-  { name: "Profile", href: "/profile", icon: User },
+  { name: "Profile", href: "/settings", icon: User },
 ] as const;
 
 export default function BottomNav() {

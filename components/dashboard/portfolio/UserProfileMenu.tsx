@@ -43,7 +43,7 @@ export default function UserProfileMenu({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -10, scale: 0.95 }}
         transition={{ duration: 0.2 }}
-        className="absolute right-0 mt-2 w-64 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white/97 border border-gray-200 dark:bg-[rgba(13,26,18,0.97)] dark:border-[rgba(22,163,74,0.14)]"
+        className="absolute right-0 mt-2 w-64 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden z-50 bg-white border border-gray-200 dark:bg-[#0d1a12] dark:border-[rgba(22,163,74,0.14)]"
       >
         {/* User Info */}
         <div className="px-4 py-4 border-b border-[rgba(22,163,74,0.1)]">

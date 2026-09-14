@@ -582,7 +582,7 @@ export default function ReferralPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="tv-card rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 relative"
+            className="rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 relative bg-white dark:bg-[#0b1a12] border border-gray-200 dark:border-[rgba(22,163,74,0.14)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
