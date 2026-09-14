@@ -5,17 +5,19 @@ import { useRouter, useSearchParams } from "next/navigation";
 import StocksTab from "@/components/dashboard/market/StocksTab";
 import TreemapTab from "@/components/dashboard/market/TreemapTab";
 import NewsTab from "@/components/dashboard/market/NewsTab";
+import LoyaltyTab from "@/components/dashboard/market/LoyaltyTab";
 
-type Tab = "stocks" | "treemap" | "news";
+type Tab = "stocks" | "treemap" | "news" | "loyalty";
 
 const TABS: { key: Tab; label: string }[] = [
   { key: "stocks",  label: "Stocks" },
   { key: "treemap", label: "Treemap" },
   { key: "news",    label: "News Edge" },
+  { key: "loyalty", label: "Royalty Program" },
 ];
 
 function isTab(value: string | null): value is Tab {
-  return value === "stocks" || value === "treemap" || value === "news";
+  return value === "stocks" || value === "treemap" || value === "news" || value === "loyalty";
 }
 
 function MarketPageInner() {
@@ -56,6 +58,7 @@ function MarketPageInner() {
       {activeTab === "stocks" && <StocksTab />}
       {activeTab === "treemap" && <TreemapTab />}
       {activeTab === "news" && <NewsTab />}
+      {activeTab === "loyalty" && <LoyaltyTab />}
     </div>
   );
 }
