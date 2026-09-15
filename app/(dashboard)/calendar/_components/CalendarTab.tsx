@@ -7,8 +7,6 @@ import { MONTH_NAMES, formatCompactUSD, LABEL_COLOR } from "../_lib/helpers";
 import CalendarGrid from "./CalendarGrid";
 import PerformancePanel from "./PerformancePanel";
 import DailyPnlChart from "./DailyPnlChart";
-import SeasonalityHeatmap from "./SeasonalityHeatmap";
-import RecentTradesPanel from "./RecentTradesPanel";
 import ShareModal from "./ShareModal";
 import TopStatsBar from "./TopStatsBar";
 
@@ -134,12 +132,8 @@ export default function CalendarTab() {
         <PerformancePanel year={year} month={month} period={period} onPeriodChange={setPeriod} />
       </div>
 
-      {/* Bottom panels */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <DailyPnlChart year={year} month={month} dailyPnl={dailyPnl} />
-        <SeasonalityHeatmap />
-        <RecentTradesPanel />
-      </div>
+      {/* Bottom panel */}
+      <DailyPnlChart year={year} month={month} dailyPnl={dailyPnl} />
 
       <ShareModal
         isOpen={isShareOpen}

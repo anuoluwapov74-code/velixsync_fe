@@ -11,7 +11,6 @@ import {
   TradeCopiedSection,
 } from "@/components/dashboard/portfolio/TradingSections";
 import {
-  LiveTradingCard,
   PortfolioBreakdownCard,
 } from "@/components/dashboard/portfolio/DashboardCards";
 import HeroBalanceCard from "@/components/dashboard/portfolio/HeroBalanceCard";
@@ -274,7 +273,6 @@ export default function PortfolioPage() {
                 <div className="h-1.5 rounded-full bg-gray-200 dark:bg-gray-700 mb-1.5" />
                 <div className="h-2.5 w-40 rounded bg-gray-200 dark:bg-gray-700" />
               </div>
-              <div className="h-12 rounded-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-white/10" />
               <div className="rounded-2xl overflow-hidden border border-gray-100 dark:border-white/[0.06]">
                 <div className="px-4 py-3 border-b border-gray-100 dark:border-white/[0.05] bg-white dark:bg-[#111e1b]">
                   <div className="h-3 w-32 rounded bg-gray-200 dark:bg-gray-700" />
@@ -363,7 +361,6 @@ export default function PortfolioPage() {
             </div>
           </motion.div>
           )}
-          <LiveTradingCard />
           <PortfolioBreakdownCard
             balance={dashboardData.balance}
             totalDeposits={dashboardData.totalDeposits}

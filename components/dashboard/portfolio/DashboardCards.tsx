@@ -1,36 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BarChart2, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { useTheme } from "next-themes";
-
-export function LiveTradingCard() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="w-full rounded-2xl p-3 tv-card flex justify-center"
-    >
-      <motion.a
-        href="/session"
-        whileHover={{ scale: 1.01 }}
-        whileTap={{ scale: 0.99 }}
-        className="inline-flex items-center gap-2.5 py-2.5 px-4 rounded-xl transition-all"
-        style={{ background: "rgba(239,68,68,0.1)" }}
-      >
-        <span className="relative flex h-2.5 w-2.5 shrink-0">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
-        </span>
-        <BarChart2 className="w-4 h-4 text-red-400" />
-        <span className="text-sm font-semibold text-gray-900 dark:text-white">
-          Go to Session
-        </span>
-      </motion.a>
-    </motion.div>
-  );
-}
 
 /* ── Donut: generic ring chart, segments drawn clockwise from 12 o'clock.
    Sized purely via CSS classes (not width/height attrs) so it scales down
