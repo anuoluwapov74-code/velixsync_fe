@@ -1,13 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowLeftRight, Wallet } from "lucide-react";
+import { X, ArrowLeftRight, Copy, Gift } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface AccountsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onDeposit: () => void;
 }
 
 const TEAL = "#16a34a";
@@ -23,7 +22,7 @@ function CloseBtn({ onClick }: { onClick: () => void }) {
   );
 }
 
-export default function AccountsModal({ isOpen, onClose, onDeposit }: AccountsModalProps) {
+export default function AccountsModal({ isOpen, onClose }: AccountsModalProps) {
   const router = useRouter();
 
   if (!isOpen) return null;
@@ -33,9 +32,14 @@ export default function AccountsModal({ isOpen, onClose, onDeposit }: AccountsMo
     router.push("/transfer");
   };
 
-  const handleDeposit = () => {
+  const handleMirroring = () => {
     onClose();
-    onDeposit();
+    router.push("/market");
+  };
+
+  const handleReferral = () => {
+    onClose();
+    router.push("/referral");
   };
 
   return (
@@ -84,18 +88,34 @@ export default function AccountsModal({ isOpen, onClose, onDeposit }: AccountsMo
                 </div>
               </button>
 
-              {/* Deposit */}
+              {/* Stock Portfolio Mirroring */}
               <button
-                onClick={handleDeposit}
+                onClick={handleMirroring}
                 className="w-full text-left rounded-xl p-4 bg-[rgba(22,163,74,0.06)] dark:bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.2)] dark:border-[rgba(22,163,74,0.14)] transition-opacity hover:opacity-90"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(22,163,74,0.12)" }}>
-                    <Wallet className="w-4.5 h-4.5" style={{ color: TEAL }} />
+                    <Copy className="w-4.5 h-4.5" style={{ color: TEAL }} />
                   </div>
                   <div>
-                    <p className="text-[14px] font-bold text-gray-900 dark:text-white">Deposit</p>
-                    <p className="text-[11px] text-gray-500 dark:text-white/40">Add funds to your account</p>
+                    <p className="text-[14px] font-bold text-gray-900 dark:text-white">Stock Portfolio Mirroring</p>
+                    <p className="text-[11px] text-gray-500 dark:text-white/40">Mirror an expert&apos;s stock portfolio</p>
+                  </div>
+                </div>
+              </button>
+
+              {/* Referral */}
+              <button
+                onClick={handleReferral}
+                className="w-full text-left rounded-xl p-4 bg-[rgba(22,163,74,0.06)] dark:bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.2)] dark:border-[rgba(22,163,74,0.14)] transition-opacity hover:opacity-90"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(22,163,74,0.12)" }}>
+                    <Gift className="w-4.5 h-4.5" style={{ color: TEAL }} />
+                  </div>
+                  <div>
+                    <p className="text-[14px] font-bold text-gray-900 dark:text-white">Referral</p>
+                    <p className="text-[11px] text-gray-500 dark:text-white/40">Invite friends and earn rewards</p>
                   </div>
                 </div>
               </button>

@@ -398,7 +398,7 @@ export default function PortfolioPage() {
       {/* Modals */}
       <DepositModal isOpen={showDeposit} onClose={handleDepositClose} />
       <WithdrawModal isOpen={showWithdraw} onClose={handleWithdrawClose} />
-      <AccountsModal isOpen={showAccounts} onClose={() => setShowAccounts(false)} onDeposit={() => setShowDeposit(true)} />
+      <AccountsModal isOpen={showAccounts} onClose={() => setShowAccounts(false)} />
     </div>
   );
 }

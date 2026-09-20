@@ -21,15 +21,6 @@ import {
   Gauge,
 } from "lucide-react";
 import { toast } from "sonner";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  ResponsiveContainer,
-  Tooltip,
-  CartesianGrid,
-} from "recharts";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -110,33 +101,87 @@ interface SimilarTrader {
   category: string;
 }
 
-function generateChartData(
-  direction: string,
-  period: string
-): Array<{ label: string; value: number }> {
-  const periods: Record<string, { count: number; labels: string[] }> = {
-    "1D": { count: 24, labels: Array.from({ length: 24 }, (_, i) => `${i}:00`) },
-    "1W": { count: 7, labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
-    "1M": { count: 30, labels: Array.from({ length: 30 }, (_, i) => `${i + 1}`) },
-    "3M": { count: 12, labels: ["W1","W2","W3","W4","W5","W6","W7","W8","W9","W10","W11","W12"] },
-    "1Y": { count: 12, labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"] },
+/* ══════════════════════════════════════════════════════════════════════════
+   Portfolio chart — ported from hagocapitals' /traders/[id] trader detail
+   page (same custom-SVG bezier chart, same time filters and functionality),
+   recolored to velixsync's brand green. The line shape is a deterministic
+   seeded curve trending with the trader's real direction/earnings (same
+   illustrative approach hagocapitals uses) — only the headline value/ROI
+   above the chart are real numbers, derived from the trader's real fields.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+const TIME_FILTERS = ["Week", "1D", "1H", "1W", "1M", "1Y"] as const;
+type TimeFilter = (typeof TIME_FILTERS)[number];
+
+const PERIOD_LABELS: Record<string, string[]> = {
+  "1H": ["5m", "10m", "20m", "30m", "40m", "50m", "1h"],
+  "1D": ["4am", "8am", "12pm", "2pm", "4pm", "6pm", "8pm"],
+  "Week": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "1W": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "1M": ["W1", "W2", "W3", "W4"],
+  "1Y": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+};
+
+const PERIOD_DESC: Record<string, string> = {
+  "1H": "Last hour", "1D": "Last 24 hours", "Week": "This week",
+  "1W": "Last 7 days", "1M": "Last 30 days", "1Y": "Last 12 months",
+};
+
+const PERIOD_DIVISOR: Record<string, number> = {
+  "1H": 8760, "1D": 365, "Week": 52, "1W": 52, "1M": 12, "1Y": 1,
+};
+
+const PERIOD_VOLATILITY: Record<string, number> = {
+  "1H": 30, "1D": 22, "Week": 18, "1W": 16, "1M": 12, "1Y": 8,
+};
+
+const PERIOD_POINTS: Record<string, number> = {
+  "1H": 12, "1D": 18, "Week": 7, "1W": 7, "1M": 20, "1Y": 12,
+};
+
+function seededRand(seed: number) {
+  let s = seed | 1;
+  return () => {
+    s = (s * 1664525 + 1013904223) & 0x7fffffff;
+    return s / 0x7fffffff;
   };
-  const config = periods[period] || periods["1M"];
-  const isUp = direction === "upward";
-  const data: Array<{ label: string; value: number }> = [];
-  let seed = period.charCodeAt(0) * 100;
-  const pseudoRandom = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
-  const baseValue = 10000;
-  let current = baseValue;
-  for (let i = 0; i < config.count; i++) {
-    const progress = i / (config.count - 1);
-    const noise = (pseudoRandom() - 0.5) * 800;
-    current = isUp
-      ? baseValue + progress * 5000 + noise
-      : baseValue + 5000 - progress * 5000 + noise;
-    data.push({ label: config.labels[i], value: Math.max(current, 1000) });
+}
+
+function generateChartPath(
+  period: string,
+  seed: number,
+  direction: "upward" | "downward" = "upward"
+): { stroke: string; fill: string } {
+  const n = PERIOD_POINTS[period] ?? 12;
+  const vol = PERIOD_VOLATILITY[period] ?? 15;
+  const rand = seededRand(seed ^ (period.charCodeAt(0) * 997));
+
+  const W = 580;
+  const yStart = direction === "downward" ? 12 : 165;
+  const yEnd = direction === "downward" ? 165 : 12;
+  const trend = (yEnd - yStart) / (n - 1);
+
+  const pts: { x: number; y: number }[] = [];
+  let y = yStart;
+  for (let i = 0; i < n; i++) {
+    pts.push({ x: (i / (n - 1)) * W, y: Math.max(5, Math.min(188, y)) });
+    y += trend + (rand() - 0.5) * vol * 2;
   }
-  return data;
+
+  let stroke = `M${pts[0].x.toFixed(1)},${pts[0].y.toFixed(1)}`;
+  for (let i = 1; i < pts.length; i++) {
+    const p = pts[i - 1], c = pts[i];
+    const cpx = ((p.x + c.x) / 2).toFixed(1);
+    stroke += ` C${cpx},${p.y.toFixed(1)} ${cpx},${c.y.toFixed(1)} ${c.x.toFixed(1)},${c.y.toFixed(1)}`;
+  }
+
+  return { stroke, fill: `${stroke} L${W},200 L0,200 Z` };
+}
+
+function formatDollar(v: number): string {
+  if (v >= 1_000_000) return `$${(v / 1_000_000).toFixed(2)}M`;
+  if (v >= 1_000) return `$${(v / 1_000).toFixed(2)}K`;
+  return `$${v.toFixed(2)}`;
 }
 
 const portfolioColors = ["#14532d","#22c55e","#86efac","#3b82f6","#10b981","#f59e0b","#8b5cf6","#ec4899"];
@@ -204,7 +249,7 @@ export default function TraderProfilePage() {
   const traderId = params.id;
 
   const [activeTab, setActiveTab] = useState<"overview" | "portfolio" | "history" | "copiers">("overview");
-  const [chartPeriod, setChartPeriod] = useState("1Y");
+  const [chartPeriod, setChartPeriod] = useState<TimeFilter>("Week");
   const [isCopying, setIsCopying] = useState(false);
   const [cancelRequested, setCancelRequested] = useState(false);
   const [copyActionLoading, setCopyActionLoading] = useState(false);
@@ -310,18 +355,34 @@ export default function TraderProfilePage() {
   const getAvatarUrl = (avatarUrl: string | null, name: string): string =>
     avatarUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random&size=128`;
 
-  const chartData = useMemo(() => {
-    if (!trader) return [];
-    return generateChartData(trader.trend_direction || "upward", chartPeriod);
+  const chartDirection: "upward" | "downward" = trader?.trend_direction === "downward" ? "downward" : "upward";
+  const chartColor = chartDirection === "downward" ? "#ef4444" : "#16a34a";
+
+  const chartSeed = useMemo(() => {
+    if (!trader) return 42;
+    return Math.abs(Math.round(parseFloat(trader.cumulative_earnings_copiers))) || 42;
+  }, [trader]);
+
+  const { stroke: chartStroke, fill: chartFill } = useMemo(
+    () => generateChartPath(chartPeriod, chartSeed, chartDirection),
+    [chartPeriod, chartSeed, chartDirection]
+  );
+
+  const displayValue = useMemo(() => {
+    if (!trader) return "$0.00";
+    const div = PERIOD_DIVISOR[chartPeriod] ?? 1;
+    return formatDollar(parseFloat(trader.cumulative_earnings_copiers) / div);
   }, [trader, chartPeriod]);
 
-  const chartColor = trader?.trend_direction === "downward" ? "#ef4444" : "#22c55e";
+  const displayRoi = useMemo(() => {
+    if (!trader) return "+0.00%";
+    const div = PERIOD_DIVISOR[chartPeriod] ?? 1;
+    const pct = parseFloat(trader.gain) / div;
+    return `${pct >= 0 ? "+" : ""}${pct.toFixed(2)}%`;
+  }, [trader, chartPeriod]);
 
-  const earningsValue = useMemo(() => chartData.length ? chartData[chartData.length - 1].value : 0, [chartData]);
-  const earningsChange = useMemo(() => {
-    if (chartData.length < 2) return 0;
-    return ((chartData[chartData.length - 1].value - chartData[0].value) / chartData[0].value) * 100;
-  }, [chartData]);
+  const chartXLabels = PERIOD_LABELS[chartPeriod] ?? [];
+  const chartPeriodDesc = PERIOD_DESC[chartPeriod] ?? "Last 90 days";
 
   const getRiskLabel = (risk: number) => {
     if (risk <= 3) return "Conservative";
@@ -492,56 +553,63 @@ export default function TraderProfilePage() {
         {activeTab === "overview" && (
           <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Chart */}
+              {/* Chart — ported from hagocapitals' trader detail "Portfolio" chart */}
               <div className="lg:col-span-2 tv-card rounded-2xl p-5 sm:p-6">
-                <div className="mb-1">
-                  <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400">Earnings</h2>
-                  <p className="text-xs text-gray-400 dark:text-gray-500">
-                    {new Date().getFullYear()}-{String(new Date().getMonth() + 1).padStart(2, "0")}-{new Date().getFullYear()}
-                  </p>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
+                  <div className="flex items-center gap-2 text-[12px] text-gray-400 dark:text-gray-500">
+                    <span className="font-medium text-gray-900 dark:text-white">Portfolio</span>
+                    <span>|</span>
+                    <span>{chartPeriodDesc}</span>
+                  </div>
+                  <div className="flex items-center gap-0.5 overflow-x-auto [scrollbar-width:none]">
+                    {TIME_FILTERS.map((f) => (
+                      <button
+                        key={f}
+                        onClick={() => setChartPeriod(f)}
+                        className={`h-6 px-2 rounded-full text-[11px] font-medium transition-colors ${
+                          chartPeriod === f
+                            ? "bg-[#16a34a] text-white"
+                            : "text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                        }`}
+                      >
+                        {f}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex gap-1 mb-4">
-                  {["1D", "1W", "1M", "3M", "1Y"].map((p) => (
-                    <button
-                      key={p}
-                      onClick={() => setChartPeriod(p)}
-                      className={`px-4 py-2 text-xs font-medium border transition-all ${
-                        chartPeriod === p
-                          ? "border-[#16a34a] bg-[rgba(22,163,74,0.08)] text-[#16a34a]"
-                          : "border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:border-gray-300 dark:hover:border-white/20"
-                      }`}
+
+                <div className="flex items-baseline gap-2 mb-4">
+                  <span className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white leading-none">
+                    {displayValue}
+                  </span>
+                  <span className={`text-[13px] font-semibold flex items-center gap-0.5 ${chartDirection === "downward" ? "text-red-500" : "text-[#16a34a]"}`}>
+                    {displayRoi}
+                    {chartDirection === "downward" ? <TrendingDown className="w-3.5 h-3.5" /> : <TrendingUp className="w-3.5 h-3.5" />}
+                  </span>
+                </div>
+
+                <div className="w-full overflow-hidden">
+                  <svg viewBox="0 0 580 200" preserveAspectRatio="none" className="w-full h-[180px] sm:h-[220px]">
+                    <defs>
+                      <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor={chartColor} stopOpacity="0.25" />
+                        <stop offset="100%" stopColor={chartColor} stopOpacity="0.02" />
+                      </linearGradient>
+                    </defs>
+                    <path d={chartFill} fill="url(#chartFill)" />
+                    <path d={chartStroke} fill="none" stroke={chartColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+
+                <div className="flex justify-between mt-2 px-1">
+                  {chartXLabels.map((label, i) => (
+                    <span
+                      key={label}
+                      className={`text-[10px] text-gray-400 dark:text-gray-500 ${chartXLabels.length > 8 && i % 2 !== 0 ? "hidden sm:inline" : ""}`}
                     >
-                      {p}
-                    </button>
+                      {label}
+                    </span>
                   ))}
-                </div>
-                <div className="flex items-baseline gap-3 mb-6">
-                  <span className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-                    ${earningsValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  </span>
-                  <span className={`text-sm font-semibold ${earningsChange >= 0 ? "text-green-500" : "text-red-500"}`}>
-                    {earningsChange >= 0 ? "+" : ""}{earningsChange.toFixed(1)}%
-                  </span>
-                </div>
-                <div className="h-56 sm:h-64">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={chartData}>
-                      <defs>
-                        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor={chartColor} stopOpacity={0.3} />
-                          <stop offset="100%" stopColor={chartColor} stopOpacity={0} />
-                        </linearGradient>
-                      </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke={isLight ? "#f1f5f9" : "#1e3a28"} vertical={false} />
-                      <XAxis dataKey="label" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: isLight ? "#94a3b8" : "#64748b" }} interval="preserveStartEnd" />
-                      <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: isLight ? "#94a3b8" : "#64748b" }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}K`} width={55} />
-                      <Tooltip
-                        contentStyle={{ backgroundColor: isLight ? "#ffffff" : "#0d3320", border: `1px solid ${isLight ? "#e2e8f0" : "rgba(39,174,96,0.2)"}`, borderRadius: 12, color: isLight ? "#0f1724" : "#fff", fontSize: 13 }}
-                        formatter={(value) => [`$${Number(value).toLocaleString(undefined, { maximumFractionDigits: 0 })}`, "Value"]}
-                      />
-                      <Area type="monotone" dataKey="value" stroke={chartColor} strokeWidth={2} fill="url(#chartGradient)" />
-                    </AreaChart>
-                  </ResponsiveContainer>
                 </div>
               </div>
 

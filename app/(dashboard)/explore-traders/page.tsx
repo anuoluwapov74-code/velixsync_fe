@@ -6,11 +6,8 @@ import {
   Search,
   ChevronDown,
   ChevronUp,
-  ArrowUpRight,
   Users,
   Star,
-  ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import { PulseLoader } from "react-spinners";
@@ -114,173 +111,52 @@ const formatGain = (gain: string) => {
 };
 
 /* ══════════════════════════════════════════════════════════════════════════
-   "When they grow, you grow" hero banner — reproduces the reference mockup
-   in code (light card that flips to a dark card in dark mode). The mockup
-   was designed at a single (roughly tablet-ish) width; the two-column
-   layout is kept at every breakpoint per instruction ("mobile should be
-   exactly the same" — no stacking), with sizes scaling down for real phone
-   widths. Desktop sizing beyond the mockup is improvised for balance.
+   Hero banner — ported from hagocapitals' /traders page banner (same copy,
+   layout and decorative imagery), recolored to velixsync's brand green.
    ══════════════════════════════════════════════════════════════════════════ */
 
-const FEATURED_TRADERS = [
-  { name: "OptionsMike", avatar: "/team/banner_1.jpg", returnPct: "31.18%" },
-  { name: "AlphaTrader", avatar: "/team/banner_2.jpg", returnPct: "24.96%" },
-  { name: "GreenMomentum", avatar: "/team/banner_3.jpg", returnPct: "18.72%" },
-];
-
-const BANNER_GRID_LINES = [
-  { y: 8, label: "+30%" },
-  { y: 46, label: "+20%" },
-  { y: 84, label: "+10%" },
-  { y: 122, label: "0%" },
-  { y: 160, label: "-10%" },
-];
-
-// Hand-drawn noisy-but-upward line, matching the mockup's "steady climb with
-// small dips" shape. Plot area is 0–260 on the x-axis; 260–320 is reserved
-// for the axis labels on the right, same as the reference.
-const BANNER_LINE_PATH =
-  "M0,150 L18,140 L36,144 L54,120 L72,128 L90,104 L108,110 L126,86 L144,92 L162,68 L180,72 L198,50 L216,40 L234,30 L252,20 L260,14";
-const BANNER_AREA_PATH = `${BANNER_LINE_PATH} L260,160 L0,160 Z`;
-
-function GrowthChart() {
+function HeroBanner() {
   return (
-    <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid meet" className="w-full h-full" fill="none">
-      <defs>
-        <linearGradient id="growthBannerFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#22c55e" stopOpacity="0.28" />
-          <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-
-      {BANNER_GRID_LINES.map((g) => (
-        <g key={g.label}>
-          <line
-            x1="0"
-            x2="260"
-            y1={g.y}
-            y2={g.y}
-            className="stroke-gray-200 dark:stroke-white/10"
-            strokeWidth="1"
-            strokeDasharray="3 4"
-          />
-          <text
-            x="270"
-            y={g.y + 3}
-            className="fill-gray-400 dark:fill-gray-500"
-            style={{ fontSize: 9, fontWeight: 600 }}
-          >
-            {g.label}
-          </text>
-        </g>
-      ))}
-
-      <path d={BANNER_AREA_PATH} fill="url(#growthBannerFill)" />
-      <path d={BANNER_LINE_PATH} stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-
-      {/* End-point halo + dot */}
-      <circle cx="260" cy="14" r="9" fill="#22c55e" fillOpacity="0.18" />
-      <circle cx="260" cy="14" r="4.5" fill="#22c55e" className="stroke-white dark:stroke-[#0b1a12]" strokeWidth="2" />
-    </svg>
-  );
-}
-
-const BANNER_FEATURES = [
-  { icon: ShieldCheck, title: "Secure & Regulated", sub: "Your capital is protected" },
-  { icon: Users, title: "30M+ Users", sub: "Join a global community" },
-  // The reference's third icon is a competitor's brand mark — swapped for a
-  // generic icon rather than reproducing another company's logo.
-  { icon: Sparkles, title: "Simple & Transparent", sub: "Easy to copy. Easy to invest." },
-];
-
-function GrowthBanner() {
-  return (
-    <div className="relative bg-white dark:bg-[#0b1a12] rounded-3xl border border-gray-100 dark:border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] overflow-hidden">
-      <div className="grid grid-cols-[minmax(0,6fr)_minmax(0,7fr)] gap-3 sm:gap-8 lg:gap-12 p-4 sm:p-8 lg:p-12">
-        {/* ── Left: heading, subtext, featured traders ── */}
-        <div className="min-w-0">
-          <h1 className="text-base sm:text-2xl lg:text-4xl xl:text-5xl font-extrabold leading-[1.15] text-gray-900 dark:text-white">
-            When they grow,
-            <br />
-            <span className="text-green-600">you grow</span>
-          </h1>
-          <p className="mt-2 sm:mt-4 text-[11px] sm:text-sm lg:text-base text-gray-500 dark:text-gray-400 max-w-[220px] sm:max-w-xs lg:max-w-sm leading-snug">
-            Copy experienced investors automatically and benefit from their knowledge and strategy.
-          </p>
-
-          {/* Fixed-size chips that scroll horizontally instead of shrinking
-              to fit — keeps avatars/text legible on narrow screens rather
-              than squeezing them past a readable floor. */}
-          <div
-            className="flex gap-3 sm:gap-6 mt-3 sm:mt-8 overflow-x-auto pr-2 [&::-webkit-scrollbar]:hidden"
-            style={{ scrollbarWidth: "none" }}
-          >
-            {FEATURED_TRADERS.map((t) => (
-              <div key={t.name} className="flex flex-col items-start shrink-0">
-                <div className="relative shrink-0">
-                  <div className="w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden border border-gray-100 dark:border-white/10 bg-gray-100 dark:bg-white/5">
-                    <Image
-                      src={t.avatar}
-                      alt={t.name}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center border-2 border-white dark:border-[#0b1a12]">
-                    <Star className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white fill-white" />
-                  </div>
-                </div>
-                <p className="mt-1.5 sm:mt-2.5 text-[10px] sm:text-sm font-semibold text-gray-900 dark:text-white whitespace-nowrap">
-                  {t.name}
-                </p>
-                <p className="text-xs sm:text-lg font-extrabold text-green-600 mt-0.5">
-                  {t.returnPct}
-                </p>
-                <p className="text-[9px] sm:text-[10px] font-semibold tracking-wide text-gray-400 dark:text-gray-500 uppercase mt-0.5 whitespace-nowrap">
-                  Return (12M)
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Right: portfolio stat + chart ── */}
-        <div className="min-w-0 flex flex-col">
-          <p className="text-[9px] sm:text-xs font-semibold tracking-wider text-gray-400 dark:text-gray-500 uppercase truncate">
-            Your Portfolio (12M)
-          </p>
-          <div className="flex items-center gap-1 sm:gap-2 mt-1">
-            <span className="text-lg sm:text-3xl lg:text-4xl font-extrabold text-green-600">
-              +24.96%
-            </span>
-            <ArrowUpRight className="w-3.5 h-3.5 sm:w-6 sm:h-6 text-green-600 shrink-0" />
-          </div>
-          {/* aspect-ratio (not a fixed min-height) keeps the chart's own
-              proportions correct as the column narrows, instead of it
-              getting squashed/distorted. */}
-          <div className="w-full aspect-[320/168] mt-2 sm:mt-4">
-            <GrowthChart />
-          </div>
-        </div>
+    <div className="relative flex overflow-hidden rounded-xl" style={{ backgroundColor: "#16a34a", minHeight: "140px" }}>
+      {/* Left: Text */}
+      <div className="flex-1 min-w-0 flex flex-col justify-center px-6 lg:px-10 py-6 z-10">
+        <h1 className="text-[19px] sm:text-[24px] lg:text-[28px] font-extrabold text-white leading-tight mb-2">
+          Invest in expertise, share in success
+        </h1>
+        <p className="text-[12px] sm:text-[13px] text-white/85">
+          Mirror the strategies of top investors with copy trading.
+        </p>
       </div>
 
-      {/* ── Feature row ── */}
-      <div className="border-t border-gray-100 dark:border-white/10 px-4 sm:px-8 lg:px-12 py-3 sm:py-6">
-        <div className="grid grid-cols-3 gap-2 sm:gap-6">
-          {BANNER_FEATURES.map((f) => (
-            <div key={f.title} className="flex items-start gap-1.5 sm:gap-3 min-w-0">
-              <f.icon className="w-4 h-4 sm:w-6 sm:h-6 text-green-600 shrink-0 mt-0.5" strokeWidth={2} />
-              <div className="min-w-0">
-                <p className="text-[9px] sm:text-[13px] font-bold uppercase text-gray-900 dark:text-white leading-tight">
-                  {f.title}
-                </p>
-                <p className="text-[8px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-tight">
-                  {f.sub}
-                </p>
-              </div>
-            </div>
-          ))}
+      {/* Right: chart line + 3 avatars + profit badge */}
+      <div className="hidden sm:block relative shrink-0 w-[300px] lg:w-[420px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/trending_banner_line.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
+        />
+
+        <div className="absolute left-[4%] bottom-[18%] w-[44px] h-[44px] lg:w-[52px] lg:h-[52px] rounded-full border-2 border-white overflow-hidden z-10">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/avatar_2.png" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute left-[37%] bottom-[32%] w-[46px] h-[46px] lg:w-[54px] lg:h-[54px] rounded-full border-2 border-white overflow-hidden z-10">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/avatar_3.png" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute right-[6%] top-[4%] w-[48px] h-[48px] lg:w-[56px] lg:h-[56px] rounded-full border-2 border-white overflow-hidden z-10">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/avatar_1.png" alt="" className="w-full h-full object-cover" />
+        </div>
+
+        <div className="absolute bottom-3 right-4 z-10 flex items-center gap-1.5 text-white text-[13px] font-bold">
+          31.18%
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <polyline points="1,11 5,5 9,7 13,2" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <polyline points="9,2 13,2 13,6" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
       </div>
     </div>
@@ -384,7 +260,7 @@ export default function ExploreTraders() {
     <div className="w-full min-h-screen rounded-2xl ">
       {/* ========== HERO BANNER — "When they grow, you grow" ========== */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <GrowthBanner />
+        <HeroBanner />
       </div>
 
       {/* ========== SEARCH BAR ========== */}
