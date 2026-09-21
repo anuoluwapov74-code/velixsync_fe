@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import { SWRConfig } from "swr";
-import Sidebar from "@/components/dashboard/Sidebar";
 import TopNav from "@/components/dashboard/TopNav";
 import BottomNav from "@/components/dashboard/BottomNav";
 import { apiFetch } from "@/lib/api";
@@ -33,7 +31,6 @@ interface DashboardShellProps {
 }
 
 export default function DashboardShell({ children }: DashboardShellProps) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [authState, setAuthState] = useState<
     "loading" | "authenticated" | "redirecting"
   >("loading");
@@ -129,17 +126,7 @@ export default function DashboardShell({ children }: DashboardShellProps) {
       >
         <div className="flex flex-col h-screen overflow-hidden">
           {/* Top Navigation */}
-          <TopNav onMenuClick={() => setIsSidebarOpen(true)} user={user} />
-
-          {/* Sidebar Drawer */}
-          <AnimatePresence>
-            {isSidebarOpen && (
-              <Sidebar
-                isOpen={isSidebarOpen}
-                onClose={() => setIsSidebarOpen(false)}
-              />
-            )}
-          </AnimatePresence>
+          <TopNav user={user} />
 
           {/* Main Content Area */}
           <main className="flex-1 overflow-y-auto overflow-x-hidden">

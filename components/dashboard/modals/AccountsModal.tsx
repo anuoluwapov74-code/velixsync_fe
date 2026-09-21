@@ -1,12 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowLeftRight, Copy, Gift } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { apiFetch } from "@/lib/api";
 
 interface AccountsModalProps {
   isOpen: boolean;
   onClose: () => void;
+}
+
+interface FollowingTrader {
+  trader_id: number;
+}
+
+interface FollowingResponse {
+  success: boolean;
+  traders: FollowingTrader[];
 }
 
 const TEAL = "#16a34a";
@@ -24,6 +36,7 @@ function CloseBtn({ onClick }: { onClick: () => void }) {
 
 export default function AccountsModal({ isOpen, onClose }: AccountsModalProps) {
   const router = useRouter();
+  const [mirroringLoading, setMirroringLoading] = useState(false);
 
   if (!isOpen) return null;
 
@@ -32,9 +45,30 @@ export default function AccountsModal({ isOpen, onClose }: AccountsModalProps) {
     router.push("/transfer");
   };
 
-  const handleMirroring = () => {
-    onClose();
-    router.push("/market");
+  const handleMirroring = async () => {
+    if (mirroringLoading) return;
+    setMirroringLoading(true);
+    try {
+      const res = await apiFetch("/copy-trader/following/");
+      const data: FollowingResponse = await res.json();
+      const traderId = data?.success ? data.traders[0]?.trader_id : undefined;
+
+      if (!traderId) {
+        toast.error("Not Copying Any Trader", {
+          description: "You aren't currently copying a trader's portfolio.",
+        });
+        return;
+      }
+
+      onClose();
+      router.push(`/explore-traders/${traderId}?tab=portfolio`);
+    } catch {
+      toast.error("Something went wrong", {
+        description: "Couldn't check your copied trader. Please try again.",
+      });
+    } finally {
+      setMirroringLoading(false);
+    }
   };
 
   const handleReferral = () => {
@@ -91,7 +125,8 @@ export default function AccountsModal({ isOpen, onClose }: AccountsModalProps) {
               {/* Stock Portfolio Mirroring */}
               <button
                 onClick={handleMirroring}
-                className="w-full text-left rounded-xl p-4 bg-[rgba(22,163,74,0.06)] dark:bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.2)] dark:border-[rgba(22,163,74,0.14)] transition-opacity hover:opacity-90"
+                disabled={mirroringLoading}
+                className={`w-full text-left rounded-xl p-4 bg-[rgba(22,163,74,0.06)] dark:bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.2)] dark:border-[rgba(22,163,74,0.14)] transition-opacity hover:opacity-90 ${mirroringLoading ? "opacity-60 cursor-wait" : ""}`}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(22,163,74,0.12)" }}>

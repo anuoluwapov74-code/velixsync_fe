@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useMemo, useRef } from "react";
+import React, { useEffect, useState, useMemo, useRef, Suspense } from "react";
 import useSWR, { mutate as globalMutate } from "swr";
 import {
   ArrowLeft,
@@ -19,12 +19,13 @@ import {
   UserPlus,
   Loader2,
   Gauge,
+  Lock,
 } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { PulseLoader } from "react-spinners";
 import { apiFetch } from "@/lib/api";
 import { PROFILE_KEY } from "@/lib/swrKeys";
@@ -244,11 +245,15 @@ function TraderStatsAndTags({ trader }: { trader: TraderDetail }) {
   );
 }
 
-export default function TraderProfilePage() {
+function TraderProfilePageInner() {
   const params = useParams();
   const traderId = params.id;
+  const searchParams = useSearchParams();
+  const initialTab = searchParams.get("tab");
 
-  const [activeTab, setActiveTab] = useState<"overview" | "portfolio" | "history" | "copiers">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "portfolio" | "history" | "copiers">(
+    initialTab === "portfolio" || initialTab === "history" || initialTab === "copiers" ? initialTab : "overview"
+  );
   const [chartPeriod, setChartPeriod] = useState<TimeFilter>("Week");
   const [isCopying, setIsCopying] = useState(false);
   const [cancelRequested, setCancelRequested] = useState(false);
@@ -749,11 +754,27 @@ export default function TraderProfilePage() {
 
         {/* ── PORTFOLIO TAB ──
             Same stats grid + tags as the profile header, reused verbatim
-            via TraderStatsAndTags. */}
+            via TraderStatsAndTags. Only blurred/locked when this is the
+            trader the user is currently copying — other traders' portfolio
+            tabs render normally. */}
         {activeTab === "portfolio" && (
-          <div className="tv-card rounded-2xl p-6">
-            <TraderStatsAndTags trader={trader} />
-          </div>
+          isCopying ? (
+            <div className="relative">
+              <div className="tv-card rounded-2xl p-6 blur-md select-none pointer-events-none" aria-hidden="true">
+                <TraderStatsAndTags trader={trader} />
+              </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center px-4">
+                <div className="w-12 h-12 rounded-full bg-white dark:bg-[#0b1a12] shadow-lg flex items-center justify-center">
+                  <Lock className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                </div>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">Portfolio view is locked</p>
+              </div>
+            </div>
+          ) : (
+            <div className="tv-card rounded-2xl p-6">
+              <TraderStatsAndTags trader={trader} />
+            </div>
+          )
         )}
 
         {/* ── HISTORY TAB ──
@@ -936,5 +957,13 @@ export default function TraderProfilePage() {
         </button>
       )}
     </div>
+  );
+}
+
+export default function TraderProfilePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen" />}>
+      <TraderProfilePageInner />
+    </Suspense>
   );
 }

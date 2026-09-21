@@ -42,8 +42,10 @@ const MIN_TIER_HEIGHT = 140;
 // than data. Once a tier has more items than its area can give this much room
 // each, the smallest-cap tail gets folded into one "+N more" cell instead of
 // squarify slicing them into ever-thinner spiral slivers (see totalHeightFor).
-const MIN_CELL_W = 60;
-const MIN_CELL_H = 44;
+// Kept small on purpose — smaller boxes mean more individual assets stay
+// visible on their own instead of being swept into the "+N more" bucket.
+const MIN_CELL_W = 36;
+const MIN_CELL_H = 26;
 
 /**
  * Total height budget (split across tiers below, proportional to market cap).
@@ -217,8 +219,8 @@ export default function TreemapTab() {
                 {rects.map((r) => {
                   const isBucket = "isBucket" in r && r.isBucket;
                   const changePercent = parseFloat(r.change_percent);
-                  const showChange = !isBucket && r.h >= 28;
-                  const showName = r.w >= 40 && r.h >= 20;
+                  const showChange = !isBucket && r.h >= 20 && r.w >= 30;
+                  const showName = r.w >= 26 && r.h >= 14;
                   const title = isBucket
                     ? `${r.count} more: ${r.tickers.join(", ")}`
                     : `${r.symbol} ${changePercent >= 0 ? "+" : ""}${changePercent.toFixed(2)}%`;
@@ -238,7 +240,7 @@ export default function TreemapTab() {
                       {showName && (
                         <span
                           className="font-bold text-white truncate max-w-full"
-                          style={{ fontSize: Math.max(10, Math.min(22, Math.min(r.w / 6, r.h / 3))) }}
+                          style={{ fontSize: Math.max(9, Math.min(22, Math.min(r.w / 5, r.h / 2.4))) }}
                         >
                           {r.symbol}
                         </span>

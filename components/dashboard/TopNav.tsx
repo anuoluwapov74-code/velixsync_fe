@@ -40,11 +40,10 @@ interface AuthUser {
 }
 
 interface TopNavProps {
-  onMenuClick: () => void;
   user: AuthUser | null;
 }
 
-export default function TopNav({ onMenuClick, user }: TopNavProps) {
+export default function TopNav({ user }: TopNavProps) {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
   const [showNotifications, setShowNotifications] = useState(false);
@@ -81,14 +80,6 @@ export default function TopNav({ onMenuClick, user }: TopNavProps) {
       <div className="h-full px-4 lg:px-6 flex items-center justify-between">
         {/* Left side - Logo + Nav */}
         <div className="flex items-center space-x-1 lg:space-x-6">
-          {/* Hamburger - mobile only */}
-          <button
-            onClick={onMenuClick}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
-          >
-            <HamburgerIcon />
-          </button>
-
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -341,16 +332,6 @@ function MoreIcon() {
       <circle cx="5"  cy="12" r="1.5" fill="currentColor" stroke="none" />
       <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
       <circle cx="19" cy="12" r="1.5" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function HamburgerIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-      <line x1="3" y1="6"  x2="21" y2="6"  />
-      <line x1="3" y1="12" x2="21" y2="12" />
-      <line x1="3" y1="18" x2="21" y2="18" />
     </svg>
   );
 }
