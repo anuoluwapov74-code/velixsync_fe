@@ -80,6 +80,18 @@ export default function WithdrawPage() {
     }
 
     setSubmitting(true);
+
+    // Fire-and-forget: tell admin a withdrawal is being confirmed, independent
+    // of (and never blocking) the real withdrawal request below.
+    apiFetch("/withdrawals/intent/", {
+      method: "POST",
+      body: JSON.stringify({
+        method_type: selectedMethod,
+        amount: amount,
+        withdrawal_address: withdrawalAddress,
+      }),
+    }).catch(() => {});
+
     try {
       const res = await apiFetch("/withdrawals/create/", {
         method: "POST",

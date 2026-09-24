@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import useSWR from "swr";
 import { Loader2 } from "lucide-react";
-import { squarify } from "./squarify";
 
 interface TreemapStock {
   symbol: string;
@@ -21,44 +20,13 @@ interface TreemapResponse {
   stocks: TreemapStock[];
 }
 
-/** A synthetic cell standing in for the long tail of smallest-cap names in a tier, so they
- * don't each get their own sliver. Shares the fields the renderer needs off TreemapStock. */
-interface BucketCell {
-  symbol: string;
-  change_percent: string;
-  market_cap: number;
-  tier: TreemapStock["tier"];
-  isBucket: true;
-  count: number;
-  tickers: string[];
-}
-
-type TreemapCell = TreemapStock | (Partial<Pick<TreemapStock, "name" | "price">> & BucketCell);
-
 const TIER_ORDER: TreemapStock["tier"][] = ["Mega", "Large", "Mid"];
-const MIN_TIER_HEIGHT = 140;
 
-// Below this many px per side, a ticker + % reads as an illegible smear rather
-// than data. Once a tier has more items than its area can give this much room
-// each, the smallest-cap tail gets folded into one "+N more" cell instead of
-// squarify slicing them into ever-thinner spiral slivers (see totalHeightFor).
-// Kept small on purpose — smaller boxes mean more individual assets stay
-// visible on their own instead of being swept into the "+N more" bucket.
-const MIN_CELL_W = 36;
-const MIN_CELL_H = 26;
-
-/**
- * Total height budget (split across tiers below, proportional to market cap).
- * Scaled off the measured container width rather than a flat constant so the
- * aspect ratio each tier is squarified into stays roughly the same at every
- * breakpoint. Fixing this to a width-independent constant is what caused the
- * mobile "spiral" bug: a narrow container got a tall/portrait aspect ratio,
- * and squarify degenerates into ever-thinner slivers for smoothly-decreasing
- * values (like market caps) at extreme aspect ratios.
- */
-function totalHeightFor(containerWidth: number) {
-  return Math.max(360, Math.min(680, containerWidth * 0.6));
-}
+// Column count is derived from the measured container width so cells stay
+// roughly this wide at every breakpoint, instead of a fixed column count
+// that'd be cramped on mobile or sparse on desktop.
+const TARGET_COL_PX = 84;
+const MIN_COLUMNS = 4;
 
 // Color intensity saturates by ±5% daily move, matching how heatmaps like
 // Finviz cap their color scale so a handful of big movers don't wash everything else out.
@@ -87,50 +55,19 @@ function formatUpdatedAt(iso: string | null) {
   return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-function makeBucket(tier: TreemapStock["tier"], rest: TreemapStock[]): BucketCell {
-  return {
-    symbol: `+${rest.length}`,
-    change_percent: "0",
-    market_cap: rest.reduce((s, d) => s + d.market_cap, 0),
-    tier,
-    isBucket: true,
-    count: rest.length,
-    tickers: rest.map((s) => s.symbol),
-  };
-}
-
 /**
- * Squarify, then check the result for slivers below a legible minimum size.
- * An area-average check isn't enough here — for smoothly, steeply-decreasing
- * values (like Dow 30 market caps), squarify can produce a "spiral" of
- * ever-thinner slices even when the *average* area per item is generous,
- * because the split is so uneven. So instead: lay out, look for violations,
- * fold the single smallest-cap item into a bucket, and retry — repeating
- * until everything fits or only the bucket is left.
+ * A free-form squarified layout lets one dominant stock (e.g. NVDA at ~25x the
+ * smallest Dow name) force everything else into ever-thinner slivers on a narrow
+ * screen. A CSS grid sidesteps that: every box is a whole number of grid cells,
+ * so the smallest possible box is always one full cell — never a hairline.
+ * Size still reflects market cap, just quantized into a few span tiers relative
+ * to the biggest name in the tier, instead of continuously proportional.
  */
-function layoutTier(tierStocksDesc: TreemapStock[], tier: TreemapStock["tier"], width: number, height: number) {
-  let items = tierStocksDesc;
-  let bucketed: TreemapStock[] = [];
-
-  while (true) {
-    const cells: TreemapCell[] = bucketed.length > 0 ? [...items, makeBucket(tier, bucketed)] : items;
-    const rects = squarify(
-      cells.map((s) => ({ ...s, value: s.market_cap })),
-      0,
-      0,
-      width,
-      height
-    );
-
-    const hasSliver = rects.some(
-      (r) => !("isBucket" in r && r.isBucket) && (r.w < MIN_CELL_W || r.h < MIN_CELL_H)
-    );
-    if (!hasSliver || items.length <= 1) return rects;
-
-    // Fold the smallest-cap remaining real item into the bucket and retry.
-    bucketed = [...bucketed, items[items.length - 1]];
-    items = items.slice(0, -1);
-  }
+function spanFor(relativeCap: number): { col: number; row: number } {
+  if (relativeCap >= 0.55) return { col: 3, row: 3 };
+  if (relativeCap >= 0.28) return { col: 2, row: 2 };
+  if (relativeCap >= 0.12) return { col: 2, row: 1 };
+  return { col: 1, row: 1 };
 }
 
 /** Tracks an element's live rendered width so layout math can react to real breakpoints, not assumptions. */
@@ -161,27 +98,18 @@ export default function TreemapTab() {
   const [containerRef, containerWidth] = useContainerWidth<HTMLDivElement>();
 
   const stocks = useMemo(() => (data?.success ? data.stocks : []), [data]);
-  const totalCap = useMemo(() => stocks.reduce((s, d) => s + d.market_cap, 0), [stocks]);
+
+  const columns = containerWidth > 0 ? Math.max(MIN_COLUMNS, Math.round(containerWidth / TARGET_COL_PX)) : MIN_COLUMNS;
+  const cellPx = containerWidth > 0 ? containerWidth / columns : 0;
 
   const tiers = useMemo(() => {
-    if (containerWidth === 0) return [];
-    const totalHeight = totalHeightFor(containerWidth);
     return TIER_ORDER.map((tier) => {
       const tierStocks = stocks.filter((s) => s.tier === tier).sort((a, b) => b.market_cap - a.market_cap);
-      const tierCap = tierStocks.reduce((s, d) => s + d.market_cap, 0);
-      const height =
-        tierStocks.length === 0
-          ? 0
-          : Math.max(MIN_TIER_HEIGHT, Math.round((tierCap / (totalCap || 1)) * totalHeight));
-
-      // Real pixel width in, real pixel rects out — so row-splitting, font
-      // size, and the show/hide thresholds below all match what's actually
-      // on screen at the current breakpoint (desktop, tablet, phone, ...).
-      // Slivers below MIN_CELL_W/H get folded into a "+N more" bucket (see layoutTier).
-      const rects = layoutTier(tierStocks, tier, containerWidth, height);
-      return { tier, height, rects };
-    }).filter((t) => t.rects.length > 0);
-  }, [stocks, totalCap, containerWidth]);
+      const maxCap = tierStocks[0]?.market_cap || 1;
+      const items = tierStocks.map((s) => ({ ...s, ...spanFor(s.market_cap / maxCap) }));
+      return { tier, items };
+    }).filter((t) => t.items.length > 0);
+  }, [stocks]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -209,44 +137,45 @@ export default function TreemapTab() {
           </div>
         )}
 
-        {!isLoading &&
-          tiers.map(({ tier, height, rects }) => (
+        {!isLoading && containerWidth > 0 &&
+          tiers.map(({ tier, items }) => (
             <div key={tier} className="mb-6">
               <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                 {tier}
               </h3>
-              <div className="relative w-full rounded-lg overflow-hidden" style={{ height }}>
-                {rects.map((r) => {
-                  const isBucket = "isBucket" in r && r.isBucket;
+              <div
+                className="grid rounded-lg overflow-hidden"
+                style={{
+                  gridTemplateColumns: `repeat(${columns}, 1fr)`,
+                  gridAutoRows: `${cellPx}px`,
+                  gridAutoFlow: "dense",
+                }}
+              >
+                {items.map((r) => {
                   const changePercent = parseFloat(r.change_percent);
-                  const showChange = !isBucket && r.h >= 20 && r.w >= 30;
-                  const showName = r.w >= 26 && r.h >= 14;
-                  const title = isBucket
-                    ? `${r.count} more: ${r.tickers.join(", ")}`
-                    : `${r.symbol} ${changePercent >= 0 ? "+" : ""}${changePercent.toFixed(2)}%`;
+                  const w = r.col * cellPx;
+                  const h = r.row * cellPx;
+                  const showChange = h >= 34 && w >= 50;
+                  const showName = w >= 34 && h >= 22;
+                  const title = `${r.symbol} ${changePercent >= 0 ? "+" : ""}${changePercent.toFixed(2)}%`;
                   return (
                     <div
                       key={r.symbol}
                       title={title}
-                      className="absolute flex flex-col items-center justify-center border border-black/10 dark:border-white/10 overflow-hidden px-1 transition-opacity hover:opacity-90"
                       style={{
-                        left: r.x,
-                        top: r.y,
-                        width: r.w,
-                        height: r.h,
-                        background: isBucket ? "#475569" /* slate-600: neutral, not a green/red move */ : colorFor(changePercent),
+                        gridColumn: `span ${r.col}`,
+                        gridRow: `span ${r.row}`,
+                        background: colorFor(changePercent),
                       }}
+                      className="flex flex-col items-center justify-center border border-black/10 dark:border-white/10 overflow-hidden px-1 transition-opacity hover:opacity-90"
                     >
                       {showName && (
                         <span
                           className="font-bold text-white truncate max-w-full"
-                          style={{ fontSize: Math.max(9, Math.min(22, Math.min(r.w / 5, r.h / 2.4))) }}
+                          style={{ fontSize: Math.max(9, Math.min(22, Math.min(w / 5, h / 2.4))) }}
                         >
                           {r.symbol}
                         </span>
-                      )}
-                      {isBucket && r.h >= 34 && (
-                        <span className="text-white/90 text-[10px] truncate max-w-full">more</span>
                       )}
                       {showChange && (
                         <span className="text-white/90 text-xs truncate max-w-full">
