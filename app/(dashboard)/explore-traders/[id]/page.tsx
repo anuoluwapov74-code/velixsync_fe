@@ -19,7 +19,6 @@ import {
   UserPlus,
   Loader2,
   Gauge,
-  Lock,
 } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
@@ -29,6 +28,7 @@ import { useParams, useSearchParams } from "next/navigation";
 import { PulseLoader } from "react-spinners";
 import { apiFetch } from "@/lib/api";
 import { PROFILE_KEY } from "@/lib/swrKeys";
+import TraderPortfolioTab from "@/components/dashboard/TraderPortfolioTab";
 
 interface TraderDetail {
   id: number;
@@ -77,6 +77,8 @@ interface TraderDetail {
     profitable_pct: number;
   }>;
   profit_share: number;
+  blur_portfolio: boolean;
+  blur_portfolio_amount: string;
   is_active: boolean;
   created_at: string;
   updated_at: string;
@@ -187,11 +189,10 @@ function formatDollar(v: number): string {
 
 const portfolioColors = ["#14532d","#22c55e","#86efac","#3b82f6","#10b981","#f59e0b","#8b5cf6","#ec4899"];
 
+const compactFormatter = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 });
+
 function fmtCompact(value: number): string {
-  if (value >= 1_000_000_000) return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
-  if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
-  if (value >= 1_000) return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
-  return `$${value.toFixed(0)}`;
+  return `$${compactFormatter.format(value).replace("K", "k")}`;
 }
 
 /* Tag → icon mapping for the pill row under the stats grid */
@@ -207,21 +208,21 @@ function TagIcon({ tag }: { tag: string }) {
 function TraderStatsAndTags({ trader }: { trader: TraderDetail }) {
   return (
     <>
-      <div className="rounded-2xl border border-green-100 dark:border-[rgba(22,163,74,0.15)] bg-green-50/40 dark:bg-[rgba(22,163,74,0.04)] p-4 sm:p-5">
-        <div className="grid grid-cols-3 gap-y-4 gap-x-2">
+      <div className="rounded-2xl border border-green-100 dark:border-[rgba(22,163,74,0.15)] bg-green-50/40 dark:bg-[rgba(22,163,74,0.04)] px-2 py-3 sm:p-5">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 sm:gap-x-8">
           {[
-            { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: `$${parseFloat(trader.min_account_threshold).toLocaleString()}`, label: "Min Capital" },
+            { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: fmtCompact(parseFloat(trader.min_account_threshold) || 0), label: "Min Capital" },
             { icon: <Users className="w-4 h-4 text-purple-500 shrink-0" />, value: trader.copiers.toLocaleString(), label: "Copiers" },
             { icon: <UserCheck className="w-4 h-4 text-emerald-500 shrink-0" />, value: trader.followers.toLocaleString(), label: "Followers" },
             { icon: <Shield className="w-4 h-4 text-amber-500 shrink-0" />, value: `${trader.profit_share ?? 50}%`, label: "Profit Share" },
             { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: fmtCompact(parseFloat(trader.copy_value) || 0), label: "Copy value" },
             { icon: <Gauge className="w-4 h-4 text-red-500 shrink-0" />, value: trader.risk, label: "Risk score" },
           ].map((s, i) => (
-            <div key={i} className="flex items-center justify-center gap-2 min-w-0">
+            <div key={i} className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2 text-center sm:text-left">
               {s.icon}
-              <div className="min-w-0">
-                <div className="text-sm font-bold text-gray-900 dark:text-white truncate">{s.value}</div>
-                <div className="text-[11px] text-gray-500 dark:text-gray-400 truncate">{s.label}</div>
+              <div>
+                <div className="text-sm font-bold text-gray-900 dark:text-white whitespace-nowrap">{s.value}</div>
+                <div className="text-[11px] text-gray-500 dark:text-gray-400 whitespace-nowrap">{s.label}</div>
               </div>
             </div>
           ))}
@@ -427,7 +428,6 @@ function TraderProfilePageInner() {
   }
 
   const minThreshold = parseFloat(trader.min_account_threshold);
-  const hasEnoughBalance = userBalance >= minThreshold;
   const totalPortfolio = trader.portfolio_breakdown?.reduce((sum, item) => sum + item.percentage, 0) || 100;
 
   return (
@@ -443,7 +443,7 @@ function TraderProfilePageInner() {
         </Link>
 
         {/* Profile Header */}
-        <div className="tv-card rounded-2xl p-5 sm:p-8 mb-6">
+        <div className="tv-card rounded-2xl p-3 sm:p-8 mb-6">
           {/* Top row: avatar + name/username on the left, flag spaced to the right */}
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3 min-w-0">
@@ -513,15 +513,6 @@ function TraderProfilePageInner() {
                   </button>
                 </>
               )}
-            </div>
-          )}
-
-          {/* Balance Warning */}
-          {!hasEnoughBalance && (
-            <div className="mt-4 p-3 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-xl">
-              <p className="text-red-600 dark:text-red-400 text-sm">
-                Minimum balance required: ${minThreshold.toLocaleString()} &bull; Your balance: ${userBalance.toLocaleString()}
-              </p>
             </div>
           )}
         </div>
@@ -753,28 +744,10 @@ function TraderProfilePageInner() {
         )}
 
         {/* ── PORTFOLIO TAB ──
-            Same stats grid + tags as the profile header, reused verbatim
-            via TraderStatsAndTags. Only blurred/locked when this is the
-            trader the user is currently copying — other traders' portfolio
-            tabs render normally. */}
+            Blurred while the server reports it locked (trader.blur_portfolio on and the
+            user hasn't unlocked it); unlocking needs a balance >= blur_portfolio_amount. */}
         {activeTab === "portfolio" && (
-          isCopying ? (
-            <div className="relative">
-              <div className="tv-card rounded-2xl p-6 blur-md select-none pointer-events-none" aria-hidden="true">
-                <TraderStatsAndTags trader={trader} />
-              </div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center px-4">
-                <div className="w-12 h-12 rounded-full bg-white dark:bg-[#0b1a12] shadow-lg flex items-center justify-center">
-                  <Lock className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-                </div>
-                <p className="text-sm font-semibold text-gray-900 dark:text-white">Portfolio view is locked</p>
-              </div>
-            </div>
-          ) : (
-            <div className="tv-card rounded-2xl p-6">
-              <TraderStatsAndTags trader={trader} />
-            </div>
-          )
+          <TraderPortfolioTab traderId={trader.id} traderName={trader.name} />
         )}
 
         {/* ── HISTORY TAB ──
