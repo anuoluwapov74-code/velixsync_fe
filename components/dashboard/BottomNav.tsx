@@ -10,7 +10,7 @@ const items = [
   { name: "Dashboard", href: "/portfolio", icon: Home },
   { name: "Session", href: "/session", icon: Target },
   { name: "Markets", href: "/market", icon: TrendingUp },
-  { name: "Copy Trading", href: "/explore-traders", icon: Repeat },
+  { name: "Traders", href: "/explore-traders", icon: Repeat },
   { name: "Profile", href: "/settings", icon: User },
 ] as const;
 
