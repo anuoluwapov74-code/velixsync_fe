@@ -99,7 +99,7 @@ export default function ProfilePage() {
           >
             <div className="flex items-center gap-3 mb-2">
               <DollarSign className="w-5 h-5" />
-              <span className="text-sm font-medium opacity-90">
+              <span className="text-sm font-medium">
                 Account Balance
               </span>
             </div>
@@ -114,7 +114,7 @@ export default function ProfilePage() {
           >
             <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="w-5 h-5" />
-              <span className="text-sm font-medium opacity-90">Total Profit</span>
+              <span className="text-sm font-medium">Total Profit</span>
             </div>
             <p className="text-xl sm:text-2xl font-bold">
               ${parseFloat(profile.profit).toLocaleString(undefined, {
@@ -136,7 +136,7 @@ export default function ProfilePage() {
           >
             <div className="flex items-center gap-3 mb-2">
               <Shield className="w-5 h-5" />
-              <span className="text-sm font-medium opacity-90">
+              <span className="text-sm font-medium">
                 Account Status
               </span>
             </div>

@@ -117,13 +117,13 @@ const formatGain = (gain: string) => {
 
 function HeroBanner() {
   return (
-    <div className="relative flex overflow-hidden rounded-xl" style={{ backgroundColor: "#16a34a", minHeight: "140px" }}>
+    <div className="relative flex overflow-hidden rounded-xl" style={{ backgroundColor: "#15803d", minHeight: "140px" }}>
       {/* Left: Text */}
       <div className="flex-1 min-w-0 flex flex-col justify-center px-6 lg:px-10 py-6 z-10">
         <h1 className="text-[19px] sm:text-[24px] lg:text-[28px] font-extrabold text-white leading-tight mb-2">
           Invest in expertise, share in success
         </h1>
-        <p className="text-[12px] sm:text-[13px] text-white/85">
+        <p className="text-[12px] sm:text-[13px] text-white">
           Mirror the strategies of top investors with copy trading.
         </p>
       </div>
@@ -272,7 +272,7 @@ export default function ExploreTraders() {
             placeholder="Type to search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.14)] rounded-xl pl-12 pr-10 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#16a34a]/30 focus:border-[#16a34a] transition-all"
+            className="w-full bg-[rgba(22,163,74,0.04)] border border-[rgba(22,163,74,0.14)] rounded-xl pl-12 pr-10 py-3.5 text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#16a34a]/30 focus:border-[#16a34a] transition-all"
           />
           {searchQuery && (
             <button
@@ -435,7 +435,7 @@ export default function ExploreTraders() {
                                   <h3 className="text-sm font-semibold text-white truncate">
                                     {trader.name}
                                   </h3>
-                                  <p className="text-xs text-gray-400">
+                                  <p className="text-xs text-gray-300">
                                     {trader.badge === "gold"
                                       ? "Earning trader"
                                       : trader.risk >= 7
@@ -705,7 +705,7 @@ export default function ExploreTraders() {
                               className={`text-3xl sm:text-5xl font-extrabold ${
                                 index < 3
                                   ? "text-gray-900 dark:text-white"
-                                  : "text-gray-300 dark:text-gray-600"
+                                  : "text-gray-400 dark:text-gray-500"
                               }`}
                             >
                               {index + 1}

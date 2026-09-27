@@ -67,7 +67,7 @@ export default function TradeHistoryPage() {
           {/* Filter Button */}
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 px-4 py-2 tv-card rounded-lg text-sm font-medium text-gray-300 hover:opacity-80 transition-all"
+            className="flex items-center gap-2 px-4 py-2 tv-card rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:opacity-80 transition-all"
           >
             <Filter className="w-4 h-4" />
             Filters

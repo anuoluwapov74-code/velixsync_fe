@@ -76,7 +76,7 @@ interface StepCardProps {
 const StepCard = ({ icon, title, description, index }: StepCardProps) => (
   <div className="group flex flex-col items-center rounded-2xl border border-gray-200/80 dark:border-white/8 bg-white/70 dark:bg-white/3 backdrop-blur-sm p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-600/5 lg:p-10">
     {/* Step number */}
-    <div className="mb-2 text-xs font-bold uppercase tracking-widest text-primary/60">
+    <div className="mb-2 text-xs font-bold uppercase tracking-widest text-primary/85">
       Step {index + 1}
     </div>
 

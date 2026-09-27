@@ -51,12 +51,12 @@ interface PortfolioBreakdownProps {
 // the dashboard home page).
 const donutTheme = {
   light: {
-    cardBg: "rgba(255,255,255,0.55)",
+    cardBg: "linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(230,248,238,0.78) 100%)",
     cardBorder: "1px solid rgba(255,255,255,0.9)",
     cardShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)",
     textPrimary: "#0f172a",
-    textSecondary: "#64748b",
-    accent: "#16a34a",
+    textSecondary: "#4b5b70",
+    accent: "#17703a",
     secondary: "#3b82f6",
   },
   dark: {
@@ -64,7 +64,7 @@ const donutTheme = {
     cardBorder: "1px solid rgba(255,255,255,0.06)",
     cardShadow: "0 28px 80px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.35)",
     textPrimary: "#ffffff",
-    textSecondary: "rgba(255,255,255,0.45)",
+    textSecondary: "rgba(255,255,255,0.62)",
     accent: "#16a34a",
     secondary: "#3b82f6",
   },

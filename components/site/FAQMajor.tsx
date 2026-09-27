@@ -401,7 +401,7 @@ const FAQMajor = ({ showHeader = true }: FAQMajorProps) => {
             >
               {cat.label}
               <span className={`ml-2 rounded-full px-1.5 py-0.5 text-xs ${
-                activeTab === idx ? "bg-white/20 text-white" : "bg-gray-200 dark:bg-white/10 text-gray-500 dark:text-gray-400"
+                activeTab === idx ? "bg-black/20 text-white" : "bg-gray-200 dark:bg-white/10 text-gray-500 dark:text-gray-400"
               }`}>
                 {cat.items.length}
               </span>

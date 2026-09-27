@@ -58,7 +58,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   Forex: "#16a34a",
 };
 
-const SOURCE_COLORS = ["#3b82f6", "#06b6d4", "#f59e0b", "#8b5cf6", "#f97316", "#16a34a", "#ec4899"];
+// Deep enough that the white initials on top stay >= 4.5:1
+const SOURCE_COLORS = ["#1d4ed8", "#0e7490", "#b45309", "#6d28d9", "#c2410c", "#15803d", "#be185d"];
 
 const POSITIVE_WORDS = [
   "surge", "soar", "rally", "jump", "gain", "rise", "record", "beat", "strong",
@@ -211,8 +212,8 @@ function FeaturedCard({ article, onClick }: { article: NewsItem; onClick: () => 
         <div className="flex-1 p-5 lg:p-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span
-              className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full"
-              style={{ backgroundColor: `${color}1a`, color }}
+              className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full chip-fg"
+              style={{ backgroundColor: `${color}1a`, ['--chip' as string]: color }}
             >
               {article.category}
             </span>
@@ -277,8 +278,8 @@ function NewsCard({ article, onClick }: { article: NewsItem; onClick: () => void
       <div className="p-4 flex flex-col gap-3 flex-1">
         <div className="flex items-center justify-between gap-2">
           <span
-            className="px-2.5 py-0.5 text-[10px] font-semibold rounded-full"
-            style={{ backgroundColor: `${color}1a`, color }}
+            className="px-2.5 py-0.5 text-[10px] font-semibold rounded-full chip-fg"
+            style={{ backgroundColor: `${color}1a`, ['--chip' as string]: color }}
           >
             {article.category}
           </span>
@@ -358,8 +359,8 @@ function NewsModal({
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <span
-                    className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full"
-                    style={{ backgroundColor: `${color}1a`, color }}
+                    className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full chip-fg"
+                    style={{ backgroundColor: `${color}1a`, ['--chip' as string]: color }}
                   >
                     {article.category}
                   </span>

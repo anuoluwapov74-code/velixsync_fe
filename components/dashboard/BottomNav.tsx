@@ -32,8 +32,8 @@ export default function BottomNav() {
         {items.map(({ name, href, icon: Icon }) => {
           const active = href !== null && pathname === href;
           const color = active
-            ? (isDark ? "#16a34a" : "#16a34a")
-            : (isDark ? "rgba(255,255,255,0.45)" : "#64748b");
+            ? (isDark ? "#16a34a" : "#166534")
+            : (isDark ? "rgba(255,255,255,0.62)" : "#475569");
 
           const content = (
             <div className="flex flex-col items-center gap-1 py-1">

@@ -43,11 +43,11 @@ interface FollowingTrader {
 // since accent stays the same green in both themes per an earlier request).
 const cardTheme = {
   light: {
-    cardBg: "rgba(255,255,255,0.55)",
+    cardBg: "linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(230,248,238,0.78) 100%)",
     cardBorder: "1px solid rgba(255,255,255,0.9)",
     cardShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)",
     textPrimary: "#0f172a",
-    textSecondary: "#64748b",
+    textSecondary: "#4b5b70",
     divider: "rgba(15,23,42,0.06)",
     neutralBg: "rgba(15,23,42,0.05)",
     inputBg: "rgba(255,255,255,0.7)",
@@ -60,7 +60,7 @@ const cardTheme = {
     cardBorder: "1px solid rgba(255,255,255,0.06)",
     cardShadow: "0 28px 80px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.35)",
     textPrimary: "#ffffff",
-    textSecondary: "rgba(255,255,255,0.45)",
+    textSecondary: "rgba(255,255,255,0.62)",
     divider: "rgba(255,255,255,0.08)",
     neutralBg: "rgba(255,255,255,0.06)",
     inputBg: "rgba(255,255,255,0.04)",
@@ -72,7 +72,7 @@ const cardTheme = {
 
 // Same green (and same red) in both themes — only the pill/tint backgrounds
 // shift per theme for contrast, the accent color itself never changes.
-const ACCENT = "#16a34a";
+const ACCENT = "var(--accent-text)"; // deeper green in light mode, bright green on dark surfaces
 const ACCENT_SOFT = { light: "rgba(22,163,74,0.12)", dark: "rgba(22,163,74,0.18)" };
 const RED = "#ef4444";
 const RED_SOFT = { light: "rgba(239,68,68,0.1)", dark: "rgba(239,68,68,0.15)" };
@@ -211,7 +211,7 @@ export function TradeCopiedSection() {
           <Link
             href="/explore-traders"
             className="h-10 px-8 rounded-xl flex items-center justify-center text-[13px] font-bold text-white hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: ACCENT }}
+            style={{ backgroundColor: "#17703a" }}
           >
             Explore Traders
           </Link>
@@ -426,7 +426,7 @@ export function FollowingSection() {
               <Link
                 href="/explore-traders"
                 className="h-10 px-6 rounded-xl flex items-center justify-center text-[13px] font-bold text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: ACCENT }}
+                style={{ backgroundColor: "#17703a" }}
               >
                 Explore Traders
               </Link>

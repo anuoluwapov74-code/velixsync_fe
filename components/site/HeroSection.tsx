@@ -150,7 +150,7 @@ const TickerTape = () => (
           <span className="inline-flex items-center gap-1.5 text-[0.72rem] font-mono">
             <span className="font-semibold text-[#a9dfbf]">{tick.sym}</span>
             <span className="text-white/70">{tick.val}</span>
-            <span className={tick.up ? "text-[#27ae60]" : "text-[#e74c3c]"}>
+            <span className={tick.up ? "text-[#2ecc71]" : "text-[#ff6b5b]"}>
               {tick.up ? "▲" : "▼"}{tick.change}
             </span>
           </span>
@@ -240,7 +240,7 @@ const HeroSection = () => {
           <h1 className="text-[1.5rem] sm:text-[2.25rem] lg:text-[3.1rem] font-bold leading-[1.1] tracking-tight text-gray-900 dark:text-white lg:leading-[1.08]">
             Copy Futures, Options & Contracts
             <br />
-            <span className="bg-gradient-to-r from-green-700 via-green-500 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-800 via-green-700 to-emerald-600 dark:from-green-700 dark:via-green-500 dark:to-emerald-400 bg-clip-text text-transparent">
               with Precision
             </span>
           </h1>

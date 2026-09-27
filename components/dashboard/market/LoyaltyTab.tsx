@@ -137,10 +137,10 @@ export default function LoyaltyTab() {
                     key={tier.key}
                     className={`relative rounded-2xl border p-3.5 transition-opacity tv-card ${
                       isCurrent ? "border-[#16a34a]" : "border-gray-200 dark:border-white/10"
-                    } ${!isUnlocked ? "opacity-60" : ""}`}
+                    } ${!isUnlocked ? "opacity-85" : ""}`}
                   >
                     {isCurrent && (
-                      <span className="absolute -top-2 right-3 px-2 py-0.5 bg-[#16a34a] text-white text-[9px] font-bold uppercase tracking-wider rounded-full">
+                      <span className="absolute -top-2 right-3 px-2 py-0.5 bg-[#17703a] text-white text-[9px] font-bold uppercase tracking-wider rounded-full">
                         Current
                       </span>
                     )}
@@ -172,7 +172,7 @@ export default function LoyaltyTab() {
 
             <button
               onClick={() => setShowDeposit(true)}
-              className="w-full h-11 mt-5 rounded-full text-sm font-bold text-white bg-[#16a34a] hover:opacity-90 transition-opacity"
+              className="w-full h-11 mt-5 rounded-full text-sm font-bold text-white bg-[#17703a] hover:opacity-90 transition-opacity"
             >
               Make a Deposit
             </button>

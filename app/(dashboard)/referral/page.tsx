@@ -220,7 +220,7 @@ export default function ReferralPage() {
             <h1 className="text-sm sm:text-base font-bold">Reward Center</h1>
           </div>
 
-          <p className="text-blue-50 dark:text-green-100 text-sm sm:text-base mb-6">
+          <p className="text-white text-sm sm:text-base mb-6">
             Invite friends and earn rewards! Get{" "}
             <span className="font-bold text-lg">
               {referralData?.referral_bonus_rate || 10}%
@@ -230,10 +230,10 @@ export default function ReferralPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Total Referrals */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-black/15 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Users className="w-5 h-5 text-green-200" />
-                <p className="text-sm text-green-100">Total Referrals</p>
+                <p className="text-sm text-white">Total Referrals</p>
               </div>
               <p className="text-xl sm:text-2xl font-bold">
                 {referralData?.total_referrals || 0}
@@ -241,10 +241,10 @@ export default function ReferralPage() {
             </div>
 
             {/* Total Earnings */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-black/15 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2">
                 <DollarSign className="w-5 h-5 text-green-200" />
-                <p className="text-sm text-green-100">Total Earned</p>
+                <p className="text-sm text-white">Total Earned</p>
               </div>
               <p className="text-xl sm:text-2xl font-bold">
                 $

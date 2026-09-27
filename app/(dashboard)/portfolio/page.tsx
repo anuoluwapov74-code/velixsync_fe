@@ -68,8 +68,8 @@ const sg = {
   darkText: "#0a1a0f",
   mutedText: "rgba(10,26,15,0.45)",
   fadedText: "rgba(10,26,15,0.3)",
-  accent: "#059669",
-  accentDark: "#059669",
+  accent: "#047857",
+  accentDark: "#047857",
   accentBright: "#10b981",
   statBg: "#f5fbf7",
   statBorder: "1px solid rgba(5,150,105,0.12)",
@@ -88,7 +88,7 @@ const dk = {
   cardShadow: "0 28px 80px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.35)",
   heroBg: "#111e1b",
   darkText: "#ffffff",
-  mutedText: "rgba(255,255,255,0.45)",
+  mutedText: "rgba(255,255,255,0.62)",
   fadedText: "rgba(255,255,255,0.3)",
   accent: "#16a34a",
   accentDark: "#16a34a",
@@ -198,7 +198,7 @@ export default function PortfolioPage() {
               className="flex items-center gap-1.5 pt-1 pb-2.5 text-sm border-b-2 -mb-px transition-colors"
               style={{
                 borderColor: active ? accentColor : "transparent",
-                color: active ? (isDark ? "#ffffff" : "#0f172a") : (isDark ? "rgba(255,255,255,0.45)" : "#94a3b8"),
+                color: active ? (isDark ? "#ffffff" : "#0f172a") : (isDark ? "rgba(255,255,255,0.62)" : "#526277"),
                 fontWeight: active ? 600 : 500,
               }}
             >
@@ -307,7 +307,7 @@ export default function PortfolioPage() {
           <div
             className="mt-4 rounded-3xl grid grid-cols-3 backdrop-blur-xl"
             style={{
-              background: isDark ? "#111e1b" : "rgba(255,255,255,0.55)",
+              background: isDark ? "#111e1b" : "linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(230,248,238,0.78) 100%)",
               border: isDark ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(255,255,255,0.9)",
               boxShadow: isDark
                 ? "0 28px 80px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.35)"

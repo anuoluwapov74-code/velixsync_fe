@@ -118,11 +118,7 @@ export default function DashboardShell({ children }: DashboardShellProps) {
     >
       <div
         className="min-h-screen dashboard-font"
-        style={
-          isDark
-            ? { background: "#0b1a12" }
-            : { background: "radial-gradient(circle at 30% 0%, #eef6f1 0%, #e4edf3 45%, #dfe7ef 100%)" }
-        }
+        style={isDark ? { background: "#0b1a12" } : undefined}
       >
         <div className="flex flex-col h-screen overflow-hidden">
           {/* Top Navigation */}

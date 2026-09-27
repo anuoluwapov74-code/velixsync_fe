@@ -21,12 +21,12 @@ const LINE_PATH =
 
 const tokens = {
   light: {
-    cardBg: "rgba(255,255,255,0.55)",
+    cardBg: "linear-gradient(145deg, rgba(255,255,255,0.88) 0%, rgba(230,248,238,0.78) 100%)",
     cardBorder: "1px solid rgba(255,255,255,0.9)",
     cardShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)",
     textPrimary: "#0f172a",
-    textSecondary: "#64748b",
-    accent: "#16a34a",
+    textSecondary: "#4b5b70",
+    accent: "#17703a",
     accentSoft: "rgba(22,163,74,0.12)",
     chipBg: "rgba(255,255,255,0.7)",
     dividerColor: "rgba(15,23,42,0.06)",
@@ -36,7 +36,7 @@ const tokens = {
     cardBorder: "1px solid rgba(255,255,255,0.06)",
     cardShadow: "0 28px 80px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.35)",
     textPrimary: "#ffffff",
-    textSecondary: "rgba(255,255,255,0.45)",
+    textSecondary: "rgba(255,255,255,0.62)",
     accent: "#16a34a",
     accentSoft: "rgba(22,163,74,0.15)",
     chipBg: "rgba(22,163,74,0.1)",
@@ -87,7 +87,7 @@ export default function HeroBalanceCard({ totalBalance, totalProfits, balance, i
           className="flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold"
           style={{ background: t.chipBg, border: `1px solid ${t.cardBorder.replace("1px solid ", "")}`, color: t.textPrimary }}
         >
-          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: t.accent }} /> Live
+          <span className="live-blink w-2 h-2 rounded-full" style={{ backgroundColor: t.accent, color: t.accent }} /> Live
         </span>
       </div>
 

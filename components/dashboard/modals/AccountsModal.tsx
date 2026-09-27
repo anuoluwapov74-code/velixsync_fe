@@ -53,15 +53,12 @@ export default function AccountsModal({ isOpen, onClose }: AccountsModalProps) {
       const data: FollowingResponse = await res.json();
       const traderId = data?.success ? data.traders[0]?.trader_id : undefined;
 
-      if (!traderId) {
-        toast.error("Not Copying Any Trader", {
-          description: "You aren't currently copying a trader's portfolio.",
-        });
-        return;
-      }
-
       onClose();
-      router.push(`/explore-traders/${traderId}?tab=portfolio`);
+      if (!traderId) {
+        router.push("/explore-traders");
+      } else {
+        router.push(`/explore-traders/${traderId}?tab=portfolio`);
+      }
     } catch {
       toast.error("Something went wrong", {
         description: "Couldn't check your copied trader. Please try again.",
@@ -122,7 +119,7 @@ export default function AccountsModal({ isOpen, onClose }: AccountsModalProps) {
                 </div>
               </button>
 
-              {/* Stock Portfolio Mirroring */}
+              {/* Portfolio Mirroring */}
               <button
                 onClick={handleMirroring}
                 disabled={mirroringLoading}
@@ -133,7 +130,7 @@ export default function AccountsModal({ isOpen, onClose }: AccountsModalProps) {
                     <Copy className="w-4.5 h-4.5" style={{ color: TEAL }} />
                   </div>
                   <div>
-                    <p className="text-[14px] font-bold text-gray-900 dark:text-white">Stock Portfolio Mirroring</p>
+                    <p className="text-[14px] font-bold text-gray-900 dark:text-white">Portfolio Mirroring</p>
                     <p className="text-[11px] text-gray-500 dark:text-white/40">Mirror an expert&apos;s stock portfolio</p>
                   </div>
                 </div>

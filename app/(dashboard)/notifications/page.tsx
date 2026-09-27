@@ -306,7 +306,7 @@ export default function NotificationsPage() {
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   filter === option.value
                     ? "bg-[#16a34a] text-[#001a0f]"
-                    : "tv-card text-gray-300 hover:opacity-80 border-[rgba(22,163,74,0.14)]"
+                    : "tv-card text-gray-700 dark:text-gray-300 hover:opacity-80 border-[rgba(22,163,74,0.14)]"
                 }`}
               >
                 {option.label}

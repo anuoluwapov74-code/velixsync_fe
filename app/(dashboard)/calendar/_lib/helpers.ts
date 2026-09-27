@@ -3,7 +3,7 @@
 /** Muted slate-blue used for every section heading and stat label across
  * this page (MY PERFORMANCE, WIN RATE, TOTAL TRADES, etc.) — matches the
  * reference design's label color in both themes. */
-export const LABEL_COLOR = "text-[#6B84AD] dark:text-[#93A8CC]";
+export const LABEL_COLOR = "text-[#48608a] dark:text-[#93A8CC]";
 
 /** "$2k", "$20k", "-$1.4M", "$85" — compact currency, matching the
  * per-day figures shown on the calendar cells. */

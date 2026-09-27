@@ -74,7 +74,6 @@ const Footer = () => {
               <FooterSection
                 title="CONTACT"
                 links={[
-                  { label: "+1 (929) 512-0241", href: "#" },
                   { label: "support@velixsync.com", href: "mailto:support@velixsync.com" },
                 ]}
               />

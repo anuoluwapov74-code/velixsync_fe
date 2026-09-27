@@ -564,7 +564,7 @@ function TraderProfilePageInner() {
                         onClick={() => setChartPeriod(f)}
                         className={`h-6 px-2 rounded-full text-[11px] font-medium transition-colors ${
                           chartPeriod === f
-                            ? "bg-[#16a34a] text-white"
+                            ? "bg-[#17703a] text-white"
                             : "text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white"
                         }`}
                       >

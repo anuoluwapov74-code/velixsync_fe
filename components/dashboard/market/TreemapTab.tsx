@@ -37,10 +37,10 @@ function colorFor(changePercent: number) {
   const intensity = Math.abs(clamped) / MAX_MOVE; // 0..1
   if (changePercent >= 0) {
     // dark green -> bright green
-    const l = 18 + intensity * 20; // lightness %
+    const l = 18 + intensity * 12; // lightness % (capped so white labels stay >= 4.5:1)
     return `hsl(142, 71%, ${l}%)`;
   }
-  const l = 18 + intensity * 20;
+  const l = 18 + intensity * 12;
   return `hsl(0, 72%, ${l}%)`;
 }
 
