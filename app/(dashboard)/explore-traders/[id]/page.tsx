@@ -19,6 +19,7 @@ import {
   UserPlus,
   Loader2,
   Gauge,
+  Briefcase,
 } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
@@ -78,7 +79,6 @@ interface TraderDetail {
   }>;
   profit_share: number;
   blur_portfolio: boolean;
-  blur_portfolio_amount: string;
   is_active: boolean;
   created_at: string;
   updated_at: string;
@@ -209,16 +209,16 @@ function TraderStatsAndTags({ trader }: { trader: TraderDetail }) {
   return (
     <>
       <div className="rounded-2xl border border-green-100 dark:border-[rgba(22,163,74,0.15)] bg-green-50/40 dark:bg-[rgba(22,163,74,0.04)] px-2 py-3 sm:p-5">
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 sm:gap-x-8">
+        <div className="grid grid-cols-3 gap-x-2 gap-y-5 sm:gap-x-8">
           {[
             { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: fmtCompact(parseFloat(trader.min_account_threshold) || 0), label: "Min Capital" },
             { icon: <Users className="w-4 h-4 text-purple-500 shrink-0" />, value: trader.copiers.toLocaleString(), label: "Copiers" },
             { icon: <UserCheck className="w-4 h-4 text-emerald-500 shrink-0" />, value: trader.followers.toLocaleString(), label: "Followers" },
             { icon: <Shield className="w-4 h-4 text-amber-500 shrink-0" />, value: `${trader.profit_share ?? 50}%`, label: "Profit Share" },
-            { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: fmtCompact(parseFloat(trader.copy_value) || 0), label: "Copy value" },
+            { icon: <Briefcase className="w-4 h-4 text-green-500 shrink-0" />, value: fmtCompact(parseFloat(trader.copy_value) || 0), label: "Copy value" },
             { icon: <Gauge className="w-4 h-4 text-red-500 shrink-0" />, value: trader.risk, label: "Risk score" },
           ].map((s, i) => (
-            <div key={i} className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2 text-center sm:text-left">
+            <div key={i} className="flex flex-col items-center gap-1.5 text-center">
               {s.icon}
               <div>
                 <div className="text-sm font-bold text-gray-900 dark:text-white whitespace-nowrap">{s.value}</div>
@@ -745,7 +745,7 @@ function TraderProfilePageInner() {
 
         {/* ── PORTFOLIO TAB ──
             Blurred while the server reports it locked (trader.blur_portfolio on and the
-            user hasn't unlocked it); unlocking needs a balance >= blur_portfolio_amount. */}
+            user hasn't been granted access); the requirement shown is the trader's copy_value. */}
         {activeTab === "portfolio" && (
           <TraderPortfolioTab traderId={trader.id} traderName={trader.name} />
         )}
