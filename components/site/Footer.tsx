@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import GetAppSection from "./GetAppSection";
 
 interface FooterLink {
   label: string;
@@ -24,7 +25,7 @@ const Footer = () => {
             <p className="mb-4 text-sm text-[var(--foreground-muted)]">
               Copy trade with VelixSync
             </p>
-        {/* Google and Apple store here */}
+        <GetAppSection />
           </div>
 
           {/* Footer Links */}
