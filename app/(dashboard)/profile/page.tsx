@@ -83,7 +83,7 @@ export default function ProfilePage() {
           <button
             onClick={() => router.push("/settings")}
             className="flex items-center gap-2 px-6 py-3 font-semibold rounded-lg hover:opacity-90 transition-opacity"
-            style={{ background: "#16a34a", color: "#001a0f" }}
+            style={{ background: "#17703a", color: "#ffffff" }}
           >
             <Settings className="w-4 h-4" />
             Edit Settings
@@ -383,7 +383,7 @@ export default function ProfilePage() {
               <button
                 onClick={() => router.push("/kyc")}
                 className="px-4 py-2 text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity"
-                style={{ background: "#16a34a", color: "#001a0f" }}
+                style={{ background: "#17703a", color: "#ffffff" }}
               >
                 Complete KYC
               </button>

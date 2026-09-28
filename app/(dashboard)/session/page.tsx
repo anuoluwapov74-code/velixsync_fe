@@ -60,7 +60,7 @@ export default function LiveTradingPage() {
           <motion.button
             onClick={() => setShowModal(true)}
             className="px-8 py-4 text-sm font-bold rounded-xl shadow-lg hover:shadow-xl hover:opacity-90 transition-all duration-300 flex items-center gap-3"
-            style={{ background: "#16a34a", color: "#001a0f" }}
+            style={{ background: "#17703a", color: "#ffffff" }}
             animate={{
               y: [0, -10, 0],
             }}

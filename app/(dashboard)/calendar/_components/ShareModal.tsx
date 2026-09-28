@@ -216,7 +216,7 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
             onClick={handleDownload}
             disabled={downloading}
             className="flex-1 py-2.5 rounded-lg font-semibold text-sm disabled:opacity-50 transition-opacity hover:opacity-90"
-            style={{ background: "#16a34a", color: "#001a0f" }}
+            style={{ background: "#17703a", color: "#ffffff" }}
           >
             {downloading ? "Generating…" : "Download"}
           </button>

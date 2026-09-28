@@ -115,7 +115,7 @@
   --card-foreground: oklch(0.94 0.025 155);
   --popover: oklch(0.13 0.022 155);
   --popover-foreground: oklch(0.94 0.025 155);
-  --primary-foreground: oklch(0.1 0.02 155);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.18 0.022 155);
   --secondary-foreground: oklch(0.94 0.025 155);
   --muted: oklch(0.18 0.022 155);
@@ -711,6 +711,10 @@ body {
 }
 
 .tv-inner {
+  background: rgba(22, 120, 70, 0.07);
+}
+
+.dark .tv-inner {
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -752,7 +756,7 @@ body {
 @layer utilities {
   /* LIGHT mode text accents: the 400/500 shades of every hue are 1.5–3.4:1 on white / the page gradient,
      so map them to their 700 shade. (:where keeps specificity low so hover:/focus: variants still win.) */
-  html:not(.dark) :where(.text-green-500, .text-green-600, .text-green-700, .text-\[\#16a34a\], .text-\[\#27ae60\]) { color: #166534; }
+  html:not(.dark) :where(.text-green-400, .text-green-500, .text-green-600, .text-green-700, .text-\[\#16a34a\], .text-\[\#27ae60\]) { color: #166534; }
   html:not(.dark) :where(.text-emerald-400, .text-emerald-500, .text-emerald-600) { color: #047857; }
   html:not(.dark) :where(.text-red-400, .text-red-500)       { color: #b91c1c; }
   html:not(.dark) :where(.text-blue-400, .text-blue-500)     { color: #1d4ed8; }

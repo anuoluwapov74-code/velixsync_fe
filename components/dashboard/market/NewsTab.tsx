@@ -447,7 +447,7 @@ function NewsModal({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-2 h-10 px-5 rounded-lg text-sm font-bold text-[#001a0f] bg-[#16a34a] hover:opacity-90 transition-opacity shrink-0"
+                    className="flex items-center gap-2 h-10 px-5 rounded-lg text-sm font-bold text-white bg-[#17703a] hover:opacity-90 transition-opacity shrink-0"
                   >
                     Read full article
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -535,7 +535,7 @@ export default function NewsTab() {
               className={`flex-shrink-0 px-4 py-2 rounded-lg text-xs font-semibold transition-colors ${
                 active ? "" : "tv-card text-gray-500 dark:text-gray-400 hover:opacity-80"
               }`}
-              style={active ? { background: "#16a34a", color: "#001a0f" } : undefined}
+              style={active ? { background: "#17703a", color: "#ffffff" } : undefined}
             >
               {cat}
             </button>

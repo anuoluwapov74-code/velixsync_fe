@@ -290,7 +290,7 @@ export default function SignalsPage() {
                           ? "bg-gray-200 dark:bg-white/10 text-gray-500 dark:text-gray-400 cursor-not-allowed"
                           : "hover:opacity-90"
                       }`}
-                      style={!signal.is_purchased ? { background: "#16a34a", color: "#001a0f" } : undefined}
+                      style={!signal.is_purchased ? { background: "#17703a", color: "#ffffff" } : undefined}
                     >
                       {signal.is_purchased ? "Already Purchased" : "Purchase Signal"}
                     </button>
@@ -454,7 +454,7 @@ export default function SignalsPage() {
                     disabled={
                       purchasing || parseFloat(userBalance) < parseFloat(selectedSignal.price)
                     }
-                    className="flex-1 py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 py-3 bg-[#17703a] hover:opacity-90 text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {purchasing ? "Processing..." : "Confirm Purchase"}
                   </button>
@@ -505,7 +505,7 @@ export default function SignalsPage() {
                     setSelectedSignal(null);
                     setActiveTab("purchased");
                   }}
-                  className="w-full py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-all"
+                  className="w-full py-3 bg-[#17703a] hover:opacity-90 text-white font-semibold rounded-lg transition-all"
                 >
                   View Purchased Signals
                 </button>

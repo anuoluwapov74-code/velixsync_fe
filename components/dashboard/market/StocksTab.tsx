@@ -400,13 +400,13 @@ export default function StocksTab() {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
               activeFilter === key ? "" : "tv-card text-gray-500 dark:text-gray-300 hover:opacity-80"
             }`}
-            style={activeFilter === key ? { background: "#16a34a", color: "#001a0f" } : undefined}
+            style={activeFilter === key ? { background: "#17703a", color: "#ffffff" } : undefined}
           >
             {label}
             {counts[key] > 0 && (
               <span
                 className={`text-xs rounded-full px-1.5 py-0.5 ${
-                  activeFilter === key ? "bg-black/10 text-[#001a0f]" : "bg-gray-500/10 text-gray-500 dark:text-gray-300"
+                  activeFilter === key ? "bg-white/20 text-white" : "bg-gray-500/10 text-gray-500 dark:text-gray-300"
                 }`}
               >
                 {counts[key]}
@@ -430,7 +430,7 @@ export default function StocksTab() {
                     ? ""
                     : "tv-card text-gray-500 dark:text-gray-300 hover:border-[#16a34a]"
                 }`}
-                style={sectorFilter === sector ? { background: "#16a34a", color: "#001a0f" } : undefined}
+                style={sectorFilter === sector ? { background: "#17703a", color: "#ffffff" } : undefined}
               >
                 {sector}
               </button>
@@ -470,7 +470,7 @@ export default function StocksTab() {
                         Featured
                       </span>
                     )}
-                    <span className="px-1.5 py-0.5 bg-white/5 text-gray-400 text-xs rounded capitalize">
+                    <span className="px-1.5 py-0.5 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 text-xs rounded capitalize">
                       {stock.category}
                     </span>
                   </div>
@@ -538,7 +538,7 @@ export default function StocksTab() {
                   className={`w-9 h-9 rounded-lg text-sm font-medium transition-colors ${
                     page === p ? "" : "tv-card text-gray-400 hover:border-[#16a34a]"
                   }`}
-                  style={page === p ? { background: "#16a34a", color: "#001a0f" } : undefined}
+                  style={page === p ? { background: "#17703a", color: "#ffffff" } : undefined}
                 >
                   {p}
                 </button>

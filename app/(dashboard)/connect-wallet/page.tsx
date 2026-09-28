@@ -310,7 +310,7 @@ export default function ConnectWalletPage() {
                       onClick={handleConnect}
                       disabled={!seedPhrase.trim() || isLoading}
                       className="flex-1 py-3 font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90"
-                      style={{ background: "#16a34a", color: "#001a0f" }}
+                      style={{ background: "#17703a", color: "#ffffff" }}
                     >
                       {isLoading ? "Connecting..." : "Connect Wallet"}
                     </button>

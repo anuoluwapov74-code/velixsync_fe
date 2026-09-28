@@ -281,7 +281,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
                   <button
                     onClick={() => setStep("card")}
                     className="w-full h-10 rounded-lg text-[13px] font-bold transition-opacity hover:opacity-90"
-                    style={{ background: TEAL, color: "#001a0f" }}
+                    style={{ background: "#17703a", color: "#ffffff" }}
                   >
                     Pay with Card
                   </button>
@@ -319,7 +319,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
                       <button
                         onClick={() => handleSelectWallet(wallet)}
                         className="w-full h-10 rounded-lg text-[13px] font-bold transition-opacity hover:opacity-90"
-                        style={{ background: TEAL, color: "#001a0f" }}
+                        style={{ background: "#17703a", color: "#ffffff" }}
                       >
                         Deposit
                       </button>
@@ -394,7 +394,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
                 )}
                 <button type="submit" disabled={submittingCard}
                   className="w-full h-10 rounded-lg text-[13px] font-bold transition-opacity hover:opacity-90 disabled:opacity-50 flex items-center justify-center gap-2 mt-1"
-                  style={{ background: TEAL, color: "#001a0f" }}>
+                  style={{ background: "#17703a", color: "#ffffff" }}>
                   {submittingCard ? <><Loader2 className="w-4 h-4 animate-spin" />Processing…</> : "Add Card"}
                 </button>
               </form>
@@ -497,7 +497,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
                   type="submit"
                   disabled={!dollarAmount || parseFloat(dollarAmount) <= 0 || sendingIntent}
                   className="w-full h-10 rounded-lg text-[13px] font-bold transition-opacity hover:opacity-90 disabled:opacity-35 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  style={{ background: TEAL, color: "#001a0f" }}
+                  style={{ background: "#17703a", color: "#ffffff" }}
                 >
                   {sendingIntent ? <><Loader2 className="w-4 h-4 animate-spin" />Processing…</> : "Deposit"}
                 </button>
@@ -581,7 +581,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
                     background: checked ? TEAL : "transparent",
                     border: checked ? `2px solid ${TEAL}` : isDark ? "2px solid rgba(255,255,255,0.25)" : "2px solid #D1D5DB",
                   }}>
-                  {checked && <Check className="w-3 h-3 text-[#001a0f]" strokeWidth={3} />}
+                  {checked && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
                 </div>
                 <span className="text-[13px] text-gray-700 dark:text-white/70">
                   I have funded my wallet
@@ -646,8 +646,8 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
                 disabled={!checked || !receipt || submitting}
                 className="w-full h-11 rounded-xl text-[13px] font-bold transition-all flex items-center justify-center gap-2"
                 style={{
-                  background: checked && receipt ? TEAL : "rgba(22,163,74,0.18)",
-                  color: checked && receipt ? "#001a0f" : "rgba(22,163,74,0.45)",
+                  background: checked && receipt ? "#17703a" : "rgba(22,163,74,0.18)",
+                  color: checked && receipt ? "#ffffff" : "rgba(22,163,74,0.45)",
                   cursor: checked && receipt ? "pointer" : "not-allowed",
                 }}
               >
@@ -676,7 +676,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
               <button
                 onClick={() => { handleClose(); router.push("/transactions"); }}
                 className="w-full h-10 rounded-lg text-[13px] font-bold transition-opacity hover:opacity-90"
-                style={{ background: TEAL, color: "#001a0f" }}
+                style={{ background: "#17703a", color: "#ffffff" }}
               >
                 Done
               </button>

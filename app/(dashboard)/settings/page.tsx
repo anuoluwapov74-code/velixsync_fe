@@ -334,7 +334,7 @@ export default function SettingsPage() {
         <p className="text-red-500 dark:text-red-400 text-lg">{error}</p>
         <button
           onClick={() => mutateSettings()}
-          className="px-6 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors"
+          className="px-6 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors"
         >
           Retry
         </button>
@@ -413,7 +413,7 @@ export default function SettingsPage() {
                   </div>
                   <button
                     onClick={() => openEditModal("name")}
-                    className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors self-start sm:self-auto"
+                    className="px-4 py-2 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors self-start sm:self-auto"
                   >
                     Edit
                   </button>
@@ -447,7 +447,7 @@ export default function SettingsPage() {
                   </div>
                   <button
                     onClick={() => openEditModal("phone")}
-                    className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors self-start sm:self-auto"
+                    className="px-4 py-2 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors self-start sm:self-auto"
                   >
                     Edit
                   </button>
@@ -467,7 +467,7 @@ export default function SettingsPage() {
                   </div>
                   <button
                     onClick={() => openEditModal("country")}
-                    className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors self-start sm:self-auto"
+                    className="px-4 py-2 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors self-start sm:self-auto"
                   >
                     Edit
                   </button>
@@ -552,7 +552,7 @@ export default function SettingsPage() {
                   </div>
                   <button
                     onClick={() => openEditModal("password")}
-                    className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors whitespace-nowrap self-start sm:self-auto"
+                    className="px-4 py-2 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors whitespace-nowrap self-start sm:self-auto"
                   >
                     Change Password
                   </button>
@@ -601,7 +601,7 @@ export default function SettingsPage() {
                       <button
                         onClick={handleEnable2FA}
                         disabled={toggling2FA}
-                        className="px-4 py-2 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap self-start sm:self-auto"
+                        className="px-4 py-2 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap self-start sm:self-auto"
                       >
                         {toggling2FA ? (
                           <span className="flex items-center gap-2">
@@ -818,7 +818,7 @@ export default function SettingsPage() {
                     <button
                       onClick={handleUpdate}
                       disabled={updating}
-                      className="flex-1 py-2.5 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 py-2.5 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {updating ? (
                         <span className="flex items-center justify-center gap-2">
@@ -863,7 +863,7 @@ export default function SettingsPage() {
                     <button
                       onClick={handleUpdate}
                       disabled={updating}
-                      className="flex-1 py-2.5 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 py-2.5 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {updating ? (
                         <span className="flex items-center justify-center gap-2">
@@ -908,7 +908,7 @@ export default function SettingsPage() {
                     <button
                       onClick={handleUpdate}
                       disabled={updating}
-                      className="flex-1 py-2.5 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 py-2.5 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {updating ? (
                         <span className="flex items-center justify-center gap-2">
@@ -990,7 +990,7 @@ export default function SettingsPage() {
                     <button
                       onClick={handleUpdate}
                       disabled={updating}
-                      className="flex-1 py-2.5 text-sm bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 py-2.5 text-sm bg-[#17703a] hover:opacity-90 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {updating ? (
                         <span className="flex items-center justify-center gap-2">

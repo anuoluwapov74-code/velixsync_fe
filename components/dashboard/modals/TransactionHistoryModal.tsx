@@ -87,7 +87,7 @@ export default function TransactionHistoryModal({
                       ? "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/10"
                       : ""
                   }`}
-                  style={filter === f ? { background: "#16a34a", color: "#001a0f" } : undefined}
+                  style={filter === f ? { background: "#17703a", color: "#ffffff" } : undefined}
                 >
                   {f === "all" ? "All" : f === "deposit" ? "Deposits" : "Withdrawals"}
                 </button>

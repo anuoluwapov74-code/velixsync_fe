@@ -281,7 +281,7 @@ export default function NotificationsPage() {
               <button
                 onClick={markAllAsRead}
                 disabled={markingAllRead}
-                className="px-4 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-medium transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-4 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg font-medium transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {markingAllRead ? (
                   <>
@@ -305,7 +305,7 @@ export default function NotificationsPage() {
                 onClick={() => setFilter(option.value)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   filter === option.value
-                    ? "bg-[#16a34a] text-[#001a0f]"
+                    ? "bg-[#17703a] text-white"
                     : "tv-card text-gray-700 dark:text-gray-300 hover:opacity-80 border-[rgba(22,163,74,0.14)]"
                 }`}
               >
@@ -330,7 +330,7 @@ export default function NotificationsPage() {
             <p className="text-red-500 text-lg mb-4">Failed to load notifications</p>
             <button
               onClick={() => mutate()}
-              className="px-6 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors"
+              className="px-6 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors"
             >
               Retry
             </button>
@@ -593,7 +593,7 @@ export default function NotificationsPage() {
                   {/* Close Button */}
                   <button
                     onClick={closeModal}
-                    className="w-full py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] font-semibold rounded-lg transition-colors"
+                    className="w-full py-3 bg-[#17703a] hover:opacity-90 text-white font-semibold rounded-lg transition-colors"
                   >
                     Close
                   </button>

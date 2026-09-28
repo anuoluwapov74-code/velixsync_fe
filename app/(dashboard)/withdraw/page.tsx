@@ -221,7 +221,7 @@ export default function WithdrawPage() {
 
                 {isDropdownOpen && (
                   <div className="absolute z-10 w-full mt-1.5 rounded-lg shadow-lg overflow-hidden" style={{ background: "#0d1a12", border: "1px solid rgba(22,163,74,0.14)" }}>
-                    <div className="px-3 py-2 text-xs font-semibold" style={{ background: "#16a34a", color: "#001a0f" }}>Select method</div>
+                    <div className="px-3 py-2 text-xs font-semibold" style={{ background: "#17703a", color: "#ffffff" }}>Select method</div>
                     <div className="max-h-48 overflow-y-auto">
                       {methods.length === 0 ? (
                         <div className="px-3 py-3 text-xs text-gray-500 dark:text-gray-400">
@@ -308,7 +308,7 @@ export default function WithdrawPage() {
             <button
               onClick={handleConfirmWithdrawal}
               disabled={submitting || !selectedMethod || !amount || !withdrawalAddress}
-              className="w-full py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
+              className="w-full py-3 bg-[#17703a] hover:opacity-90 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
             >
               {submitting ? (
                 <><Loader2 className="w-4 h-4 animate-spin" />Processing...</>

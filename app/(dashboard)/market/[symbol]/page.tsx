@@ -85,9 +85,9 @@ function fmtVol(n: number | null | undefined): string {
 
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
-      <span className="text-gray-400 text-sm">{label}</span>
-      <span className="text-white text-sm font-medium">{value}</span>
+    <div className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-white/5 last:border-0">
+      <span className="text-gray-500 dark:text-gray-400 text-sm">{label}</span>
+      <span className="text-gray-900 dark:text-white text-sm font-medium">{value}</span>
     </div>
   );
 }
@@ -113,7 +113,7 @@ export default function StockDetailPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-6 text-sm"
+          className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6 text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Markets
@@ -127,7 +127,7 @@ export default function StockDetailPage() {
 
         {!loading && error && (
           <div className="text-center py-40">
-            <p className="text-red-400 text-lg">{error}</p>
+            <p className="text-red-600 dark:text-red-400 text-lg">{error}</p>
           </div>
         )}
 
@@ -140,28 +140,28 @@ export default function StockDetailPage() {
 
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <h1 className="text-2xl font-bold text-white">{stock.symbol}</h1>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{stock.symbol}</h1>
                     {stock.exchange && (
                       <span className="px-2 py-0.5 bg-[rgba(22,163,74,0.1)] text-[#16a34a] text-xs rounded">
                         {stock.exchange}
                       </span>
                     )}
                   </div>
-                  <p className="text-gray-400 text-sm truncate">{stock.name}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm truncate">{stock.name}</p>
                 </div>
 
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-white">
+                  <div className="text-3xl font-bold text-gray-900 dark:text-white">
                     {price > 0 ? (
                       `$${fmt(price)}`
                     ) : (
-                      <span className="text-gray-500 text-xl">Price unavailable</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xl">Price unavailable</span>
                     )}
                   </div>
                   {price > 0 && (
                     <div
                       className={`flex items-center justify-end gap-1 mt-1 ${
-                        stock.is_positive_change ? "text-green-400" : "text-red-400"
+                        stock.is_positive_change ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"
                       }`}
                     >
                       {stock.is_positive_change ? (
@@ -185,7 +185,7 @@ export default function StockDetailPage() {
               <div className="tv-card p-6 rounded-xl">
                 <div className="flex items-center gap-2 mb-4">
                   <BarChart2 className="w-4 h-4 text-[#16a34a]" />
-                  <h2 className="text-white font-semibold text-sm">Market Data</h2>
+                  <h2 className="text-gray-900 dark:text-white font-semibold text-sm">Market Data</h2>
                 </div>
                 <StatRow label="Open" value={stock.open > 0 ? `$${fmt(stock.open)}` : "—"} />
                 <StatRow label="Previous Close" value={stock.previous_close > 0 ? `$${fmt(stock.previous_close)}` : "—"} />
@@ -199,7 +199,7 @@ export default function StockDetailPage() {
               <div className="tv-card p-6 rounded-xl">
                 <div className="flex items-center gap-2 mb-4">
                   <Info className="w-4 h-4 text-[#16a34a]" />
-                  <h2 className="text-white font-semibold text-sm">Key Statistics</h2>
+                  <h2 className="text-gray-900 dark:text-white font-semibold text-sm">Key Statistics</h2>
                 </div>
                 <StatRow label="Market Cap" value={fmtLarge(stock.market_cap)} />
                 <StatRow label="Volume" value={fmtVol(stock.volume)} />
@@ -216,7 +216,7 @@ export default function StockDetailPage() {
               <div className="tv-card p-6 rounded-xl">
                 <div className="flex items-center gap-2 mb-4">
                   <Wallet className="w-4 h-4 text-[#16a34a]" />
-                  <h2 className="text-white font-semibold text-sm">Your Position</h2>
+                  <h2 className="text-gray-900 dark:text-white font-semibold text-sm">Your Position</h2>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {[
@@ -232,8 +232,8 @@ export default function StockDetailPage() {
                     },
                   ].map(({ label, value, colored, positive }) => (
                     <div key={label} className="tv-inner rounded-lg p-3">
-                      <p className="text-xs text-gray-400 mb-1">{label}</p>
-                      <p className={`text-sm font-semibold ${colored ? (positive ? "text-green-400" : "text-red-400") : "text-white"}`}>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{label}</p>
+                      <p className={`text-sm font-semibold ${colored ? (positive ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400") : "text-gray-900 dark:text-white"}`}>
                         {value}
                       </p>
                     </div>
@@ -246,7 +246,7 @@ export default function StockDetailPage() {
             {stock.description && (
               <div className="tv-card p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-white font-semibold text-sm">About</h2>
+                  <h2 className="text-gray-900 dark:text-white font-semibold text-sm">About</h2>
                   {stock.website && (
                     <a
                       href={stock.website}
@@ -259,11 +259,11 @@ export default function StockDetailPage() {
                     </a>
                   )}
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed line-clamp-6">
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-6">
                   {stock.description}
                 </p>
                 {stock.ceo && (
-                  <p className="text-gray-500 text-xs mt-3">CEO: {stock.ceo}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs mt-3">CEO: {stock.ceo}</p>
                 )}
               </div>
             )}

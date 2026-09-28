@@ -194,7 +194,7 @@ export default function ReferralPage() {
               refetchInfo();
               refetchList();
             }}
-            className="w-full px-4 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-medium transition-all"
+            className="w-full px-4 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg font-medium transition-all"
           >
             Try Again
           </button>
@@ -283,7 +283,7 @@ export default function ReferralPage() {
               </div>
               <button
                 onClick={handleCopyLink}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-medium transition-all shadow-sm whitespace-nowrap"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-[#17703a] hover:opacity-90 text-white rounded-lg font-medium transition-all shadow-sm whitespace-nowrap"
               >
                 {copied ? (
                   <>
@@ -321,7 +321,7 @@ export default function ReferralPage() {
                 <button
                   onClick={generateReferralCode}
                   disabled={generating}
-                  className="px-4 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center gap-2 whitespace-nowrap"
+                  className="px-4 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm flex items-center gap-2 whitespace-nowrap"
                 >
                   {generating ? (
                     <>
@@ -391,7 +391,7 @@ export default function ReferralPage() {
                   </p>
                   <button
                     onClick={handleShareClick}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg text-sm font-medium transition-all"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg text-sm font-medium transition-all"
                   >
                     <Share2 className="w-4 h-4" />
                     Share Link
@@ -417,7 +417,7 @@ export default function ReferralPage() {
 
                   <button
                     onClick={() => setShowDeposit(true)}
-                    className="inline-flex items-center mt-3 gap-2 px-4 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg text-sm font-medium transition-all"
+                    className="inline-flex items-center mt-3 gap-2 px-4 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg text-sm font-medium transition-all"
                   >
                     <DownloadCloud className="w-4 h-4" />
                     Deposit
@@ -620,7 +620,7 @@ export default function ReferralPage() {
                   />
                   <button
                     onClick={handleModalCopy}
-                    className="px-6 py-3 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg font-medium transition-all shadow-sm flex items-center justify-center gap-2 whitespace-nowrap"
+                    className="px-6 py-3 bg-[#17703a] hover:opacity-90 text-white rounded-lg font-medium transition-all shadow-sm flex items-center justify-center gap-2 whitespace-nowrap"
                   >
                     {modalCopied ? (
                       <>

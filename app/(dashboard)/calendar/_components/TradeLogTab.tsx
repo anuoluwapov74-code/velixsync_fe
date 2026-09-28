@@ -57,7 +57,7 @@ export default function TradeLogTab() {
               onClick={() => { setStatusFilter(s); setOffset(0); }}
               className={`px-3 py-1.5 capitalize transition-colors ${
                 statusFilter === s
-                  ? "bg-[#16a34a] text-[#001a0f] font-semibold"
+                  ? "bg-[#17703a] text-white font-semibold"
                   : `${LABEL_COLOR} hover:bg-gray-100 dark:hover:bg-white/5`
               }`}
             >

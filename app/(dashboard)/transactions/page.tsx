@@ -70,7 +70,7 @@ export default function TransactionHistoryPage() {
                 ? "bg-white/90 dark:bg-[#0d3320]/80 border border-gray-200/50 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5"
                 : ""
             }`}
-            style={filter === f ? { background: "#16a34a", color: "#001a0f" } : undefined}
+            style={filter === f ? { background: "#17703a", color: "#ffffff" } : undefined}
           >
             <span className="sm:hidden">
               {f === "all" ? "All" : f === "deposit" ? "Deposits" : "Withdrawals"}

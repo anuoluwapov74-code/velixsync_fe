@@ -95,7 +95,7 @@ export default function CalendarGrid({ year, month, dailyPnl, dailyTradeCounts, 
                     hasTrade ? "cursor-pointer active:scale-95" : ""
                   } ${
                     isToday
-                      ? "bg-[#16a34a] border-[#16a34a]"
+                      ? "bg-[#17703a] border-[#17703a]"
                       : isPositive
                       ? "bg-green-500/[0.08] border-green-500/20"
                       : isNegative
@@ -105,7 +105,7 @@ export default function CalendarGrid({ year, month, dailyPnl, dailyTradeCounts, 
                 >
                   <span
                     className={`text-[9px] sm:text-xs self-end font-medium ${
-                      isToday ? "text-[#001a0f] font-bold" : "text-gray-400 dark:text-gray-500"
+                      isToday ? "text-white font-bold" : "text-gray-400 dark:text-gray-500"
                     }`}
                   >
                     {day}
@@ -114,12 +114,12 @@ export default function CalendarGrid({ year, month, dailyPnl, dailyTradeCounts, 
                     <div className="text-center overflow-hidden">
                       <p
                         className={`text-[9px] sm:text-[11px] lg:text-sm font-bold leading-tight truncate ${
-                          isToday ? "text-[#001a0f]" : isPositive ? "text-green-500" : "text-red-400"
+                          isToday ? "text-white" : isPositive ? "text-green-500" : "text-red-400"
                         }`}
                       >
                         {isPositive ? "+" : ""}{formatCompactUSD(pnl)}
                       </p>
-                      <p className={`text-[8px] hidden sm:block ${isToday ? "text-[#001a0f]/70" : "text-gray-400 dark:text-gray-500"}`}>
+                      <p className={`text-[8px] hidden sm:block ${isToday ? "text-white/85" : "text-gray-400 dark:text-gray-500"}`}>
                         {count} {count === 1 ? "trade" : "trades"}
                       </p>
                     </div>

@@ -90,7 +90,7 @@ export default function PerformancePanel({ year, month, period, onPeriodChange }
               onClick={() => onPeriodChange(p)}
               className={`px-2.5 py-1 capitalize transition-colors ${
                 period === p
-                  ? "bg-[#16a34a] text-[#001a0f] font-semibold"
+                  ? "bg-[#17703a] text-white font-semibold"
                   : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5"
               }`}
             >

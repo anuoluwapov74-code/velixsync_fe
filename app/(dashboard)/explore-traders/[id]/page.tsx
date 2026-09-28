@@ -412,7 +412,7 @@ function TraderProfilePageInner() {
           <button
             onClick={() => refetchTrader()}
             className="px-6 py-2 rounded-lg hover:opacity-90 transition-opacity"
-            style={{ background: "#16a34a", color: "#001a0f" }}
+            style={{ background: "#17703a", color: "#ffffff" }}
           >
             Retry
           </button>
@@ -900,7 +900,7 @@ function TraderProfilePageInner() {
               ? "opacity-60 cursor-not-allowed"
               : "hover:opacity-90 hover:scale-[1.03] active:scale-95"
           }`}
-          style={{ background: "#16a34a", color: "#001a0f" }}
+          style={{ background: "#17703a", color: "#ffffff" }}
         >
           {copyActionLoading || loadingBalance ? (
             <Loader2 className="w-5 h-5 animate-spin shrink-0" />

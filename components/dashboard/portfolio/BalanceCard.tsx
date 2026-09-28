@@ -157,7 +157,7 @@ export default function BalanceCard({
         <motion.button
           whileTap={{ scale: 0.97 }}
           onClick={onDeposit}
-          className="flex flex-col items-center justify-center gap-2 rounded-2xl py-5 px-2 bg-[#16a34a] text-white shadow-lg shadow-[#16a34a]/20"
+          className="flex flex-col items-center justify-center gap-2 rounded-2xl py-5 px-2 bg-[#17703a] text-white shadow-lg shadow-[#16a34a]/20"
         >
           <ArrowDownToLine className="w-5 h-5" />
           <span className="text-xs font-semibold">Deposit</span>

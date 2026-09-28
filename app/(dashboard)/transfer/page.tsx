@@ -209,7 +209,7 @@ export default function TransferPage() {
       <button
         onClick={handleConfirm}
         disabled={submitting || !amount || parseFloat(amount) <= 0}
-        className="w-full py-3.5 rounded-xl bg-[#16a34a] hover:opacity-90 disabled:bg-gray-300 dark:disabled:bg-white/10 disabled:cursor-not-allowed text-[#001a0f] text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+        className="w-full py-3.5 rounded-xl bg-[#17703a] hover:opacity-90 disabled:bg-gray-300 dark:disabled:bg-white/10 disabled:text-gray-500 dark:disabled:text-gray-400 disabled:cursor-not-allowed text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2"
       >
         {submitting ? (
           <Loader2 className="w-4 h-4 animate-spin" />

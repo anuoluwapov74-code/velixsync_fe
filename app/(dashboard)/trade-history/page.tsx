@@ -111,7 +111,7 @@ export default function TradeHistoryPage() {
                       onClick={() => setStatusFilter(status as typeof statusFilter)}
                       className={`px-4 py-2 text-xs font-medium rounded-lg transition-all ${
                         statusFilter === status
-                          ? "bg-[#16a34a] text-[#001a0f]"
+                          ? "bg-[#17703a] text-white"
                           : "tv-inner text-gray-300 hover:opacity-80"
                       }`}
                     >
@@ -137,7 +137,7 @@ export default function TradeHistoryPage() {
             <p className="text-red-500 text-lg mb-4">{error}</p>
             <button
               onClick={() => refetch()}
-              className="px-6 py-2 bg-[#16a34a] hover:opacity-90 text-[#001a0f] rounded-lg transition-colors"
+              className="px-6 py-2 bg-[#17703a] hover:opacity-90 text-white rounded-lg transition-colors"
             >
               Retry
             </button>
@@ -159,7 +159,7 @@ export default function TradeHistoryPage() {
                 : "Start copying expert traders to see your trade history here"}
             </p>
             <Link href="/explore-traders">
-              <button className="px-6 py-2.5 bg-[#16a34a] hover:opacity-90 text-[#001a0f] text-sm font-semibold rounded-lg transition-colors">
+              <button className="px-6 py-2.5 bg-[#17703a] hover:opacity-90 text-white text-sm font-semibold rounded-lg transition-colors">
                 Explore Traders
               </button>
             </Link>

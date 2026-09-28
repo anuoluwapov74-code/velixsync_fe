@@ -59,7 +59,7 @@ export default function StatsTab() {
               key={p}
               onClick={() => setPeriod(p)}
               className={`px-3 py-1.5 capitalize transition-colors ${
-                period === p ? "bg-[#16a34a] text-[#001a0f] font-semibold" : `${LABEL_COLOR} hover:bg-gray-100 dark:hover:bg-white/5`
+                period === p ? "bg-[#17703a] text-white font-semibold" : `${LABEL_COLOR} hover:bg-gray-100 dark:hover:bg-white/5`
               }`}
             >
               {p}

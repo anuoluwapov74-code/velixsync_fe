@@ -344,7 +344,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                       onClick={handleConfirmWithdrawal}
                       disabled={submitting || !selectedCurrency || !amount || !withdrawalAddress.trim()}
                       className="flex-1 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-40 flex items-center justify-center gap-2 text-sm"
-                      style={{ background: "#16a34a", color: "#001a0f" }}
+                      style={{ background: "#17703a", color: "#ffffff" }}
                     >
                       {submitting ? (
                         <><Loader2 className="w-4 h-4 animate-spin" />Processing...</>
@@ -410,7 +410,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
               <button
                 onClick={handleClose}
                 className="w-full py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
-                style={{ background: "#16a34a", color: "#001a0f" }}
+                style={{ background: "#17703a", color: "#ffffff" }}
               >
                 Got It!
               </button>
