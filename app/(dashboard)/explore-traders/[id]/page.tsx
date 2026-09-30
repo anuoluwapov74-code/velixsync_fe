@@ -195,6 +195,10 @@ function fmtCompact(value: number): string {
   return `$${compactFormatter.format(value).replace("K", "k")}`;
 }
 
+function fmtFull(value: number): string {
+  return `$${value.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+}
+
 /* Tag → icon mapping for the pill row under the stats grid */
 function TagIcon({ tag }: { tag: string }) {
   const t = tag.toLowerCase();
@@ -211,7 +215,7 @@ function TraderStatsAndTags({ trader }: { trader: TraderDetail }) {
       <div className="rounded-2xl border border-green-100 dark:border-[rgba(22,163,74,0.15)] bg-green-50/40 dark:bg-[rgba(22,163,74,0.04)] px-2 py-3 sm:p-5">
         <div className="grid grid-cols-3 gap-x-2 gap-y-5 sm:gap-x-8">
           {[
-            { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: fmtCompact(parseFloat(trader.min_account_threshold) || 0), label: "Min Capital" },
+            { icon: <DollarSign className="w-4 h-4 text-green-500 shrink-0" />, value: fmtFull(parseFloat(trader.min_account_threshold) || 0), label: "Min Capital" },
             { icon: <Users className="w-4 h-4 text-purple-500 shrink-0" />, value: trader.copiers.toLocaleString(), label: "Copiers" },
             { icon: <UserCheck className="w-4 h-4 text-emerald-500 shrink-0" />, value: trader.followers.toLocaleString(), label: "Followers" },
             { icon: <Shield className="w-4 h-4 text-amber-500 shrink-0" />, value: `${trader.profit_share ?? 50}%`, label: "Profit Share" },

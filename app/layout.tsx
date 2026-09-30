@@ -120,12 +120,11 @@ export default function RootLayout({
           <Toaster richColors position="top-right" />
         </ThemeProvider>
 
-        {/* LiveChat - Jovo */}
-
-        {/* <Script
-          src="//code.jivosite.com/widget/wJDi5CwGBq"
+        {/* LiveChat - Jivo */}
+        <Script
+          src="//code.jivosite.com/widget/Ut6KwrqmNU"
           strategy="afterInteractive"
-        /> */}
+        />
       </body>
     </html>
   );
