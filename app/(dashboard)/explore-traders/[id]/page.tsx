@@ -79,6 +79,7 @@ interface TraderDetail {
   }>;
   profit_share: number;
   blur_portfolio: boolean;
+  blur_portfolio_amount: string;
   is_active: boolean;
   created_at: string;
   updated_at: string;
@@ -749,7 +750,7 @@ function TraderProfilePageInner() {
 
         {/* ── PORTFOLIO TAB ──
             Blurred while the server reports it locked (trader.blur_portfolio on and the
-            user hasn't been granted access); the requirement shown is the trader's copy_value. */}
+            user hasn't unlocked it); unlocking needs a balance >= blur_portfolio_amount. */}
         {activeTab === "portfolio" && (
           <TraderPortfolioTab traderId={trader.id} traderName={trader.name} />
         )}

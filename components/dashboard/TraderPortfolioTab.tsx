@@ -134,8 +134,8 @@ function LockedInfoModal({ traderName, requiredBalance, balance, isCopying, onCl
           </div>
 
           <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 mb-5">
-            {traderName}&apos;s portfolio is only shared with copiers whose capital meets the trader&apos;s
-            required copy value. It works the same way as being unable to copy a trader until you&apos;ve
+            {traderName}&apos;s portfolio is only shared with copiers whose capital meets the required
+            threshold. It works the same way as being unable to copy a trader until you&apos;ve
             reached their minimum capital.
           </p>
 
@@ -175,7 +175,7 @@ function LockedInfoModal({ traderName, requiredBalance, balance, isCopying, onCl
               You must be actively copying this trader. {isCopying ? "You are copying them." : "You are not copying them yet."}
             </Requirement>
             <Requirement done={meetsThreshold} title="Meet the required capital">
-              Your account capital must reach {money(requiredBalance)}, the copy value set for this trader.
+              Your account capital must reach {money(requiredBalance)}, the threshold set for this trader.
             </Requirement>
             <Requirement done={false} title="Approval">
               Once you qualify, access is approved on your account and their open positions become visible
@@ -271,8 +271,8 @@ export default function TraderPortfolioTab({ traderId, traderName }: Props) {
               </div>
               <p className="text-sm leading-relaxed text-gray-800 dark:text-gray-100">
                 Hello, {traderName}&apos;s portfolio becomes available once your capital meets the required
-                threshold of this trader&apos;s copy value. After approval, you&apos;ll be able to view and
-                mirror their open positions. For details on the specific requirements, tap the button below.
+                threshold. After approval, you&apos;ll be able to view and mirror their open positions. For
+                details on the specific requirements, tap the button below.
               </p>
               <button
                 type="button"
