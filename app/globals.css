@@ -796,6 +796,21 @@ html.dark div[class$="-placeholder"] { color: #94a3b8; }
 
 /* ══════════════ UTILITIES ══════════════ */
 
+/* Jivo live chat widget: below the `lg` breakpoint the app shows a fixed
+   bottom tab bar (BottomNav.tsx, ~lg:hidden), and Jivo's launcher/invitation
+   banner defaults to the very bottom of the screen, covering the Profile
+   tab. Lift it above the bar. Confirmed against the live widget's actual
+   elements (#jvLabelWrap is the invitation banner; #jivo-iframe-container
+   is included defensively since Jivo also uses that id for the collapsed
+   button in other states) — not present on desktop, so this only applies
+   where the bottom nav itself is visible. */
+@media (max-width: 1023px) {
+  #jvLabelWrap,
+  #jivo-iframe-container {
+    bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
