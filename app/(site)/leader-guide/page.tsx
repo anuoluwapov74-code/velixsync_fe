@@ -5,13 +5,13 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Leader Trader Guide — VelixSync",
-  description: "Everything you need to know about becoming a top Leader Trader on VelixSync. Set your strategy, manage copiers, and maximise your earnings as a VelixSync expert.",
-  alternates: { canonical: "https://velixsync.com/leader-guide" },
+  title: "Leader Trader Guide — VelixSync Pro",
+  description: "Everything you need to know about becoming a top Leader Trader on VelixSync Pro. Set your strategy, manage copiers, and maximise your earnings as a VelixSync Pro expert.",
+  alternates: { canonical: "https://velixsyncpro.com/leader-guide" },
   openGraph: {
-    title: "VelixSync Leader Trader Guide",
-    description: "How to become a top Leader Trader and earn on VelixSync.",
-    url: "https://velixsync.com/leader-guide",
+    title: "VelixSync Pro Leader Trader Guide",
+    description: "How to become a top Leader Trader and earn on VelixSync Pro.",
+    url: "https://velixsyncpro.com/leader-guide",
   },
 };
 

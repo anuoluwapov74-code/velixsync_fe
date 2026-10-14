@@ -19,16 +19,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://velixsync.com"),
+  metadataBase: new URL("https://velixsyncpro.com"),
   title: {
-    default: "VelixSync — Copy Futures, Options & Contracts with Precision",
-    template: "%s | VelixSync",
+    default: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
+    template: "%s | VelixSync Pro",
   },
   description:
-    "VelixSync is the premier copy trading platform for futures, options, and contracts. Mirror real-time trades from top-performing experts with AutoGuard™ risk management, AI signals, and zero commission.",
+    "VelixSync Pro is the premier copy trading platform for futures, options, and contracts. Mirror real-time trades from top-performing experts with AutoGuard™ risk management, AI signals, and zero commission.",
   keywords: [
-    "VelixSync",
-    "VelixSync copy trading",
+    "VelixSync Pro",
+    "VelixSync Pro copy trading",
     "copy trading platform",
     "copy futures trading",
     "copy options contracts",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     "futures copy trading",
     "options copy trading",
   ],
-  authors: [{ name: "VelixSync", url: "https://velixsync.com" }],
-  creator: "VelixSync",
-  publisher: "VelixSync",
+  authors: [{ name: "VelixSync Pro", url: "https://velixsyncpro.com" }],
+  creator: "VelixSync Pro",
+  publisher: "VelixSync Pro",
   category: "Finance",
   robots: {
     index: true,
@@ -60,33 +60,33 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://velixsync.com",
+    canonical: "https://velixsyncpro.com",
   },
   openGraph: {
     type: "website",
-    url: "https://velixsync.com",
-    siteName: "VelixSync",
-    title: "VelixSync — Copy Futures, Options & Contracts with Precision",
+    url: "https://velixsyncpro.com",
+    siteName: "VelixSync Pro",
+    title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time stock and options trades from top-performing traders. Precision, flexibility, and transparency — straight to your fingertips.",
     images: [
       {
-        url: "https://velixsync.com/opengraph-image.png",
+        url: "https://velixsyncpro.com/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "VelixSync — Copy Trading Platform",
+        alt: "VelixSync Pro — Copy Trading Platform",
       },
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@VelixSync",
-    creator: "@VelixSync",
-    title: "VelixSync — Copy Futures, Options & Contracts with Precision",
+    site: "@VelixSyncPro",
+    creator: "@VelixSyncPro",
+    title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time stock and options trades from top-performing traders. Precision, flexibility, and transparency — straight to your fingertips.",
-    images: ["https://velixsync.com/opengraph-image.png"],
+    images: ["https://velixsyncpro.com/opengraph-image.png"],
   },
   icons: {
     icon: [

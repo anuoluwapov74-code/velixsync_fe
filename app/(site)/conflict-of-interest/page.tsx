@@ -5,14 +5,14 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Conflict of Interest Policy — VelixSync",
-  description: "VelixSync's conflict of interest policy outlines how we identify and manage conflicts to protect our users and maintain platform integrity.",
-  alternates: { canonical: "https://velixsync.com/conflict-of-interest" },
+  title: "Conflict of Interest Policy — VelixSync Pro",
+  description: "VelixSync Pro's conflict of interest policy outlines how we identify and manage conflicts to protect our users and maintain platform integrity.",
+  alternates: { canonical: "https://velixsyncpro.com/conflict-of-interest" },
   robots: { index: true, follow: false },
   openGraph: {
-    title: "Conflict of Interest Policy — VelixSync",
-    description: "How VelixSync identifies and manages conflicts of interest.",
-    url: "https://velixsync.com/conflict-of-interest",
+    title: "Conflict of Interest Policy — VelixSync Pro",
+    description: "How VelixSync Pro identifies and manages conflicts of interest.",
+    url: "https://velixsyncpro.com/conflict-of-interest",
   },
 };
 

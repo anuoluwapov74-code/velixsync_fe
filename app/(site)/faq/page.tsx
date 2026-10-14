@@ -6,12 +6,12 @@ import FAQMajor from "@/components/site/FAQMajor";
 
 export const metadata: Metadata = {
   title: "FAQ — Frequently Asked Questions",
-  description: "Find answers to common questions about digital options trading, deposits, withdrawals, account verification, and more on VelixSync.",
-  alternates: { canonical: "https://velixsync.com/faq" },
+  description: "Find answers to common questions about digital options trading, deposits, withdrawals, account verification, and more on VelixSync Pro.",
+  alternates: { canonical: "https://velixsyncpro.com/faq" },
   openGraph: {
-    title: "VelixSync FAQ",
-    description: "Answers to the most frequently asked questions about trading, accounts, and verification on VelixSync.",
-    url: "https://velixsync.com/faq",
+    title: "VelixSync Pro FAQ",
+    description: "Answers to the most frequently asked questions about trading, accounts, and verification on VelixSync Pro.",
+    url: "https://velixsyncpro.com/faq",
   },
 };
 

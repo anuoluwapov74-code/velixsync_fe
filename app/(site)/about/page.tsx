@@ -6,13 +6,13 @@ import PagePreloader from "@/components/PagePreloader";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About VelixSync",
-  description: "Learn about VelixSync — our mission to democratise copy trading for futures, options, and contracts. Meet the team building precision, transparency, and zero-commission trading.",
-  alternates: { canonical: "https://velixsync.com/about" },
+  title: "About VelixSync Pro",
+  description: "Learn about VelixSync Pro — our mission to democratise copy trading for futures, options, and contracts. Meet the team building precision, transparency, and zero-commission trading.",
+  alternates: { canonical: "https://velixsyncpro.com/about" },
   openGraph: {
-    title: "About VelixSync",
-    description: "Our mission to democratise copy trading. Meet the team behind VelixSync.",
-    url: "https://velixsync.com/about",
+    title: "About VelixSync Pro",
+    description: "Our mission to democratise copy trading. Meet the team behind VelixSync Pro.",
+    url: "https://velixsyncpro.com/about",
   },
 };
 

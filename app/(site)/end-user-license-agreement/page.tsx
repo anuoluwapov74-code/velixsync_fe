@@ -5,14 +5,14 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "End User License Agreement — VelixSync",
-  description: "Read the VelixSync EULA governing your licence to use the VelixSync copy trading application, including permitted uses and restrictions.",
-  alternates: { canonical: "https://velixsync.com/end-user-license-agreement" },
+  title: "End User License Agreement — VelixSync Pro",
+  description: "Read the VelixSync Pro EULA governing your licence to use the VelixSync Pro copy trading application, including permitted uses and restrictions.",
+  alternates: { canonical: "https://velixsyncpro.com/end-user-license-agreement" },
   robots: { index: true, follow: false },
   openGraph: {
-    title: "End User License Agreement — VelixSync",
-    description: "The EULA governing your licence to use the VelixSync application.",
-    url: "https://velixsync.com/end-user-license-agreement",
+    title: "End User License Agreement — VelixSync Pro",
+    description: "The EULA governing your licence to use the VelixSync Pro application.",
+    url: "https://velixsyncpro.com/end-user-license-agreement",
   },
 };
 

@@ -5,14 +5,14 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — VelixSync",
-  description: "Read the VelixSync Terms of Service governing your use of our copy trading platform, including account terms, trading rules, and user obligations.",
-  alternates: { canonical: "https://velixsync.com/terms-of-service" },
+  title: "Terms of Service — VelixSync Pro",
+  description: "Read the VelixSync Pro Terms of Service governing your use of our copy trading platform, including account terms, trading rules, and user obligations.",
+  alternates: { canonical: "https://velixsyncpro.com/terms-of-service" },
   robots: { index: true, follow: false },
   openGraph: {
-    title: "Terms of Service — VelixSync",
-    description: "The terms governing your use of the VelixSync copy trading platform.",
-    url: "https://velixsync.com/terms-of-service",
+    title: "Terms of Service — VelixSync Pro",
+    description: "The terms governing your use of the VelixSync Pro copy trading platform.",
+    url: "https://velixsyncpro.com/terms-of-service",
   },
 };
 

@@ -5,14 +5,14 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Declaration of Consent — VelixSync",
-  description: "VelixSync's declaration of consent document covering data processing, marketing communications, and user rights under applicable privacy regulations.",
-  alternates: { canonical: "https://velixsync.com/declaration-of-consent" },
+  title: "Declaration of Consent — VelixSync Pro",
+  description: "VelixSync Pro's declaration of consent document covering data processing, marketing communications, and user rights under applicable privacy regulations.",
+  alternates: { canonical: "https://velixsyncpro.com/declaration-of-consent" },
   robots: { index: true, follow: false },
   openGraph: {
-    title: "Declaration of Consent — VelixSync",
-    description: "VelixSync consent document for data processing and user rights.",
-    url: "https://velixsync.com/declaration-of-consent",
+    title: "Declaration of Consent — VelixSync Pro",
+    description: "VelixSync Pro consent document for data processing and user rights.",
+    url: "https://velixsyncpro.com/declaration-of-consent",
   },
 };
 

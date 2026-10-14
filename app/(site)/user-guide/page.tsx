@@ -6,13 +6,13 @@ import PagePreloader from "@/components/PagePreloader";
 import FAQMajor from "@/components/site/FAQMajor";
 
 export const metadata: Metadata = {
-  title: "User Guide — Getting Started with VelixSync",
-  description: "Learn how to use VelixSync: create your account, verify your identity, fund your wallet, choose a Leader Trader, and start copy trading in minutes.",
-  alternates: { canonical: "https://velixsync.com/user-guide" },
+  title: "User Guide — Getting Started with VelixSync Pro",
+  description: "Learn how to use VelixSync Pro: create your account, verify your identity, fund your wallet, choose a Leader Trader, and start copy trading in minutes.",
+  alternates: { canonical: "https://velixsyncpro.com/user-guide" },
   openGraph: {
-    title: "VelixSync User Guide",
-    description: "Step-by-step guide to getting started with copy trading on VelixSync.",
-    url: "https://velixsync.com/user-guide",
+    title: "VelixSync Pro User Guide",
+    description: "Step-by-step guide to getting started with copy trading on VelixSync Pro.",
+    url: "https://velixsyncpro.com/user-guide",
   },
 };
 

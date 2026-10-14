@@ -5,14 +5,14 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — VelixSync",
-  description: "Read the VelixSync Privacy Policy to understand how we collect, use, and protect your personal data when you use our copy trading platform.",
-  alternates: { canonical: "https://velixsync.com/privacy-policy" },
+  title: "Privacy Policy — VelixSync Pro",
+  description: "Read the VelixSync Pro Privacy Policy to understand how we collect, use, and protect your personal data when you use our copy trading platform.",
+  alternates: { canonical: "https://velixsyncpro.com/privacy-policy" },
   robots: { index: true, follow: false },
   openGraph: {
-    title: "Privacy Policy — VelixSync",
-    description: "How VelixSync collects, uses, and protects your personal data.",
-    url: "https://velixsync.com/privacy-policy",
+    title: "Privacy Policy — VelixSync Pro",
+    description: "How VelixSync Pro collects, uses, and protects your personal data.",
+    url: "https://velixsyncpro.com/privacy-policy",
   },
 };
 
