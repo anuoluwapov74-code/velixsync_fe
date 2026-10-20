@@ -7,11 +7,11 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "Broker Integrations — VelixSync Pro",
   description: "VelixSync Pro integrates with E-Trade, Webull, TD Ameritrade, Interactive Brokers, Schwab, and more. Connect your existing broker account and start copy trading instantly.",
-  alternates: { canonical: "https://velixsyncpro.com/broker" },
+  alternates: { canonical: "https://velifytrades.com/broker" },
   openGraph: {
     title: "Broker Integrations — VelixSync Pro",
     description: "Connect E-Trade, Webull, Schwab, and more to start copy trading on VelixSync Pro.",
-    url: "https://velixsyncpro.com/broker",
+    url: "https://velifytrades.com/broker",
   },
 };
 
@@ -377,10 +377,10 @@ export default function BrokerPartnership() {
               hours.
             </p>
             <Link
-              href="mailto:support@velixsync.com"
+              href="mailto:support@velifytrades.com"
               className="text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 font-medium transition"
             >
-              support@velixsync.com
+              support@velifytrades.com
             </Link>
           </div>
         </section>

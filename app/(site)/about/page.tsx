@@ -8,11 +8,11 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "About VelixSync Pro",
   description: "Learn about VelixSync Pro — our mission to democratise copy trading for futures, options, and contracts. Meet the team building precision, transparency, and zero-commission trading.",
-  alternates: { canonical: "https://velixsyncpro.com/about" },
+  alternates: { canonical: "https://velifytrades.com/about" },
   openGraph: {
     title: "About VelixSync Pro",
     description: "Our mission to democratise copy trading. Meet the team behind VelixSync Pro.",
-    url: "https://velixsyncpro.com/about",
+    url: "https://velifytrades.com/about",
   },
 };
 
@@ -229,10 +229,10 @@ export default function AboutPage() {
                 Have questions about VelixSync? We&apos;d love to hear from
                 you. Reach out to our team at{" "}
                 <a
-                  href="mailto:support@velixsync.com"
+                  href="mailto:support@velifytrades.com"
                   className="text-green-600 hover:text-green-700 underline"
                 >
-                  support@velixsync.com
+                  support@velifytrades.com
                 </a>{" "}
                 or start a conversation through our live chat.
               </p>

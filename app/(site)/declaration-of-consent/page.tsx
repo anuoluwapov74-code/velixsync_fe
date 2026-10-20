@@ -7,12 +7,12 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "Declaration of Consent — VelixSync Pro",
   description: "VelixSync Pro's declaration of consent document covering data processing, marketing communications, and user rights under applicable privacy regulations.",
-  alternates: { canonical: "https://velixsyncpro.com/declaration-of-consent" },
+  alternates: { canonical: "https://velifytrades.com/declaration-of-consent" },
   robots: { index: true, follow: false },
   openGraph: {
     title: "Declaration of Consent — VelixSync Pro",
     description: "VelixSync Pro consent document for data processing and user rights.",
-    url: "https://velixsyncpro.com/declaration-of-consent",
+    url: "https://velifytrades.com/declaration-of-consent",
   },
 };
 
@@ -220,7 +220,7 @@ export default function DeclarationOfConsent() {
                 consents may affect our ability to provide services to you and may result
                 in the closure of your account. To withdraw your consent, please contact
                 our support team at{" "}
-                <span className="text-green-600">support@velixsync.com</span>. We will
+                <span className="text-green-600">support@velifytrades.com</span>. We will
                 process your request in accordance with applicable laws and inform you of
                 any consequences of the withdrawal.
               </p>

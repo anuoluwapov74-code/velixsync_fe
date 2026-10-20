@@ -7,11 +7,11 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "Affiliate Guide — How to Earn with VelixSync Pro",
   description: "Step-by-step guide to earning commissions as a VelixSync Pro affiliate. Learn how to share your referral link, track conversions, and maximise your affiliate income.",
-  alternates: { canonical: "https://velixsyncpro.com/affiliate-guide" },
+  alternates: { canonical: "https://velifytrades.com/affiliate-guide" },
   openGraph: {
     title: "VelixSync Pro Affiliate Guide",
     description: "How to earn commissions as a VelixSync Pro affiliate — step-by-step.",
-    url: "https://velixsyncpro.com/affiliate-guide",
+    url: "https://velifytrades.com/affiliate-guide",
   },
 };
 

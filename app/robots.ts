@@ -30,6 +30,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://velixsyncpro.com/sitemap.xml",
+    sitemap: "https://velifytrades.com/sitemap.xml",
   };
 }

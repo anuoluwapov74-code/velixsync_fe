@@ -7,12 +7,12 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "Cookies Policy — VelixSync Pro",
   description: "Learn how VelixSync Pro uses cookies and similar technologies to improve your experience on our copy trading platform.",
-  alternates: { canonical: "https://velixsyncpro.com/cookies-policy" },
+  alternates: { canonical: "https://velifytrades.com/cookies-policy" },
   robots: { index: true, follow: false },
   openGraph: {
     title: "Cookies Policy — VelixSync Pro",
     description: "How VelixSync Pro uses cookies on our copy trading platform.",
-    url: "https://velixsyncpro.com/cookies-policy",
+    url: "https://velifytrades.com/cookies-policy",
   },
 };
 
@@ -184,7 +184,7 @@ export default function CookiesPolicy() {
               </p>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 To opt out or manage your cookie preferences, please email us at{" "}
-                <span className="text-green-600">support@velixsync.com</span>. Our team
+                <span className="text-green-600">support@velifytrades.com</span>. Our team
                 will assist you with updating your preferences promptly.
               </p>
             </section>

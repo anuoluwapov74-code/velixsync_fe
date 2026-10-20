@@ -7,12 +7,12 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "Privacy Policy — VelixSync Pro",
   description: "Read the VelixSync Pro Privacy Policy to understand how we collect, use, and protect your personal data when you use our copy trading platform.",
-  alternates: { canonical: "https://velixsyncpro.com/privacy-policy" },
+  alternates: { canonical: "https://velifytrades.com/privacy-policy" },
   robots: { index: true, follow: false },
   openGraph: {
     title: "Privacy Policy — VelixSync Pro",
     description: "How VelixSync Pro collects, uses, and protects your personal data.",
-    url: "https://velixsyncpro.com/privacy-policy",
+    url: "https://velifytrades.com/privacy-policy",
   },
 };
 
@@ -211,7 +211,7 @@ export default function PrivacyPolicy() {
                 Please note that opting out of certain data processing activities may
                 limit your ability to use some features of our platform. To exercise any
                 of these rights, please contact us at{" "}
-                <span className="text-green-600">support@velixsync.com</span>.
+                <span className="text-green-600">support@velifytrades.com</span>.
               </p>
             </section>
 

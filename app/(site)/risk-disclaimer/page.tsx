@@ -7,12 +7,12 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "Risk Disclaimer — VelixSync Pro",
   description: "Important risk information for VelixSync Pro users. Copy trading and derivatives involve substantial risk of loss. Read this disclaimer before using VelixSync Pro.",
-  alternates: { canonical: "https://velixsyncpro.com/risk-disclaimer" },
+  alternates: { canonical: "https://velifytrades.com/risk-disclaimer" },
   robots: { index: true, follow: false },
   openGraph: {
     title: "Risk Disclaimer — VelixSync Pro",
     description: "Important risk information for VelixSync Pro copy trading users.",
-    url: "https://velixsyncpro.com/risk-disclaimer",
+    url: "https://velifytrades.com/risk-disclaimer",
   },
 };
 

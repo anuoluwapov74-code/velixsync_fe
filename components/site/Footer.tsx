@@ -75,7 +75,7 @@ const Footer = () => {
               <FooterSection
                 title="CONTACT"
                 links={[
-                  { label: "support@velixsync.com", href: "mailto:support@velixsync.com" },
+                  { label: "support@velifytrades.com", href: "mailto:support@velifytrades.com" },
                 ]}
               />
             </div>

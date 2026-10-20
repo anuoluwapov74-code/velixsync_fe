@@ -8,11 +8,11 @@ import FAQMajor from "@/components/site/FAQMajor";
 export const metadata: Metadata = {
   title: "User Guide — Getting Started with VelixSync Pro",
   description: "Learn how to use VelixSync Pro: create your account, verify your identity, fund your wallet, choose a Leader Trader, and start copy trading in minutes.",
-  alternates: { canonical: "https://velixsyncpro.com/user-guide" },
+  alternates: { canonical: "https://velifytrades.com/user-guide" },
   openGraph: {
     title: "VelixSync Pro User Guide",
     description: "Step-by-step guide to getting started with copy trading on VelixSync Pro.",
-    url: "https://velixsyncpro.com/user-guide",
+    url: "https://velifytrades.com/user-guide",
   },
 };
 
@@ -276,7 +276,7 @@ export default function UserGuide() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>
-                  <span><strong>Email support</strong> — Reach us at support@velixsync.com</span>
+                  <span><strong>Email support</strong> — Reach us at support@velifytrades.com</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>

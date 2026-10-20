@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://velixsyncpro.com"),
+  metadataBase: new URL("https://velifytrades.com"),
   title: {
     default: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
     template: "%s | VelixSync Pro",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "futures copy trading",
     "options copy trading",
   ],
-  authors: [{ name: "VelixSync Pro", url: "https://velixsyncpro.com" }],
+  authors: [{ name: "VelixSync Pro", url: "https://velifytrades.com" }],
   creator: "VelixSync Pro",
   publisher: "VelixSync Pro",
   category: "Finance",
@@ -60,18 +60,18 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://velixsyncpro.com",
+    canonical: "https://velifytrades.com",
   },
   openGraph: {
     type: "website",
-    url: "https://velixsyncpro.com",
+    url: "https://velifytrades.com",
     siteName: "VelixSync Pro",
     title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time stock and options trades from top-performing traders. Precision, flexibility, and transparency — straight to your fingertips.",
     images: [
       {
-        url: "https://velixsyncpro.com/opengraph-image.png",
+        url: "https://velifytrades.com/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "VelixSync Pro — Copy Trading Platform",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time stock and options trades from top-performing traders. Precision, flexibility, and transparency — straight to your fingertips.",
-    images: ["https://velixsyncpro.com/opengraph-image.png"],
+    images: ["https://velifytrades.com/opengraph-image.png"],
   },
   icons: {
     icon: [

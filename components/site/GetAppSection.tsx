@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Apple, MoreVertical, Share, Smartphone, X } from "lucide-react";
 import { canPromptNatively, triggerNativeInstall } from "@/lib/pwaInstall";
 
-const SITE_URL = "velixsyncpro.com";
+const SITE_URL = "velifytrades.com";
 
 function Step({ n, children }: { n: number; children: React.ReactNode }) {
   return (

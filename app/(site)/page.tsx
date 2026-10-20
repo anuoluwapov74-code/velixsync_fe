@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   title: "Copy Futures, Options & Contracts with Precision",
   description:
     "VelixSync Pro lets you mirror real-time stock, futures, and options trades from top-performing experts. AutoGuard™ protection, AI signals, zero commission — start copy trading today.",
-  alternates: { canonical: "https://velixsyncpro.com" },
+  alternates: { canonical: "https://velifytrades.com" },
   openGraph: {
     title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time trades from top experts. AutoGuard™ risk management, AI signals, zero commission.",
-    url: "https://velixsyncpro.com",
-    images: [{ url: "https://velixsyncpro.com/opengraph-image.png", width: 1200, height: 630, alt: "VelixSync Pro Copy Trading Platform" }],
+    url: "https://velifytrades.com",
+    images: [{ url: "https://velifytrades.com/opengraph-image.png", width: 1200, height: 630, alt: "VelixSync Pro Copy Trading Platform" }],
   },
 };
 
@@ -40,12 +40,12 @@ export default function Home() {
             "@graph": [
               {
                 "@type": "Organization",
-                "@id": "https://velixsyncpro.com/#organization",
+                "@id": "https://velifytrades.com/#organization",
                 name: "VelixSync Pro",
-                url: "https://velixsyncpro.com",
+                url: "https://velifytrades.com",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://velixsyncpro.com/android-chrome-512x512.png",
+                  url: "https://velifytrades.com/android-chrome-512x512.png",
                 },
                 sameAs: [],
                 description:
@@ -53,26 +53,26 @@ export default function Home() {
               },
               {
                 "@type": "WebSite",
-                "@id": "https://velixsyncpro.com/#website",
-                url: "https://velixsyncpro.com",
+                "@id": "https://velifytrades.com/#website",
+                url: "https://velifytrades.com",
                 name: "VelixSync Pro",
-                publisher: { "@id": "https://velixsyncpro.com/#organization" },
+                publisher: { "@id": "https://velifytrades.com/#organization" },
                 potentialAction: {
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
-                    urlTemplate: "https://velixsyncpro.com/explore-traders?q={search_term_string}",
+                    urlTemplate: "https://velifytrades.com/explore-traders?q={search_term_string}",
                   },
                   "query-input": "required name=search_term_string",
                 },
               },
               {
                 "@type": "WebPage",
-                "@id": "https://velixsyncpro.com/#webpage",
-                url: "https://velixsyncpro.com",
+                "@id": "https://velifytrades.com/#webpage",
+                url: "https://velifytrades.com",
                 name: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
-                isPartOf: { "@id": "https://velixsyncpro.com/#website" },
-                about: { "@id": "https://velixsyncpro.com/#organization" },
+                isPartOf: { "@id": "https://velifytrades.com/#website" },
+                about: { "@id": "https://velifytrades.com/#organization" },
                 description:
                   "Mirror real-time stock and options trades from top-performing traders. Precision, flexibility, and transparency — straight to your fingertips.",
               },

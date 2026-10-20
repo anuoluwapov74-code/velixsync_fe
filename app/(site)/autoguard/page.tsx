@@ -7,11 +7,11 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "AutoGuard™ — VelixSync Pro Risk Management",
   description: "AutoGuard™ by VelixSync Pro automatically applies stop-loss, trailing stops, and position-size limits to every copied trade. Protect your capital while you copy the best traders.",
-  alternates: { canonical: "https://velixsyncpro.com/autoguard" },
+  alternates: { canonical: "https://velifytrades.com/autoguard" },
   openGraph: {
     title: "AutoGuard™ — VelixSync Pro Risk Management",
     description: "Automatic risk protection built into every copied trade on VelixSync Pro.",
-    url: "https://velixsyncpro.com/autoguard",
+    url: "https://velifytrades.com/autoguard",
   },
 };
 
