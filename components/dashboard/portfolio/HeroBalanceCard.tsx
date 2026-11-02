@@ -74,8 +74,8 @@ export default function HeroBalanceCard({ totalBalance, totalProfits, balance, i
       <div className="relative flex items-center justify-between">
         <div className="flex flex-col gap-1">
           <span className="text-[15px] font-bold leading-none">
-            <span style={{ color: t.accent }}>Velix</span>
-            <span style={{ color: t.textPrimary }}>Sync</span>
+            <span style={{ color: t.accent }}>Velify</span>
+            <span style={{ color: t.textPrimary }}>Trades</span>
           </span>
           {isVerified && (
             <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: t.accent }}>

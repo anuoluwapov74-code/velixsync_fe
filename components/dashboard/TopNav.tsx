@@ -83,7 +83,7 @@ export default function TopNav({ user }: TopNavProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              <span className="text-green-600">Velix</span>Sync
+              <span className="text-green-600">Velify</span>Trades
             </span>
           </Link>
 

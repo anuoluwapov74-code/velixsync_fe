@@ -5,12 +5,12 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "VelixSync Pro Affiliate Programme",
-  description: "Earn commissions by referring traders to VelixSync Pro. Join the VelixSync Pro affiliate programme, get your unique link, and grow your income by sharing the best copy trading platform.",
+  title: "VelifyTrades Affiliate Programme",
+  description: "Earn commissions by referring traders to VelifyTrades. Join the VelifyTrades affiliate programme, get your unique link, and grow your income by sharing the best copy trading platform.",
   alternates: { canonical: "https://velifytrades.com/affiliate" },
   openGraph: {
-    title: "VelixSync Pro Affiliate Programme",
-    description: "Refer traders to VelixSync Pro and earn commissions on every referral.",
+    title: "VelifyTrades Affiliate Programme",
+    description: "Refer traders to VelifyTrades and earn commissions on every referral.",
     url: "https://velifytrades.com/affiliate",
   },
 };
@@ -26,7 +26,7 @@ export default function AffiliateProgram() {
               Affiliate Program
             </h1>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Earn commissions by referring traders to VelixSync
+              Earn commissions by referring traders to VelifyTrades
             </p>
           </div>
           <div className="space-y-12">
@@ -36,7 +36,7 @@ export default function AffiliateProgram() {
                 Program Overview
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                The VelixSync Affiliate Program rewards you for introducing new traders to our
+                The VelifyTrades Affiliate Program rewards you for introducing new traders to our
                 platform. Whether you are a content creator, financial educator, trading community
                 leader, or simply someone with a network of potential traders, our program offers
                 a straightforward way to earn passive income.
@@ -102,7 +102,7 @@ export default function AffiliateProgram() {
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Sign Up</h3>
                     <p className="text-gray-700 dark:text-gray-300">
-                      Create your VelixSync account and apply for the Affiliate Program through your dashboard.
+                      Create your VelifyTrades account and apply for the Affiliate Program through your dashboard.
                     </p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function AffiliateProgram() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>
-                  <span>Always disclose your affiliate relationship when promoting VelixSync</span>
+                  <span>Always disclose your affiliate relationship when promoting VelifyTrades</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>
@@ -199,7 +199,7 @@ export default function AffiliateProgram() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>
-                  <span>Do not bid on VelixSync branded keywords in paid advertising</span>
+                  <span>Do not bid on VelifyTrades branded keywords in paid advertising</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>
@@ -242,7 +242,7 @@ export default function AffiliateProgram() {
                 Program Termination
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                VelixSync reserves the right to terminate affiliate partnerships under the following
+                VelifyTrades reserves the right to terminate affiliate partnerships under the following
                 circumstances:
               </p>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -275,7 +275,7 @@ export default function AffiliateProgram() {
                 Ready to Start Earning?
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                Join the VelixSync Affiliate Program today. Sign up, get your referral link,
+                Join the VelifyTrades Affiliate Program today. Sign up, get your referral link,
                 and start earning commissions on every qualified referral.
               </p>
               <div className="flex flex-wrap gap-4">

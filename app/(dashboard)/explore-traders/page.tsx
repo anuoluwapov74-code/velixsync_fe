@@ -112,7 +112,7 @@ const formatGain = (gain: string) => {
 
 /* ══════════════════════════════════════════════════════════════════════════
    Hero banner — ported from hagocapitals' /traders page banner (same copy,
-   layout and decorative imagery), recolored to velixsync's brand green.
+   layout and decorative imagery), recolored to velifytrades's brand green.
    ══════════════════════════════════════════════════════════════════════════ */
 
 function HeroBanner() {

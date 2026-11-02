@@ -37,7 +37,7 @@ interface FollowingTrader {
   started_copying_at: string;
 }
 
-// ── VelixSync's own theme tokens — light matches the Arctic White reference
+// ── VelifyTrades's own theme tokens — light matches the Arctic White reference
 // (translucent glass over the page's radial gradient), dark matches the rest
 // of the dashboard's established dark card (solid #111e1b, teal-free here
 // since accent stays the same green in both themes per an earlier request).

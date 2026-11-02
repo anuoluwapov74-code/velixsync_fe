@@ -5,13 +5,13 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Cookies Policy — VelixSync Pro",
-  description: "Learn how VelixSync Pro uses cookies and similar technologies to improve your experience on our copy trading platform.",
+  title: "Cookies Policy — VelifyTrades",
+  description: "Learn how VelifyTrades uses cookies and similar technologies to improve your experience on our copy trading platform.",
   alternates: { canonical: "https://velifytrades.com/cookies-policy" },
   robots: { index: true, follow: false },
   openGraph: {
-    title: "Cookies Policy — VelixSync Pro",
-    description: "How VelixSync Pro uses cookies on our copy trading platform.",
+    title: "Cookies Policy — VelifyTrades",
+    description: "How VelifyTrades uses cookies on our copy trading platform.",
     url: "https://velifytrades.com/cookies-policy",
   },
 };
@@ -40,7 +40,7 @@ export default function CookiesPolicy() {
                 1. Introduction
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                This Cookies Policy explains how VelixSync uses cookies and similar
+                This Cookies Policy explains how VelifyTrades uses cookies and similar
                 tracking technologies when you visit our website and use our platform.
                 By continuing to browse or use our services, you agree to the use of
                 cookies as described in this policy. We encourage you to read this policy
@@ -99,7 +99,7 @@ export default function CookiesPolicy() {
                 4. Your Consent
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                By using the VelixSync website and platform, you consent to the placement
+                By using the VelifyTrades website and platform, you consent to the placement
                 of cookies on your device as described in this policy. When you first
                 visit our website, you will be presented with a cookie consent banner
                 that allows you to accept or customize your cookie preferences. You may
@@ -116,7 +116,7 @@ export default function CookiesPolicy() {
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Session cookies are temporary cookies that are stored on your device only
                 during your browsing session. They are deleted automatically when you
-                close your browser. VelixSync uses session cookies to maintain your login
+                close your browser. VelifyTrades uses session cookies to maintain your login
                 state, remember your preferences during a single session, ensure the
                 security of your account while you are logged in, and enable the
                 functionality of our trading platform in real time.
@@ -130,7 +130,7 @@ export default function CookiesPolicy() {
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Persistent cookies remain on your device for a set period of time or until
-                you manually delete them. VelixSync uses persistent cookies to remember
+                you manually delete them. VelifyTrades uses persistent cookies to remember
                 your login credentials (if you choose &ldquo;remember me&rdquo;), store your
                 language and display preferences, analyze how you use our platform to
                 improve our services, and deliver relevant content based on your interests
@@ -144,7 +144,7 @@ export default function CookiesPolicy() {
                 7. Third Party Cookies
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                In addition to our own cookies, VelixSync may allow third-party service
+                In addition to our own cookies, VelifyTrades may allow third-party service
                 providers to place cookies on your device. These third-party cookies are
                 used for analytics services (e.g., Google Analytics) to help us
                 understand how visitors interact with our website, advertising and
@@ -161,7 +161,7 @@ export default function CookiesPolicy() {
                 8. Use of Web Beacons
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                In addition to cookies, VelixSync may use web beacons (also known as
+                In addition to cookies, VelifyTrades may use web beacons (also known as
                 pixel tags, clear GIFs, or tracking pixels) on our website and in our
                 emails. Web beacons are tiny, invisible graphic images that allow us to
                 track how users interact with our website and emails. We use web beacons

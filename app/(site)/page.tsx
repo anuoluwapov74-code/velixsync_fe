@@ -18,14 +18,14 @@ import PagePreloader from "@/components/PagePreloader";
 export const metadata: Metadata = {
   title: "Copy Futures, Options & Contracts with Precision",
   description:
-    "VelixSync Pro lets you mirror real-time stock, futures, and options trades from top-performing experts. AutoGuard™ protection, AI signals, zero commission — start copy trading today.",
+    "VelifyTrades lets you mirror real-time stock, futures, and options trades from top-performing experts. AutoGuard™ protection, AI signals, zero commission — start copy trading today.",
   alternates: { canonical: "https://velifytrades.com" },
   openGraph: {
-    title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
+    title: "VelifyTrades — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time trades from top experts. AutoGuard™ risk management, AI signals, zero commission.",
     url: "https://velifytrades.com",
-    images: [{ url: "https://velifytrades.com/opengraph-image.png", width: 1200, height: 630, alt: "VelixSync Pro Copy Trading Platform" }],
+    images: [{ url: "https://velifytrades.com/opengraph-image.png", width: 1200, height: 630, alt: "VelifyTrades Copy Trading Platform" }],
   },
 };
 
@@ -41,7 +41,7 @@ export default function Home() {
               {
                 "@type": "Organization",
                 "@id": "https://velifytrades.com/#organization",
-                name: "VelixSync Pro",
+                name: "VelifyTrades",
                 url: "https://velifytrades.com",
                 logo: {
                   "@type": "ImageObject",
@@ -49,13 +49,13 @@ export default function Home() {
                 },
                 sameAs: [],
                 description:
-                  "VelixSync Pro is a copy trading platform for futures, options, and contracts. Mirror trades from top-performing experts with real-time precision.",
+                  "VelifyTrades is a copy trading platform for futures, options, and contracts. Mirror trades from top-performing experts with real-time precision.",
               },
               {
                 "@type": "WebSite",
                 "@id": "https://velifytrades.com/#website",
                 url: "https://velifytrades.com",
-                name: "VelixSync Pro",
+                name: "VelifyTrades",
                 publisher: { "@id": "https://velifytrades.com/#organization" },
                 potentialAction: {
                   "@type": "SearchAction",
@@ -70,7 +70,7 @@ export default function Home() {
                 "@type": "WebPage",
                 "@id": "https://velifytrades.com/#webpage",
                 url: "https://velifytrades.com",
-                name: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
+                name: "VelifyTrades — Copy Futures, Options & Contracts with Precision",
                 isPartOf: { "@id": "https://velifytrades.com/#website" },
                 about: { "@id": "https://velifytrades.com/#organization" },
                 description:
@@ -81,18 +81,18 @@ export default function Home() {
                 mainEntity: [
                   {
                     "@type": "Question",
-                    name: "What is VelixSync Pro?",
+                    name: "What is VelifyTrades?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "VelixSync Pro is a copy trading platform that lets you mirror real-time trades from top-performing expert traders across futures, options, and contracts.",
+                      text: "VelifyTrades is a copy trading platform that lets you mirror real-time trades from top-performing expert traders across futures, options, and contracts.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "How does copy trading work on VelixSync Pro?",
+                    name: "How does copy trading work on VelifyTrades?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "Sign up, choose an expert trader, set your investment amount, and VelixSync Pro automatically mirrors every trade they make in your portfolio in real time.",
+                      text: "Sign up, choose an expert trader, set your investment amount, and VelifyTrades automatically mirrors every trade they make in your portfolio in real time.",
                     },
                   },
                   {
@@ -100,15 +100,15 @@ export default function Home() {
                     name: "What is AutoGuard™?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "AutoGuard™ is VelixSync Pro's proprietary risk management system that applies automatic stop-loss, trailing stops, and position-size limits to every copied trade.",
+                      text: "AutoGuard™ is VelifyTrades's proprietary risk management system that applies automatic stop-loss, trailing stops, and position-size limits to every copied trade.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "Does VelixSync Pro charge commission?",
+                    name: "Does VelifyTrades charge commission?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "No. VelixSync Pro charges zero commission on US equity trades. There are no per-trade fees and no hidden charges.",
+                      text: "No. VelifyTrades charges zero commission on US equity trades. There are no per-trade fees and no hidden charges.",
                     },
                   },
                 ],

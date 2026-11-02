@@ -5,12 +5,12 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Leader Trader Guide — VelixSync Pro",
-  description: "Everything you need to know about becoming a top Leader Trader on VelixSync Pro. Set your strategy, manage copiers, and maximise your earnings as a VelixSync Pro expert.",
+  title: "Leader Trader Guide — VelifyTrades",
+  description: "Everything you need to know about becoming a top Leader Trader on VelifyTrades. Set your strategy, manage copiers, and maximise your earnings as a VelifyTrades expert.",
   alternates: { canonical: "https://velifytrades.com/leader-guide" },
   openGraph: {
-    title: "VelixSync Pro Leader Trader Guide",
-    description: "How to become a top Leader Trader and earn on VelixSync Pro.",
+    title: "VelifyTrades Leader Trader Guide",
+    description: "How to become a top Leader Trader and earn on VelifyTrades.",
     url: "https://velifytrades.com/leader-guide",
   },
 };
@@ -26,7 +26,7 @@ export default function LeaderGuide() {
               Leader Guide
             </h1>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Your complete guide to becoming a successful signal leader on VelixSync
+              Your complete guide to becoming a successful signal leader on VelifyTrades
             </p>
           </div>
           <div className="space-y-12">
@@ -36,13 +36,13 @@ export default function LeaderGuide() {
                 What is a Leader?
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                A Leader on VelixSync is an experienced trader who shares their trading signals with
+                A Leader on VelifyTrades is an experienced trader who shares their trading signals with
                 the community. When other users (followers) copy your trades, you earn commissions based
                 on their activity. As a Leader, your trading performance is publicly visible, and your
                 reputation grows as you demonstrate consistent results.
               </p>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Leaders are the backbone of the VelixSync copy trading ecosystem. They provide the
+                Leaders are the backbone of the VelifyTrades copy trading ecosystem. They provide the
                 strategies and expertise that make copy trading possible for traders of all experience levels.
               </p>
             </section>
@@ -53,12 +53,12 @@ export default function LeaderGuide() {
                 Requirements to Become a Leader
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                To qualify as a Leader on VelixSync, you must meet the following criteria:
+                To qualify as a Leader on VelifyTrades, you must meet the following criteria:
               </p>
               <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>
-                  <span>A verified VelixSync account with completed KYC</span>
+                  <span>A verified VelifyTrades account with completed KYC</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#8226;</span>
@@ -85,7 +85,7 @@ export default function LeaderGuide() {
                 Setting Up Your Profile
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                Your Leader profile is your public identity on VelixSync. A well-crafted profile
+                Your Leader profile is your public identity on VelifyTrades. A well-crafted profile
                 attracts more followers and builds trust. Here is how to set it up:
               </p>
               <ol className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -168,7 +168,7 @@ export default function LeaderGuide() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold">&#10003;</span>
-                  <span><strong>External promotion</strong> — Share your VelixSync profile on social media and trading communities.</span>
+                  <span><strong>External promotion</strong> — Share your VelifyTrades profile on social media and trading communities.</span>
                 </li>
               </ul>
             </section>
@@ -179,7 +179,7 @@ export default function LeaderGuide() {
                 Earning as a Leader
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                Leaders earn money through multiple channels on VelixSync:
+                Leaders earn money through multiple channels on VelifyTrades:
               </p>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-3">
@@ -229,7 +229,7 @@ export default function LeaderGuide() {
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                 As a Leader, responsible risk management is not just good practice — it is your
-                responsibility. Your followers trust you with their capital, and VelixSync monitors
+                responsibility. Your followers trust you with their capital, and VelifyTrades monitors
                 leader behavior to protect the community.
               </p>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -259,7 +259,7 @@ export default function LeaderGuide() {
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                 Ready to share your trading expertise and earn from your skills? Apply to become
-                a VelixSync Leader and start building your following today.
+                a VelifyTrades Leader and start building your following today.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/register" className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-green-600/30 hover:shadow-green-600/50">

@@ -108,7 +108,7 @@ interface SimilarTrader {
 /* ══════════════════════════════════════════════════════════════════════════
    Portfolio chart — ported from hagocapitals' /traders/[id] trader detail
    page (same custom-SVG bezier chart, same time filters and functionality),
-   recolored to velixsync's brand green. The line shape is a deterministic
+   recolored to velifytrades's brand green. The line shape is a deterministic
    seeded curve trending with the trader's real direction/earnings (same
    illustrative approach hagocapitals uses) — only the headline value/ROI
    above the chart are real numbers, derived from the trader's real fields.

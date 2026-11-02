@@ -48,7 +48,7 @@ function InstallModal({ onClose }: { onClose: () => void }) {
           <div className="p-5 sm:p-6">
             <div className="flex items-start justify-between gap-4 mb-2">
               <h3 className="text-[19px] font-bold leading-snug">
-                Install the VelixSync App
+                Install the VelifyTrades App
               </h3>
               <button
                 onClick={onClose}

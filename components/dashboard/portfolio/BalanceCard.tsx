@@ -48,8 +48,8 @@ export default function BalanceCard({
         <div className="flex items-center justify-between px-5 pt-5 pb-2">
           <div className="flex flex-col gap-1">
             <span className="text-[15px] font-bold leading-none">
-              <span style={{ color: "#16a34a" }}>Velix</span>
-              <span className="text-white">Sync</span>
+              <span style={{ color: "#16a34a" }}>Velify</span>
+              <span className="text-white">Trades</span>
             </span>
             {isVerified && (
               <div className="flex items-center gap-1 rounded-full px-2 py-0.5 w-fit" style={{ background: "rgba(22,163,74,0.15)" }}>

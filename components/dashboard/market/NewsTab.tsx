@@ -47,7 +47,7 @@ interface NewsDetailResponse {
 
 const CATEGORIES: Category[] = ["All", "Stocks", "Technology", "Economy", "Cryptocurrency", "Commodities", "Forex"];
 
-// Distinguishing accent per category — kept in velixsync's own tonal range
+// Distinguishing accent per category — kept in velifytrades's own tonal range
 // (mint/teal accent + neutral supporting hues), not the source design's palette.
 const CATEGORY_COLORS: Record<string, string> = {
   Stocks: "#3b82f6",

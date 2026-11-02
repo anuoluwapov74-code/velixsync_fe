@@ -169,7 +169,7 @@ export default function ConnectWalletPage() {
             Connect Wallet
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-4xl">
-            Link your wallet to access premium features. VelixSync offers
+            Link your wallet to access premium features. VelifyTrades offers
             support for over 500 exchanges and wallets, NFTs, more than 10,000
             cryptocurrencies, and 20,000 DeFi smart contracts.
           </p>

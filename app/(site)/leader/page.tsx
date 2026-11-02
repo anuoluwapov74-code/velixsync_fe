@@ -33,14 +33,14 @@ const leaderTabs = [
 
 const faqItems = [
   {
-    question: "Can anyone become a VelixSync Leader?",
+    question: "Can anyone become a VelifyTrades Leader?",
     answer:
-      "Yes, anyone with trading experience and a verified account can apply to become a VelixSync Leader. We review all applications to ensure quality and consistency for our investors.",
+      "Yes, anyone with trading experience and a verified account can apply to become a VelifyTrades Leader. We review all applications to ensure quality and consistency for our investors.",
   },
   {
-    question: "Can I become a Leader without being a VelixSync?",
+    question: "Can I become a Leader without being a VelifyTrades?",
     answer:
-      "You need to have a VelixSync account to become a Leader. The registration process is quick and free, and you can apply for the Leaders Program as part of the signup process.",
+      "You need to have a VelifyTrades account to become a Leader. The registration process is quick and free, and you can apply for the Leaders Program as part of the signup process.",
   },
   {
     question: "What are the general trading hours for all the instruments?",
@@ -53,15 +53,15 @@ const faqItems = [
       "Success as a Leader comes from consistent performance, responsible risk management, and active engagement with your followers. Focus on building a strong track record over time.",
   },
   {
-    question: "What are the charges for me as a new Leader with VelixSync?",
+    question: "What are the charges for me as a new Leader with VelifyTrades?",
     answer:
       "There are no charges to become a Leader. You only pay your regular trading costs. You earn commissions from investors who copy your trades — there are no hidden fees.",
   },
   {
     question:
-      "Is there a minimum amount for me to start trading with VelixSync?",
+      "Is there a minimum amount for me to start trading with VelifyTrades?",
     answer:
-      "The minimum deposit depends on the broker you choose to trade with. VelixSync works with multiple regulated brokers, each with their own minimum requirements.",
+      "The minimum deposit depends on the broker you choose to trade with. VelifyTrades works with multiple regulated brokers, each with their own minimum requirements.",
   },
 ];
 
@@ -85,11 +85,11 @@ export default function BecomeALeader() {
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               Become a Leader with{" "}
               <span className="bg-gradient-to-r from-green-700 via-green-600 to-emerald-400 bg-clip-text text-transparent">
-                VelixSync
+                VelifyTrades
               </span>
             </h1>
             <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 max-w-2xl mx-auto text-sm lg:text-base">
-              VelixSync is one of the most transparent social trading platforms
+              VelifyTrades is one of the most transparent social trading platforms
               in the world, where our goal is to support investors and traders
               in their investment goals. Our Leader Program is open for
               individual traders who possess trading skills. Become a Leader
@@ -181,7 +181,7 @@ export default function BecomeALeader() {
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  Join VelixSync as a Leader
+                  Join VelifyTrades as a Leader
                 </h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                   Access the Leaders Program page and signup using our free form
@@ -298,7 +298,7 @@ export default function BecomeALeader() {
                   brokers trading multiple multiple shares in the Indices
                   brokers and markets trading securities. The free version that
                   is offered here in various capabilities including alerts that
-                  uses add to MT4 allowing to create views in the VelixSync
+                  uses add to MT4 allowing to create views in the VelifyTrades
                   network.
                 </p>
               </div>
@@ -329,7 +329,7 @@ export default function BecomeALeader() {
                   platform, designed for traders who want more sophisticated
                   tools and enhanced trading capabilities. MT5 offers advanced
                   trading functionality and expanded features while being one
-                  trading platform that takes place in the if VelixSync&apos;s
+                  trading platform that takes place in the if VelifyTrades&apos;s
                   trading pace on the live market live.
                 </p>
               </div>
@@ -414,7 +414,7 @@ export default function BecomeALeader() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white max-w-md leading-tight">
-                Reasons to Become a Leader with VelixSync
+                Reasons to Become a Leader with VelifyTrades
               </h2>
               <Link
                 href="/register"

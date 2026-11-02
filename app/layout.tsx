@@ -21,14 +21,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://velifytrades.com"),
   title: {
-    default: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
-    template: "%s | VelixSync Pro",
+    default: "VelifyTrades — Copy Futures, Options & Contracts with Precision",
+    template: "%s | VelifyTrades",
   },
   description:
-    "VelixSync Pro is the premier copy trading platform for futures, options, and contracts. Mirror real-time trades from top-performing experts with AutoGuard™ risk management, AI signals, and zero commission.",
+    "VelifyTrades is the premier copy trading platform for futures, options, and contracts. Mirror real-time trades from top-performing experts with AutoGuard™ risk management, AI signals, and zero commission.",
   keywords: [
-    "VelixSync Pro",
-    "VelixSync Pro copy trading",
+    "VelifyTrades",
+    "VelifyTrades copy trading",
     "copy trading platform",
     "copy futures trading",
     "copy options contracts",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     "futures copy trading",
     "options copy trading",
   ],
-  authors: [{ name: "VelixSync Pro", url: "https://velifytrades.com" }],
-  creator: "VelixSync Pro",
-  publisher: "VelixSync Pro",
+  authors: [{ name: "VelifyTrades", url: "https://velifytrades.com" }],
+  creator: "VelifyTrades",
+  publisher: "VelifyTrades",
   category: "Finance",
   robots: {
     index: true,
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://velifytrades.com",
-    siteName: "VelixSync Pro",
-    title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
+    siteName: "VelifyTrades",
+    title: "VelifyTrades — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time stock and options trades from top-performing traders. Precision, flexibility, and transparency — straight to your fingertips.",
     images: [
@@ -74,16 +74,16 @@ export const metadata: Metadata = {
         url: "https://velifytrades.com/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "VelixSync Pro — Copy Trading Platform",
+        alt: "VelifyTrades — Copy Trading Platform",
       },
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@VelixSyncPro",
-    creator: "@VelixSyncPro",
-    title: "VelixSync Pro — Copy Futures, Options & Contracts with Precision",
+    site: "@VelifyTrades",
+    creator: "@VelifyTrades",
+    title: "VelifyTrades — Copy Futures, Options & Contracts with Precision",
     description:
       "Mirror real-time stock and options trades from top-performing traders. Precision, flexibility, and transparency — straight to your fingertips.",
     images: ["https://velifytrades.com/opengraph-image.png"],

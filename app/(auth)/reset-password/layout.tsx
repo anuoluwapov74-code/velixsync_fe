@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Reset Password",
-  description: "Set a new password for your VelixSync Pro account.",
+  description: "Set a new password for your VelifyTrades account.",
   alternates: { canonical: "https://velifytrades.com/reset-password" },
   robots: { index: false, follow: false },
   openGraph: {
-    title: "Set a New VelixSync Pro Password",
-    description: "Create a new password for your VelixSync Pro copy trading account.",
+    title: "Set a New VelifyTrades Password",
+    description: "Create a new password for your VelifyTrades copy trading account.",
     url: "https://velifytrades.com/reset-password",
   },
 };

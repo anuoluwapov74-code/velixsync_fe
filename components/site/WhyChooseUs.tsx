@@ -33,7 +33,7 @@ const WhyChooseUs = () => {
               <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 lg:text-base">
                 Building and maintaining a trading strategy is hard. Options
                 require timing, strategy, and discipline. Only 11-26% of manual
-                investors succeed on their own. With VelixSync, you can replicate
+                investors succeed on their own. With VelifyTrades, you can replicate
                 successful trades from seasoned options traders to tilt the odds
                 in your favor.
               </p>

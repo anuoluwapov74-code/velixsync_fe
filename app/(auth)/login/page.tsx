@@ -102,7 +102,7 @@ export default function LoginPage() {
             href="/"
             className="flex text-2xl md:text-4xl mb-10 font-extrabold self-center tracking-tight items-center gap-1"
           >
-            <span className="text-green-600 dark:text-green-400">Velix</span><span className="text-gray-900 dark:text-white">Sync</span>
+            <span className="text-green-600 dark:text-green-400">Velify</span><span className="text-gray-900 dark:text-white">Trades</span>
           </Link>
 
           <div className="flex items-center justify-between">
@@ -259,7 +259,7 @@ export default function LoginPage() {
           
           <div className="text-center mt-1 text-sm space-y-2.5">
             <p className="text-gray-400 dark:text-white">
-              Copyright &copy; {new Date().getFullYear()} VelixSync
+              Copyright &copy; {new Date().getFullYear()} VelifyTrades
             </p>
             {/* <div className="flex items-center justify-center gap-4">
               <Link className="text-green-600 hover:underline" href={"/"}>

@@ -242,7 +242,7 @@ function ResetPasswordContent() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-0">
           <span className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            <span className="text-green-600 dark:text-green-400">Velix</span>Sync
+            <span className="text-green-600 dark:text-green-400">Velify</span>Trades
           </span>
         </Link>
 

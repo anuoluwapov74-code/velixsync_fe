@@ -256,7 +256,7 @@ export default function LiveTradingPage() {
                       <strong>Disclaimer:</strong> Trading financial instruments involves
                       risk and may not be suitable for all investors. The value of
                       investments can go down as well as up, and you may receive back less
-                      than your original investment. VelixSync does not provide investment
+                      than your original investment. VelifyTrades does not provide investment
                       advice, and you should seek independent financial advice if you are
                       unsure about the risks involved.
                     </p>

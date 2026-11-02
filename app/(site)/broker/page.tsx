@@ -5,12 +5,12 @@ import Link from "next/link";
 import PagePreloader from "@/components/PagePreloader";
 
 export const metadata: Metadata = {
-  title: "Broker Integrations — VelixSync Pro",
-  description: "VelixSync Pro integrates with E-Trade, Webull, TD Ameritrade, Interactive Brokers, Schwab, and more. Connect your existing broker account and start copy trading instantly.",
+  title: "Broker Integrations — VelifyTrades",
+  description: "VelifyTrades integrates with E-Trade, Webull, TD Ameritrade, Interactive Brokers, Schwab, and more. Connect your existing broker account and start copy trading instantly.",
   alternates: { canonical: "https://velifytrades.com/broker" },
   openGraph: {
-    title: "Broker Integrations — VelixSync Pro",
-    description: "Connect E-Trade, Webull, Schwab, and more to start copy trading on VelixSync Pro.",
+    title: "Broker Integrations — VelifyTrades",
+    description: "Connect E-Trade, Webull, Schwab, and more to start copy trading on VelifyTrades.",
     url: "https://velifytrades.com/broker",
   },
 };
@@ -32,7 +32,7 @@ export default function BrokerPartnership() {
             </h1>
             <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mx-auto">
               You can be the first brokerage industry innovation. With
-              VelixSync, alongside your Traders and restart your profits
+              VelifyTrades, alongside your Traders and restart your profits
               manifold.
             </p>
             <div className="mt-10">
@@ -352,7 +352,7 @@ export default function BrokerPartnership() {
             </h2>
             <p className="mt-5 text-gray-600 dark:text-gray-400 leading-relaxed">
               Join the leading brokers who have already partnered with
-              VelixSync. Let&apos;s grow together.
+              VelifyTrades. Let&apos;s grow together.
             </p>
             <div className="mt-8">
               <Link

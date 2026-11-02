@@ -82,7 +82,7 @@ export default function UserProfileMenu({
             className="w-full px-4 py-2.5 flex items-center space-x-2.5 text-gray-700 dark:text-gray-300 hover:bg-[rgba(22,163,74,0.04)] transition-colors"
           >
             <Info className="w-3.5 h-3.5" />
-            <span className="text-xs font-medium">About VelixSync</span>
+            <span className="text-xs font-medium">About VelifyTrades</span>
           </button>
 
           <button

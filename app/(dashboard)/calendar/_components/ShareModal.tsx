@@ -97,7 +97,7 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
         skipFonts: true,
       });
       const link = document.createElement("a");
-      link.download = `velixsync-calendar-${year}-${String(month).padStart(2, "0")}.png`;
+      link.download = `velifytrades-calendar-${year}-${String(month).padStart(2, "0")}.png`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
@@ -134,7 +134,7 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
-                <span className="text-[10px] font-bold tracking-wider text-gray-300">VELIXSYNC</span>
+                <span className="text-[10px] font-bold tracking-wider text-gray-300">VELIFYTRADES</span>
               </div>
               <span className={`text-[10px] ${CARD_LABEL_COLOR}`}>
                 Live &middot; Monthly &middot; My Trading &middot; {MONTH_NAMES[month - 1].slice(0, 3)} {year}
@@ -199,7 +199,7 @@ export default function ShareModal({ isOpen, onClose, year, month, dailyPnl, sum
               Every trade verified. <span className="text-[#16a34a]">Every result real.</span>
             </p>
             <p className="text-[8px] text-gray-500 mt-1 leading-relaxed">
-              Past performance is not a guarantee of future results. All trading involves risk. Figures reflect realized P/L only. &copy; {year} VelixSync.
+              Past performance is not a guarantee of future results. All trading involves risk. Figures reflect realized P/L only. &copy; {year} VelifyTrades.
             </p>
           </div>
         </div>
