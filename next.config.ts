@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const backendOrigin = process.env.BACKEND_ORIGIN || "http://localhost:8001";
+const backendOrigin = process.env.BACKEND_ORIGIN || "http://localhost:8002";
 
 const nextConfig: NextConfig = {
   output: "standalone",
