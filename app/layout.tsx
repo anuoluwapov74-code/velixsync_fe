@@ -3,7 +3,7 @@ import { Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
-import Script from "next/script";
+import SmartsuppChat from "@/components/SmartsuppChat";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://velifytrades.com"),
   title: {
     default: "VelifyTrades — Copy Futures, Options & Contracts with Precision",
-    template: "%s | VelifyTrades",
+    template: "VelifyTrades | %s",
   },
   description:
     "VelifyTrades is the premier copy trading platform for futures, options, and contracts. Mirror real-time trades from top-performing experts with AutoGuard™ risk management, AI signals, and zero commission.",
@@ -120,11 +120,8 @@ export default function RootLayout({
           <Toaster richColors position="top-right" />
         </ThemeProvider>
 
-        {/* LiveChat - Jivo */}
-        <Script
-          src="//code.jivosite.com/widget/Ut6KwrqmNU"
-          strategy="afterInteractive"
-        />
+        {/* LiveChat - Smartsupp */}
+        <SmartsuppChat project="VelifyTrades" website="velifytrades.com" color="#17703a" />
       </body>
     </html>
   );
